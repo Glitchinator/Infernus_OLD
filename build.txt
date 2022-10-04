@@ -1,0 +1,3 @@
+displayName = Infernus Mod
+author = Glitchinator
+version = 1.3.36.23
