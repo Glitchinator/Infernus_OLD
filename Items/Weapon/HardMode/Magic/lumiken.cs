@@ -18,7 +18,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 235;
+            Item.damage = 185;
             Item.DamageType = DamageClass.Magic;
             Item.width = 44;
             Item.height = 44;
@@ -35,6 +35,13 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.crit = 10;
             Item.mana = 12;
             Item.noUseGraphic = true;
+        }
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.LunarBar, 12);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
         }
     }
 }

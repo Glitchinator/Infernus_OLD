@@ -31,8 +31,8 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 			Item.UseSound = SoundID.Item108;
 			Item.autoReuse = true;
 			Item.noMelee = true;
-			Item.useAmmo = AmmoID.Bullet;
-            Item.shoot = ProjectileID.BeeArrow;
+			Item.useAmmo = AmmoID.NailFriendly;
+            Item.shoot = ProjectileID.NailFriendly;
             Item.shootSpeed = 22f;
 			Item.crit = 8;
 		}
@@ -44,10 +44,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Mini>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Launcher>(), 1);
-			recipe.AddIngredient(ItemID.SoulofNight, 8);
-			recipe.AddIngredient(ItemID.SoulofLight, 4);
+			recipe.AddIngredient(ItemID.LunarBar, 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -3,13 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using Infernus.Projectiles;
 using Terraria.ID;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Bestiary;
 using Terraria.DataStructures;
@@ -17,7 +12,7 @@ using Terraria.DataStructures;
 namespace Infernus.NPCs
 {
     [AutoloadBossHead]
-    public class Boss2 : ModNPC
+    public class Ruderibus : ModNPC
     {
         private Player player;
         private float speed;
@@ -191,7 +186,7 @@ namespace Infernus.NPCs
 
         private void Target()
         {
-            player = Main.player[NPC.target]; // This will get the player target.
+            player = Main.player[NPC.target];
         }
 
         private void Move(Vector2 offset)
@@ -201,14 +196,14 @@ namespace Infernus.NPCs
             {
                 speed = 7.9f;
             }
-            Vector2 moveTo = player.Center + offset; // Gets the point that the npc will be moving to.
+            Vector2 moveTo = player.Center + offset;
             Vector2 move = moveTo - NPC.Center;
             float magnitude = Magnitude(move);
             if (magnitude > speed)
             {
                 move *= speed / magnitude;
             }
-            float turnResistance = 30f; // The larget the number the slower the npc will turn.
+            float turnResistance = 30f;
             move = (NPC.velocity * turnResistance + move) / (turnResistance + 1f);
             magnitude = Magnitude(move);
             if (magnitude > speed)

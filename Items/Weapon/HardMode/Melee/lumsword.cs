@@ -32,7 +32,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.elumfire>();
             Item.crit = 8;
-            Item.shootSpeed = 1;
+            Item.shootSpeed = 10;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -50,6 +50,13 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             }
 
             return false;
+        }
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.LunarBar, 18);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
         }
     }
 }

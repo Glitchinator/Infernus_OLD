@@ -13,20 +13,20 @@ namespace Infernus
 {
     public class InfernusWorld : ModSystem
     {
-        public static bool dungeonInvasionUp = false;
-        public static bool downedDungeonInvasion = false;
+        public static bool BoulderInvasionUp = false;
+        public static bool downedBoulderInvasion = false;
 
         public override void OnWorldLoad()
         {
             Main.invasionSize = 0;
-            dungeonInvasionUp = false;
-            downedDungeonInvasion = false;
+            BoulderInvasionUp = false;
+            downedBoulderInvasion = false;
         }
 
         public override void SaveWorldData(TagCompound tag)
         {
             var downed = new List<string>();
-            if (downedDungeonInvasion) downed.Add("dungeonInvasion");
+            if (downedBoulderInvasion) downed.Add("BoulderInvasion");
 
             new TagCompound {
                 {"downed", downed}
@@ -36,31 +36,31 @@ namespace Infernus
         public override void LoadWorldData(TagCompound tag)
         {
             var downed = tag.GetList<string>("downed");
-            downedDungeonInvasion = downed.Contains("dungeonInvasion");
+            downedBoulderInvasion = downed.Contains("BoulderInvasion");
         }
 
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
-            flags[0] = downedDungeonInvasion;
+            flags[0] = downedBoulderInvasion;
             writer.Write(flags);
         }
 
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
-            downedDungeonInvasion = flags[0];
+            downedBoulderInvasion = flags[0];
         }
 
         public override void PostUpdateWorld()
         {
-            if (dungeonInvasionUp)
+            if (BoulderInvasionUp)
             {
                 if (Main.invasionX == Main.spawnTileX)
                 {
-                    DungeonInvasion.CheckDungeonInvasionProgress();
+                    BoulderInvasion.CheckInvasionProgress();
                 }
-                DungeonInvasion.UpdateDungeonInvasion();
+                BoulderInvasion.UpdateDungeonInvasion();
             }
         }
 		public override void PostSetupContent()
@@ -80,7 +80,7 @@ namespace Infernus
 			}
 			string bossName = "Raiko";
 
-			int bossType = ModContent.NPCType<NPCs.Boss>();
+			int bossType = ModContent.NPCType<NPCs.Raiko>();
 
 			float weight = 2.4f;
 
@@ -131,7 +131,7 @@ namespace Infernus
 
 			string bossName1 = "Ruderibus";
 
-			int bossType1 = ModContent.NPCType<NPCs.Boss2>();
+			int bossType1 = ModContent.NPCType<NPCs.Ruderibus>();
 
 			float weight1 = 5.8f;
 
@@ -212,7 +212,7 @@ namespace Infernus
 
 			int summonItem2 = ModContent.ItemType<Items.BossSummon.BeetleBait>();
 
-			string spawnInfo2 = $"Use a [i:{summonItem2}] or have it randomly spawn in the ocean biome";
+			string spawnInfo2 = $"Use a [i:{summonItem2}]";
 
 			string despawnInfo2 = null;
 
@@ -239,7 +239,7 @@ namespace Infernus
 
 			string minibossName = "Temporal Glow Squid";
 
-			int minibossType = ModContent.NPCType<NPCs.tempsquid>();
+			int minibossType = ModContent.NPCType<NPCs.TemporalSquid>();
 
 			float miniweight = 0.9f;
 
@@ -273,6 +273,96 @@ namespace Infernus
 				minispawnInfo,
 				minidespawnInfo
 			);
+
+            string EventName = "Boulder Invasion Pre-HM";
+
+            int EventType = ModContent.NPCType<NPCs.Boulder1>();;
+
+            float Eventweight = 5.8f;
+
+            Func<bool> Eventdowned = () => DownedBoss.downedBoulderInvasionPHM;
+
+            Func<bool> Eventavailable = () => true;
+
+            List<int> Eventcollection = new List<int>()
+            {
+                ModContent.ItemType<Items.Weapon.Ranged.July4th>(),
+                ModContent.ItemType<Items.Materials.Rock>()
+            };
+
+            int EventsummonItem = ModContent.ItemType<Invas.ThickBoulder>();
+
+            string EventspawnInfo = $"Use a [i:{EventsummonItem}]";
+
+            string EventdespawnInfo = null;
+
+            var EventcustomBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
+                Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/BIPHM").Value;
+                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                sb.Draw(texture, centered, color);
+            };
+
+            bossChecklistMod.Call(
+                "AddEvent",
+                Mod,
+                EventName,
+                EventType,
+                Eventweight,
+                Eventdowned,
+                Eventavailable,
+                Eventcollection,
+                EventsummonItem,
+                EventspawnInfo,
+                EventdespawnInfo,
+                EventcustomBossPortrait
+            );
+
+            string EventName2 = "Boulder Invasion HM";
+
+            int EventType2 = ModContent.NPCType<NPCs.Boulder1jung>(); ;
+
+            float Eventweight2 = 12.4f;
+
+            Func<bool> Eventdowned2 = () => DownedBoss.downedBoulderInvasionPHM;
+
+            Func<bool> Eventavailable2 = () => true;
+
+            List<int> Eventcollection2 = new List<int>()
+            {
+                ModContent.ItemType<Items.Weapon.HardMode.Ranged.Bog>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Magic.Venom>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Accessories.Wings>(),
+                ModContent.ItemType<Items.Materials.Rock>()
+            };
+
+            int EventsummonItem2 = ModContent.ItemType<Invas.ThickBoulder>();
+
+            string EventspawnInfo2 = $"Use a [i:{EventsummonItem}]";
+
+            string EventdespawnInfo2 = null;
+
+            var EventcustomBossPortrait2 = (SpriteBatch sb, Rectangle rect, Color color) => {
+                Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/BIHM").Value;
+                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                sb.Draw(texture, centered, color);
+            };
+
+            bossChecklistMod.Call(
+                "AddEvent",
+                Mod,
+                EventName2,
+                EventType2,
+                Eventweight2,
+                Eventdowned2,
+                Eventavailable2,
+                Eventcollection2,
+                EventsummonItem2,
+                EventspawnInfo2,
+                EventdespawnInfo2,
+                EventcustomBossPortrait2
+            );
         }
 	}
 }

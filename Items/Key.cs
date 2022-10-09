@@ -25,7 +25,7 @@ namespace Infernus.Items
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item79;
 			Item.noMelee = true;
-			Item.mountType = ModContent.MountType<Mount>();
+			Item.mountType = ModContent.MountType<ConstructionMount>();
 		}
 
 		public override void AddRecipes()

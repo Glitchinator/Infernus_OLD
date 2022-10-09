@@ -3,22 +3,18 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using Infernus.Projectiles;
 using Terraria.ID;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Infernus.Items.Weapon.Melee;
+using Infernus.Items.BossSummon;
 
 namespace Infernus.NPCs
 {
     [AutoloadBossHead]
-    public class Boss : ModNPC
+    public class Raiko : ModNPC
     {
         private Player player;
         private float speed;
@@ -204,15 +200,15 @@ namespace Infernus.NPCs
         }
         private void Move(Vector2 offset)
         {
-            speed = 35f; // Sets the max speed of the npc.
-            Vector2 moveTo = player.Center + offset; // Gets the point that the npc will be moving to.
+            speed = 35f;
+            Vector2 moveTo = player.Center + offset;
             Vector2 move = moveTo - NPC.Center;
             float magnitude = Magnitude(move);
             if (magnitude > speed)
             {
                 move *= speed / magnitude;
             }
-            float turnResistance = 54f; // The larget the number the slower the npc will turn.
+            float turnResistance = 54f;
             move = (NPC.velocity * turnResistance + move) / (turnResistance + 1f);
             magnitude = Magnitude(move);
             if (magnitude > speed)
@@ -268,7 +264,7 @@ namespace Infernus.NPCs
         }
         private void Target()
         {
-            player = Main.player[NPC.target]; // This will get the player target.
+            player = Main.player[NPC.target];
         }
         private void Shoot()
         {
@@ -352,7 +348,7 @@ namespace Infernus.NPCs
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.BossSummon.Boss1bag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Boss1bag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tools.Day>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Placeable.Trophy>(), 10));

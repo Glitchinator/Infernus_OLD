@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace Infernus.Items
 {
-	public class Mount : ModMount
+	public class ConstructionMount : ModMount
 	{
 		public override void SetStaticDefaults()
 		{

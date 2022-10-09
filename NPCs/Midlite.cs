@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -11,10 +9,6 @@ namespace Infernus.NPCs
 {
 	public class Midlite : ModNPC
 	{
-		public Midlite()
-		{
-		}
-
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Midlite");

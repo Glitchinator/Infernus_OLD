@@ -14,7 +14,6 @@ namespace Infernus.Items.Weapon.Ranged
 		{
 			DisplayName.SetDefault("Bullet Launcher");
 			Tooltip.SetDefault("Shoots so many bullets"
-				+ "\n no-no don't touch me there, this is my no-no square"
 				+ "\n Community Idea Item");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -45,7 +44,7 @@ namespace Infernus.Items.Weapon.Ranged
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			const int NumProjectiles = 100;
+			const int NumProjectiles = 70;
 
 			for (int i = 0; i < NumProjectiles; i++)
 			{
@@ -65,8 +64,6 @@ namespace Infernus.Items.Weapon.Ranged
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 42);
-			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Mini>(), 1);
-			recipe.AddIngredient(ItemID.Boomstick, 1);
 			recipe.AddIngredient(ItemID.MusketBall, 999);
 			recipe.AddTile(ModContent.TileType<Work>());
 			recipe.Register();

@@ -1,17 +1,14 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Infernus.NPCs
 {
-	public class Chain : ModNPC
+	public class NavalMine : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

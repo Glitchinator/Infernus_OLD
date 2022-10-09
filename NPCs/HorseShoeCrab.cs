@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -77,7 +75,7 @@ namespace Infernus.NPCs
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Pets.CrabItem>(), 25, 1, 1));
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Pets.CrabItem>(), 10, 1, 1));
 		}
     }
 }

@@ -53,7 +53,7 @@ namespace Infernus.Items.BossSummon
 			if (Main.expertMode)
 				itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Accessory>()));
 
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Boss2>()));
+			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Ruderibus>()));
 		}
 		public override void PostUpdate()
 		{

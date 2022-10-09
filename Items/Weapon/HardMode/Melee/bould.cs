@@ -30,22 +30,9 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
-            Item.shoot = ProjectileID.TerraBeam;
+            Item.shoot = ModContent.ProjectileType<Projectiles.SwordTerra>();
             Item.crit = 8;
             Item.shootSpeed = 10;
-        }
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            const int NumProjectiles = 2;
-
-            for (int i = 0; i < NumProjectiles; i++)
-            {
-
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(8));
-                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
-            }
-
-            return false;
         }
     }
 }

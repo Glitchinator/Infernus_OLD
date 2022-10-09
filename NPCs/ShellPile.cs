@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -78,9 +76,5 @@ namespace Infernus.NPCs
 			npcLoot.Add(ItemDropRule.Common(ItemID.TulipShell, 1, 1, 2));
 			npcLoot.Add(ItemDropRule.Common(ItemID.Starfish, 1, 1, 2));
 		}
-		public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            base.OnCaughtBy(player, item, failed);
-        }
     }
 }

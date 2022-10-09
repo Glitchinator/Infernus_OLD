@@ -6,7 +6,7 @@ using Terraria.Localization;
 
 namespace Infernus.Invas
 {
-    public class DungeonInvasion 
+    public class BoulderInvasion 
     {
 		public static int[] PreHardmodeInvaders = {
 			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder1").Type,
@@ -30,7 +30,7 @@ namespace Infernus.Invas
 			return list;
 		}
 
-		public static void StartDungeonInvasion()
+		public static void StartBoulderInvasion()
 		{
 			if (Main.invasionType != 0 && Main.invasionSize == 0)
 			{
@@ -49,14 +49,14 @@ namespace Infernus.Invas
 				if (num > 0)
 				{
 					Main.invasionType = -1;
-					InfernusWorld.dungeonInvasionUp = true;
+					InfernusWorld.BoulderInvasionUp = true;
 					Main.invasionSize = 100 * num;
 					Main.invasionSizeStart = Main.invasionSize;
 					Main.invasionProgress = 0;
 					Main.invasionProgressIcon = 0 + 3;
 					Main.invasionProgressWave = 0;
 					Main.invasionProgressMax = Main.invasionSizeStart;
-					Main.invasionWarn = 360;
+					Main.invasionWarn = 60;
 					if (Main.rand.NextBool(2))
 					{
 						Main.invasionX = 0.0;
@@ -66,7 +66,7 @@ namespace Infernus.Invas
 				}
 			}
 		}
-		public static void DungeonInvasionWarning()
+		public static void BoulderInvasionWarning()
 		{
 			String text = "";
 			if (Main.invasionX == (double)Main.spawnTileX)
@@ -76,7 +76,7 @@ namespace Infernus.Invas
 			if (Main.invasionSize <= 0)
 			{
 				Main.NewText("The boulders leave, planning...", 175, 75, 255);
-			}
+            }
 			if (Main.netMode == 0)
 			{
 				return;
@@ -89,12 +89,12 @@ namespace Infernus.Invas
 
 			public static void UpdateDungeonInvasion()
 		{
-			if(InfernusWorld.dungeonInvasionUp)
+			if(InfernusWorld.BoulderInvasionUp)
 			{
 				if(Main.invasionSize <= 0)
 				{
-					InfernusWorld.dungeonInvasionUp = false;
-					DungeonInvasionWarning();
+					InfernusWorld.BoulderInvasionUp = false;
+					BoulderInvasionWarning();
 					Main.invasionType = 0;
 					Main.invasionDelay = 0;
 				}
@@ -109,7 +109,7 @@ namespace Infernus.Invas
 					if (Main.invasionX <= (double)Main.spawnTileX)
 					{
 						Main.invasionX = (double)Main.spawnTileX;
-						DungeonInvasionWarning();
+						BoulderInvasionWarning();
 					}
 					else
 					{
@@ -124,7 +124,7 @@ namespace Infernus.Invas
 						if (Main.invasionX >= (double)Main.spawnTileX)
 						{
 							Main.invasionX = (double)Main.spawnTileX;
-							DungeonInvasionWarning();
+							BoulderInvasionWarning();
 						}
 						else
 						{
@@ -135,7 +135,7 @@ namespace Infernus.Invas
 			}
 		}
 		
-		public static void CheckDungeonInvasionProgress()
+		public static void CheckInvasionProgress()
 		{
 			int[] FullList = GetFullInvaderList();
 			
@@ -171,11 +171,11 @@ namespace Infernus.Invas
 			}
 			Main.invasionProgressNearInvasion = flag;
 			int progressMax3 = 1;
-			if (InfernusWorld.dungeonInvasionUp)
+			if (InfernusWorld.BoulderInvasionUp)
 			{
 				progressMax3 = Main.invasionSizeStart;
 			}
-			if(InfernusWorld.dungeonInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
+			if(InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
 			{
 				Main.ReportInvasionProgress(Main.invasionSizeStart - Main.invasionSize, progressMax3, icon, 0);
 			}

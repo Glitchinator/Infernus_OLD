@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -21,6 +22,16 @@ namespace Infernus
 		public bool DoomDash;
 		public int DashDelay = 0;
 		public int DashTimer = 0;
+
+		public override void ModifyNursePrice(NPC nurse, int health, bool removeDebuffs, ref int price)
+		{
+			if (Player.statLife < Player.statLifeMax)
+			{
+                price = 100;
+            }
+			base.ModifyNursePrice(nurse, health, removeDebuffs, ref price);
+		}
+
 
 		public override void ResetEffects()
 		{
@@ -81,5 +92,12 @@ namespace Infernus
 			return DoomDash
 				&& !Player.mount.Active;
 		}
-	}
+        public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)
+        {
+
+            return new[] {
+                new Item(ModContent.ItemType<Items.Consumable.StartingBag>(), 1)
+            };
+        }
+    }
 }

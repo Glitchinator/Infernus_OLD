@@ -61,9 +61,9 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Mini>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Launcher>(), 1);
-			recipe.AddIngredient(ItemID.SoulofNight, 8);
+            recipe.AddIngredient(ItemID.Shotgun, 1);
+            recipe.AddIngredient(ItemID.SoulofNight, 8);
 			recipe.AddIngredient(ItemID.SoulofLight, 4);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

@@ -70,5 +70,9 @@ namespace Infernus.NPCs
 				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, long slept in the jungle, now awakens to crush you")
 			});
 		}
-	}
+        public override void OnKill()
+        {
+            DownedBoss.downedBoulderInvasionHM = true;
+        }
+    }
 }

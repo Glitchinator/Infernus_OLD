@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -69,5 +67,9 @@ namespace Infernus.NPCs
 				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, crashes into walls at high speeds and staggers themselves, silly boulders")
 			});
 		}
-	}
+        public override void OnKill()
+        {
+            DownedBoss.downedBoulderInvasionHM = true;
+        }
+    }
 }

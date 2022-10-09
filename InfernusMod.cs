@@ -1,12 +1,12 @@
 using Terraria.ModLoader;
 
-namespace Infernus.Invas
+namespace Infernus
 {
-    public class MMod : Mod
+    public class InfernusMod : Mod
     {
         private ModProperties Properties;
 
-        public MMod()
+        public InfernusMod()
         {
             Properties = new ModProperties()
             {
@@ -14,6 +14,7 @@ namespace Infernus.Invas
                 AutoloadGores = true,
                 AutoloadSounds = true
             };
+
         }
 
         internal class ModProperties

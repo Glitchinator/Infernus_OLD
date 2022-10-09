@@ -12,17 +12,24 @@ namespace Infernus.Projectiles
 		}
 		public override void SetDefaults()
 		{
-			Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
-			AIType = ProjectileID.BoulderStaffOfEarth;
 			Projectile.DamageType = DamageClass.Magic;
+            Projectile.width = 40;
+            Projectile.height = 40;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 		}
+        public override void AI()
+        {
+            if (Main.rand.NextBool(2))
+            {
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Stone, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            }
 
-		public override bool PreKill(int timeLeft)
-		{
-			Projectile.type = ProjectileID.BoulderStaffOfEarth;
-			return true;
-		}
-	}
+            Projectile.velocity.Y = Projectile.velocity.Y + 0.8f;
+            if (Projectile.velocity.Y > 16f)
+            {
+                Projectile.velocity.Y = 16f;
+            }
+        }
+    }
 }

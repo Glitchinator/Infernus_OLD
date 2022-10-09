@@ -1,15 +1,12 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Infernus.NPCs
 {
@@ -454,10 +451,6 @@ namespace Infernus.NPCs
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 228, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
 				}
 			}
-		}
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-		{
-			return SpawnCondition.OceanMonster.Chance * .1f;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{

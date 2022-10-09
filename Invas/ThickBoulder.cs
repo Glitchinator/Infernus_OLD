@@ -15,8 +15,8 @@ namespace Infernus.Invas
 		}
 		public override void SetDefaults()
 		{
-			Item.width = 40;
-			Item.height = 40;
+			Item.width = 32;
+			Item.height = 32;
 			Item.scale = 1;
 			Item.maxStack = 99;
 			Item.useTime = 30;
@@ -39,7 +39,7 @@ namespace Infernus.Invas
 			{
 				Main.NewText("Grey clouds begin to form overhead", 175, 75, 255);
 			}
-			DungeonInvasion.StartDungeonInvasion();
+			BoulderInvasion.StartBoulderInvasion();
 			return true;
 		}
 		public override void AddRecipes()

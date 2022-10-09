@@ -19,8 +19,8 @@ namespace Infernus.Items.Tools
 		{
 			Item.width = 32;
 			Item.height = 18;
-			Item.useTime = 500;
-			Item.useAnimation = 500;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
 			Item.useStyle = 4;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Blue;
@@ -28,7 +28,7 @@ namespace Infernus.Items.Tools
 
 		public override bool? UseItem(Player player)
 		{
-			SoundEngine.PlaySound(SoundID.DD2_WinScene, player.position);
+			SoundEngine.PlaySound(SoundID.DD2_BetsyFireballImpact, player.position);
 			if(Main.dayTime == true)
             {
 				Main.dayTime = false;

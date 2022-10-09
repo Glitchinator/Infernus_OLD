@@ -69,5 +69,9 @@ namespace Infernus.NPCs
 				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, flys to  destroy you")
 			});
 		}
-	}
+        public override void OnKill()
+        {
+            DownedBoss.downedBoulderInvasionPHM = true;
+        }
+    }
 }

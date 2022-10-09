@@ -53,7 +53,7 @@ namespace Infernus.Items.BossSummon
 			if (Main.expertMode)
 				itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Shiny>()));
 
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Boss>()));
+			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Raiko>()));
 		}
 		public override void PostUpdate()
 		{

@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -11,12 +9,8 @@ using Terraria.ModLoader.Utilities;
 
 namespace Infernus.NPCs
 {
-	public class Gravel : ModNPC
+	public class Drone : ModNPC
 	{
-		public Gravel()
-		{
-		}
-
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Drone");

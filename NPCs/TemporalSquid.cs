@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -11,7 +9,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace Infernus.NPCs
 {
-	public class tempsquid : ModNPC
+	public class TemporalSquid : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{
@@ -21,9 +19,9 @@ namespace Infernus.NPCs
 
 		public override void SetDefaults()
 		{
-			NPC.lifeMax = 6900;
-			NPC.damage = 699;
-			NPC.defense = 26;
+			NPC.lifeMax = 600;
+			NPC.damage = 69;
+			NPC.defense = 28;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 80;
 			NPC.height = 56;
@@ -75,7 +73,7 @@ namespace Infernus.NPCs
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			NPC.damage = (int)(NPC.damage * 1f);
-			NPC.lifeMax = (int)(NPC.lifeMax = 9700);
+			NPC.lifeMax = (int)(NPC.lifeMax = 1069);
 		}
 	}
 }
