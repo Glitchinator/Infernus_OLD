@@ -29,7 +29,7 @@ namespace Infernus.Items.BossSummon
 		}
         public override bool CanUseItem(Player player)
         {
-            return !NPC.AnyNPCs(Mod.Find<ModNPC>("Boss2").Type) && (player.ZoneSnow);
+            return !NPC.AnyNPCs(Mod.Find<ModNPC>("Ruderibus").Type) && (player.ZoneSnow);
         }
 
         public override bool? UseItem(Player player)
@@ -37,7 +37,7 @@ namespace Infernus.Items.BossSummon
 			SoundEngine.PlaySound(SoundID.ForceRoar, player.position);
 			if (Main.netMode != 1)
             {
-				NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("Boss2").Type);
+				NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("Ruderibus").Type);
 			}
 			return true;
 		}

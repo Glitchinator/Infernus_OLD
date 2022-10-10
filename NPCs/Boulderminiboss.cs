@@ -50,7 +50,12 @@ namespace Infernus.NPCs
 				}
 			}
 		}
-		public override void ModifyNPCLoot(NPCLoot npcLoot)
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            NPC.damage = (int)(NPC.damage * .2f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 1.4f);
+        }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Rock>(), 4, 1, 2));
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(), 55, 1, 1));

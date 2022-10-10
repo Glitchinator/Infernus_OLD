@@ -29,7 +29,7 @@ namespace Infernus.Items.BossSummon
 		}
         public override bool CanUseItem(Player player)
         {
-            return !NPC.AnyNPCs(Mod.Find<ModNPC>("Boss").Type) && (Main.dayTime == false);
+            return !NPC.AnyNPCs(Mod.Find<ModNPC>("Raiko").Type) && (Main.dayTime == false);
 		}
 
         public override bool? UseItem(Player player)
@@ -38,7 +38,7 @@ namespace Infernus.Items.BossSummon
 			if(Main.netMode != 1)
 
             {
-				NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("Boss").Type);
+				NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("Raiko").Type);
 			}
 			return true;
 		}
