@@ -33,7 +33,7 @@ namespace Infernus.NPCs
 			NPC.HitSound = SoundID.NPCHit7;
 			NPC.DeathSound = SoundID.NPCDeath41;
 			AnimationType = NPCID.DemonEye;
-		}
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)

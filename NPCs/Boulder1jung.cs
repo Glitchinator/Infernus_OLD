@@ -31,7 +31,7 @@ namespace Infernus.NPCs
 			NPC.noTileCollide = false;
 			NPC.HitSound = SoundID.NPCHit7;
 			NPC.DeathSound = SoundID.NPCDeath41;
-		}
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)

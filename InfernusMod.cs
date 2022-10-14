@@ -27,5 +27,6 @@ namespace Infernus
             public bool AutoloadGores { get; set; }
             public bool AutoloadSounds { get; set; }
         }
+
     }
 }

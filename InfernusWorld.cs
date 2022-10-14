@@ -273,10 +273,9 @@ namespace Infernus
 				minispawnInfo,
 				minidespawnInfo
 			);
-
             string EventName = "Boulder Invasion Pre-HM";
 
-            int EventType = ModContent.NPCType<NPCs.Boulder1>();;
+            int EventType = ModContent.NPCType<NPCs.Boulder1>();
 
             float Eventweight = 5.8f;
 
@@ -292,7 +291,7 @@ namespace Infernus
 
             int EventsummonItem = ModContent.ItemType<Invas.ThickBoulder>();
 
-            string EventspawnInfo = $"Use a [i:{EventsummonItem}]";
+            string EventspawnInfo = $"Use a [i:{summonItem}]";
 
             string EventdespawnInfo = null;
 
@@ -303,7 +302,7 @@ namespace Infernus
             };
 
             bossChecklistMod.Call(
-                "AddEvent",
+                "AddBoss",
                 Mod,
                 EventName,
                 EventType,
@@ -350,7 +349,7 @@ namespace Infernus
             };
 
             bossChecklistMod.Call(
-                "AddEvent",
+                "AddBoss",
                 Mod,
                 EventName2,
                 EventType2,

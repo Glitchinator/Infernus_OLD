@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
+using Terraria.Audio;
 
 namespace Infernus.Invas
 {
@@ -100,7 +102,7 @@ namespace Infernus.Invas
 				}
 				if (Main.invasionX == (double)Main.spawnTileX)
 				{
-					return;
+                    return;
 				}
 				float num = (float)Main.dayRate;
 				if (Main.invasionX > (double)Main.spawnTileX)
