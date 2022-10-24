@@ -1,4 +1,4 @@
 displayName = Infernus Mod
 author = Glitchinator
-version = 1.3.68.34
+version = 1.3.80.4
 homepage = https://discord.gg/CwqFnS3sYW

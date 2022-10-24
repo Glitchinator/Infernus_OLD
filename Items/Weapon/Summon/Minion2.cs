@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.Summon
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Aeritite Guardian");
+			DisplayName.SetDefault("Aeritite Shell");
 			Tooltip.SetDefault("Summon a withering wisp to Fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
@@ -25,8 +25,8 @@ namespace Infernus.Items.Weapon.Summon
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Summon;
 			Item.mana = 12;
-			Item.width = 50;
-			Item.height = 50;
+			Item.width = 30;
+			Item.height = 30;
 			Item.useTime = 36;
 			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;

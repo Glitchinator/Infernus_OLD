@@ -24,8 +24,7 @@ namespace Infernus.Projectiles
             Projectile.type = ProjectileID.Bullet;
             return true;
         }
-
-        public override void AI()
+    public override void AI()
         {
             Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.MagicMirror, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f); 
         }

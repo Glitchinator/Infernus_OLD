@@ -360,8 +360,8 @@ namespace Infernus.NPCs
         }
         public override void FindFrame(int frameHeight)
         {
-            int startFrame = 1;
-            int finalFrame = 5;
+            int startFrame = 0;
+            int finalFrame = 4;
 
             int frameSpeed = 5;
             NPC.frameCounter += 0.5f;

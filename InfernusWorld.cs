@@ -362,6 +362,53 @@ namespace Infernus
                 EventdespawnInfo2,
                 EventcustomBossPortrait2
             );
+
+            string bossName3 = "Calypsical";
+
+            int bossType3 = ModContent.NPCType<NPCs.Calypsical>();
+
+            float weight3 = 19.6f;
+
+            Func<bool> downed3 = () => DownedBoss.downedCalypsical;
+
+            Func<bool> available3 = () => true;
+
+            List<int> collection3 = new List<int>()
+            {
+                ModContent.ItemType<Items.Weapon.HardMode.Ranged.miniholy>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Summon.Mecharmr>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Summon.MechWhip>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Melee.HolyRam>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Magic.Cyclone>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Accessories.Mechwings>()
+            };
+
+            int summonItem3 = ModContent.ItemType<Items.BossSummon.Mechsummon>();
+
+            string spawnInfo3 = $"Use a [i:{summonItem3}] after Moonlord's defeat";
+
+            string despawnInfo3 = null;
+
+            var customBossPortrait3 = (SpriteBatch sb, Rectangle rect, Color color) => {
+                Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/Calypsical").Value;
+                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                sb.Draw(texture, centered, color);
+            };
+
+            bossChecklistMod.Call(
+                "AddBoss",
+                Mod,
+                bossName3,
+                bossType3,
+                weight3,
+                downed3,
+                available3,
+                collection3,
+                summonItem3,
+                spawnInfo3,
+                despawnInfo3,
+                customBossPortrait3
+            );
         }
 	}
 }

@@ -22,8 +22,6 @@ namespace Infernus.Items.Soul
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 6, 45, 0);
             Item.rare = ItemRarityID.Expert;
-            Item.defense = 2;
-            Item.expert = true;
         }
     }
 }

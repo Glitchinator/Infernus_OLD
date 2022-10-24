@@ -32,6 +32,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.noUseGraphic = true;
             Item.crit = 6;
             Item.shoot = ModContent.ProjectileType<Projectiles.Prism>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Prism>();
             Item.shootSpeed = 20f;
         }
         public override void AddRecipes()

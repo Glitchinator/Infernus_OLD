@@ -13,6 +13,7 @@ namespace Infernus
 		public static bool downedSquid = false;
         public static bool downedBoulderInvasionPHM = false;
         public static bool downedBoulderInvasionHM = false;
+		public static bool downedCalypsical = false;
 
         public override void OnWorldLoad()
 		{
@@ -22,6 +23,7 @@ namespace Infernus
 			downedSquid = false;
             downedBoulderInvasionPHM = false;
             downedBoulderInvasionHM = false;
+			downedCalypsical = false;
         }
 
 		public override void OnWorldUnload()
@@ -32,6 +34,7 @@ namespace Infernus
 			downedSquid = false;
             downedBoulderInvasionPHM = false;
             downedBoulderInvasionHM = false;
+			downedCalypsical = false;
         }
 		public override void SaveWorldData(TagCompound tag)
 		{
@@ -59,6 +62,10 @@ namespace Infernus
             {
                 tag["downedPHM"] = true;
             }
+			if(downedCalypsical)
+			{
+				tag["downedMech"] = true;
+			}
         }
 
 		public override void LoadWorldData(TagCompound tag)
@@ -69,6 +76,7 @@ namespace Infernus
 			downedSquid = tag.ContainsKey("downedSquid");
             downedBoulderInvasionHM = tag.ContainsKey("downedHM");
 			downedBoulderInvasionPHM = tag.ContainsKey("downedPHM");
+			downedCalypsical = tag.ContainsKey("downedMech");
         }
 
 		public override void NetSend(BinaryWriter writer)
@@ -80,6 +88,7 @@ namespace Infernus
 			flags[3] = downedSquid;
             flags[4] = downedBoulderInvasionPHM;
             flags[5] = downedBoulderInvasionHM;
+			flags[6] = downedCalypsical;
             writer.Write(flags);
 		}
 
@@ -92,6 +101,7 @@ namespace Infernus
 			downedSquid = flags[3];
             downedBoulderInvasionPHM = flags[4];
             downedBoulderInvasionHM = flags[5];
+			downedCalypsical = flags[6];
         }
 	}
 }

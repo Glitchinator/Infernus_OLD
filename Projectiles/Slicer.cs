@@ -15,7 +15,7 @@ namespace Infernus.Projectiles
 			Projectile.CloneDefaults(ProjectileID.DeathSickle);
 			AIType = ProjectileID.DeathSickle;
 			Projectile.DamageType = DamageClass.Melee;
-			Projectile.width = 52;
+            Projectile.width = 52;
 			Projectile.height = 52;
 			Projectile.friendly = true;
 			Projectile.hostile = false;

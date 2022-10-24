@@ -30,7 +30,7 @@ namespace Infernus.Projectiles
 		public override void AI()
 		{
 			if (Main.rand.NextBool(3))
-			{
+                {
 				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Firework_Red, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
