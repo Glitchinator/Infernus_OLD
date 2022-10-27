@@ -29,7 +29,9 @@ namespace Infernus.NPCs
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
-		}
+            Banner = Item.NPCtoBanner(NPCID.MartianWalker);
+            BannerItem = Item.BannerToItem(Banner);
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -62,7 +64,8 @@ namespace Infernus.NPCs
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Gravel>(), 1, 4, 6));
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Throwing>(), 40, 1, 1));
-		}
+            npcLoot.Add(ItemDropRule.Common(ItemID.Steak, 25, 1, 1));
+        }
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return SpawnCondition.Overworld.Chance * .3f;

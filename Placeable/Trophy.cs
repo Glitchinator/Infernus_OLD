@@ -17,7 +17,6 @@ namespace Infernus.Placeable
 
 			public override void SetDefaults()
 			{
-				// Vanilla has many useful methods like these, use them! This substitutes setting Item.createTile and Item.placeStyle aswell as setting a few values that are common across all placeable items
 				Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Trophy>());
 
 				Item.width = 32;

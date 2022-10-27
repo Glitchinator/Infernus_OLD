@@ -31,7 +31,10 @@ namespace Infernus.NPCs
 			NPC.breath = 999;
 			NPC.breathCounter = 999;
 			NPC.noTileCollide = true;
-		}
+            Banner = Item.NPCtoBanner(NPCID.DeadlySphere);
+            BannerItem = Item.BannerToItem(Banner);
+            NPC.value = Item.buyPrice(0, 5, 50, 0);
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -71,8 +74,9 @@ namespace Infernus.NPCs
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.SuperShredder>(), 15, 1, 1));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.Subslicer>(), 15, 1, 1));
-		}
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.SuperShredder>(), 15, 1, 1));
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.Subslicer>(), 15, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.MilkCarton, 25, 1, 1));
+        }
     }
 }

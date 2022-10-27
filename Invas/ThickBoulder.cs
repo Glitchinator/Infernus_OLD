@@ -39,7 +39,7 @@ namespace Infernus.Invas
 			{
 				Main.NewText("Grey clouds begin to form overhead", 175, 75, 255);
 			}
-			BoulderInvasion.StartBoulderInvasion();
+            BoulderInvasion.StartBoulderInvasion();
 			return true;
 		}
 		public override void AddRecipes()

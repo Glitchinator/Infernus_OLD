@@ -31,7 +31,10 @@ namespace Infernus.NPCs
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.value = Item.buyPrice(0, 0, 10, 0);
 			AnimationType = NPCID.DemonEye;
-		}
+            Banner = Item.NPCtoBanner(NPCID.IceElemental);
+            BannerItem = Item.BannerToItem(Banner);
+            NPC.value = Item.buyPrice(0, 0, 7, 0);
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -61,7 +64,8 @@ namespace Infernus.NPCs
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.BossSummon.BossSummon>(), 10, 1, 1));
-		}
+            npcLoot.Add(ItemDropRule.Common(ItemID.IceCream, 25, 1, 1));
+        }
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {

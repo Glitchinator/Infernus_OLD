@@ -17,11 +17,5 @@ namespace Infernus.Projectiles
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 		}
-
-		public override bool PreKill(int timeLeft)
-		{
-			Projectile.type = ProjectileID.BoneDagger;
-			return true;
-		}
 	}
 }

@@ -12,8 +12,8 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Knight");
-			Tooltip.SetDefault("Summon a Terra Knight to fight for you");
+			DisplayName.SetDefault("Terra Seedler");
+			Tooltip.SetDefault("Summon a Terra Seedler to fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
 		public override void SetDefaults()
 		{
-			Item.damage = 80;
+			Item.damage = 65;
 			Item.DamageType = DamageClass.Summon;
 			Item.mana = 8;
 			Item.width = 44;

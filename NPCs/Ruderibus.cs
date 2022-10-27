@@ -320,7 +320,6 @@ namespace Infernus.NPCs
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
-            name = "" + name;
             potionType = ItemID.HealingPotion;
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)

@@ -1,6 +1,4 @@
-﻿using Infernus.Projectiles;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -33,6 +31,9 @@ namespace Infernus.NPCs
 			NPC.HitSound = SoundID.NPCHit7;
 			NPC.DeathSound = SoundID.NPCDeath41;
 			AnimationType = NPCID.DemonEye;
+            Banner = Item.NPCtoBanner(NPCID.RockGolem);
+            BannerItem = Item.BannerToItem(Banner);
+            NPC.value = Item.buyPrice(0, 0, 3, 0);
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{
@@ -56,7 +57,6 @@ namespace Infernus.NPCs
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			// Do NOT misuse the ModifyNPCLoot and OnKill hooks: the former is only used for registering drops, the latter for everything else
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Rock>(), 4, 1, 2));
 			if (NPC.downedBoss3)
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.July4th>(), 70, 1, 1));
@@ -66,7 +66,7 @@ namespace Infernus.NPCs
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, flys to  destroy you")
+				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, flys to destroy you")
 			});
 		}
         public override void OnKill()

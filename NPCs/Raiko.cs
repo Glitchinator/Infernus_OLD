@@ -330,7 +330,6 @@ namespace Infernus.NPCs
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
-            name = "" + name;
             potionType = ItemID.HealingPotion;
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

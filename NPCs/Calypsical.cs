@@ -54,10 +54,9 @@ namespace Infernus.NPCs
 
         public override void AI()
         {
-            Player player = Main.player[NPC.target];
-
             damage = NPC.lifeMax - NPC.life;
             NPC.defense = (int)(damage * .000444f);
+            NPC.despawnEncouraged = false;
 
             {
                 Move(new Vector2((Main.rand.Next(0)), -400f));
@@ -240,10 +239,27 @@ namespace Infernus.NPCs
                     }
                 }
 
+                if (Timer >= 1450)
+                {
+                    NPC.life = 0;
+                }
+
+                if (NPC.life <= 0)
+                {
+                    if (Main.netMode == 0)
+                    {
+                        Main.NewText("You Cannot Escape", 145, 9, 18);
+                    }
+                    if (Main.netMode == 1)
+                    {
+                        Main.NewText("You Cannot Escape", 145, 9, 18);
+                    }
+                }
+
                 if (NPC.life <= 2000)
                 {
                     Music = MusicID.Credits;
-                    NPC.dontTakeDamage = true;
+
                     if (Main.rand.NextBool(10))
                     {
                         NPC.ai[0] %= (float)Math.PI * 2f;
@@ -256,19 +272,6 @@ namespace Infernus.NPCs
                         {
                             int dust = Dust.NewDust(NPC.position, rectangle.Width, rectangle.Height, DustID.Smoke, 0, 0, 100, color, 4f);
                             Main.dust[dust].noGravity = false;
-                        }
-
-                        if (Main.netMode == 0)
-                        {
-                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
-                        }
-                        if (Main.netMode == 1)
-                        {
-                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
-                        }
-                        if (Main.netMode == 2)
-                        {
-                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
                         }
                     }
                     if (Main.rand.NextBool(12))
@@ -286,12 +289,27 @@ namespace Infernus.NPCs
                         }
                         SoundEngine.PlaySound(SoundID.NPCDeath14, NPC.position);
                     }
+                    if (Main.rand.NextBool(100))
+                    {
+                        if (Main.netMode == 0)
+                        {
+                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
+                        }
+                        if (Main.netMode == 1)
+                        {
+                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
+                        }
+                    }
+                    if (Timer >= 1250)
+                    {
+                        NPC.dontTakeDamage = false;
+                        return;
+                    }
+                    else
+                    {
+                        NPC.dontTakeDamage = true;
+                    }
                 } 
-
-                if (Timer >= 1450)
-                {
-                    NPC.dontTakeDamage = false;
-                }
             }
             base.AI();
             NPC.TargetClosest(true);
@@ -525,18 +543,6 @@ namespace Infernus.NPCs
             {
                 if (NPC.life <= 0)
                 {
-                    if (Main.netMode == 0)
-                    {
-                        Main.NewText("You Cannot Escape", 145, 9, 18);
-                    }
-                    if (Main.netMode == 1)
-                    {
-                        Main.NewText("You Cannot Escape", 145, 9, 18);
-                    }
-                    if (Main.netMode == 2)
-                    {
-                        Main.NewText("You Cannot Escape", 145, 9, 18);
-                    }
                     for (int k = 0; k < 1; k++)
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);

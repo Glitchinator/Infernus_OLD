@@ -49,9 +49,7 @@ namespace Infernus.Items.BossSummon
 
 			if (NPC.downedBoss3)
 				itemLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 60));
-
-			if (Main.expertMode)
-				itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Shiny>()));
+			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Shiny>()));
 
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Raiko>()));
 		}

@@ -47,8 +47,6 @@ namespace Infernus.Items.BossSummon
 			itemLoot.Add(ItemDropRule.Common(ItemID.FloatingTube, 13, 1, 1));
 			itemLoot.Add(ItemDropRule.Common(ItemID.JellyfishDivingGear, 13, 1, 1));
 			itemLoot.Add(ItemDropRule.Common(ItemID.WaterWalkingBoots, 13, 1, 1));
-
-			if (Main.expertMode)
 			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Accessories.eleScale>()));
 
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Shark>()));

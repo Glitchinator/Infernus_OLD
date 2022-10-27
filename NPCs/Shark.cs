@@ -17,7 +17,7 @@ namespace Infernus.NPCs
 		private float speed;
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flash-Frost Tiger Shark");
+			DisplayName.SetDefault("Serphious");
 			Main.npcFrameCount[NPC.type] = 2;
 
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
@@ -262,7 +262,6 @@ namespace Infernus.NPCs
 		}
 		public override void BossLoot(ref string name, ref int potionType)
 		{
-			name = "" + name;
 			potionType = ItemID.GreaterHealingPotion;
 		}
 		private void bigshot()

@@ -29,6 +29,9 @@ namespace Infernus.NPCs
 			NPC.noTileCollide = false;
 			NPC.HitSound = SoundID.NPCHit7;
 			NPC.DeathSound = SoundID.NPCDeath41;
+            Banner = Item.NPCtoBanner(NPCID.RockGolem);
+            BannerItem = Item.BannerToItem(Banner);
+            NPC.value = Item.buyPrice(0, 0, 16, 0);
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{

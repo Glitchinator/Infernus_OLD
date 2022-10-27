@@ -185,7 +185,7 @@ namespace Infernus
 
 
 
-			string bossName2 = "Flash-Frost Tiger Shark";
+			string bossName2 = "Serphious";
 
 			int bossType2 = ModContent.NPCType<NPCs.Shark>();
 

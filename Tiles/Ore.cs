@@ -11,7 +11,7 @@ namespace Infernus.Tiles
     {
         public override bool CanExplode(int i, int j)
         {
-            return false;
+            return true;
         }
         public override void SetStaticDefaults()
         {

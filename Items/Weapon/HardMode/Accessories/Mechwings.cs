@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetCritChance(DamageClass.Generic) += 6;
-            player.GetDamage(DamageClass.Generic) += .8f;
+            player.GetDamage(DamageClass.Generic) += .08f;
         }
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)

@@ -35,42 +35,6 @@ namespace Infernus.Projectiles
         public override void AI()
 		{
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-
-            float maxDetectRadius = 1000f;
-			float projSpeed = 27f;
-
-			NPC closestNPC = FindClosestNPC(maxDetectRadius);
-			if (closestNPC == null)
-				return;
-
-			Projectile.velocity = (closestNPC.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * projSpeed;
-			Projectile.rotation = Projectile.velocity.ToRotation();
-
-			Projectile.velocity.Y += Projectile.ai[0];
-		}
-
-		public NPC FindClosestNPC(float maxDetectDistance)
-		{
-			NPC closestNPC = null;
-
-			float sqrMaxDetectDistance = maxDetectDistance * maxDetectDistance;
-
-			for (int k = 0; k < Main.maxNPCs; k++)
-			{
-				NPC target = Main.npc[k];
-				if (target.CanBeChasedBy())
-				{
-					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
-
-					if (sqrDistanceToTarget < sqrMaxDetectDistance)
-					{
-						sqrMaxDetectDistance = sqrDistanceToTarget;
-						closestNPC = target;
-					}
-				}
-			}
-
-			return closestNPC;
 		}
 	}
 }

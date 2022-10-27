@@ -32,7 +32,10 @@ namespace Infernus.NPCs
 			AnimationType = NPCID.DemonEye;
 			NPC.breath = 999;
 			NPC.breathCounter = 999;
-		}
+            Banner = Item.NPCtoBanner(NPCID.Crab);
+            BannerItem = Item.BannerToItem(Banner);
+            NPC.value = Item.buyPrice(0, 0, 6, 0);
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -76,6 +79,7 @@ namespace Infernus.NPCs
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Pets.CrabItem>(), 10, 1, 1));
-		}
+            npcLoot.Add(ItemDropRule.Common(ItemID.Hotdog, 25, 1, 1));
+        }
     }
 }

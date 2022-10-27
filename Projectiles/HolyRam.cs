@@ -25,7 +25,9 @@ namespace Infernus.Projectiles
         {
             if (Main.rand.NextBool(11))
             {
-                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ModContent.ProjectileType<Projectiles.Homing>(), (int)(Projectile.damage * .8f), 0, Projectile.owner);
+                int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ModContent.ProjectileType<Projectiles.Homing>(), (int)(Projectile.damage * .8f), 0, Projectile.owner);
+                Main.projectile[a].timeLeft = 200;
+                Main.projectile[a].netImportant = false;
             }
 
             Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f); 
