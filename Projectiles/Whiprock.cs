@@ -26,7 +26,8 @@ namespace Infernus.Projectiles
 			if (Main.rand.NextBool(2))
 			{
 				target.AddBuff(BuffID.Venom, 300);
-			}
+                target.AddBuff(ModContent.BuffType<Buffs.rockywhipbuff>(), 300);
+            }
 		}
 
 

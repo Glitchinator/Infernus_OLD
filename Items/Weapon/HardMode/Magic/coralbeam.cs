@@ -12,7 +12,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sea Prism");
-            Tooltip.SetDefault("Shoots 5 beams, 3 from staff, 2 from sky");
+            Tooltip.SetDefault("Shoots 4 beams, 2 from staff, 2 from sky");
             Item.staff[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -23,8 +23,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 36;
             Item.height = 36;
-            Item.useTime = 22;
-            Item.useAnimation = 22;
+            Item.useTime = 26;
+            Item.useAnimation = 26;
             Item.useStyle = 5;
             Item.knockBack = 3;
             Item.value = Item.buyPrice(0, 24, 50, 0);
@@ -47,7 +47,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
+            const int NumProjectiles = 2;
 
             for (int i = 0; i < NumProjectiles; i++)
             {

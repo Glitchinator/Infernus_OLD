@@ -13,8 +13,9 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 			DisplayName.SetDefault("Crackle n' Pop");
 			Tooltip.SetDefault("Throw two whips one named Crackle and the other Pop"
 				+"\n Your minions will attack struck foes"
-							+ "\n + Frostburn and Fire");
-		}
+							+ "\n + Frostburn and Fire"
+							+ "\n + 14 summon tag damage");
+        }
 
 		public override void SetDefaults()
 		{

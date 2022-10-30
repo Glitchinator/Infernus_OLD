@@ -13,8 +13,9 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 			DisplayName.SetDefault("Giant's Drill");
 			Tooltip.SetDefault("Belonged to Drill-X"
 				+ "\n Your minions will attack struck foes"
-							+ "\n + Explosions");
-		}
+							+ "\n + Explosions"
+							+ "\n + 18 summon tag damage");
+        }
 
 		public override void SetDefaults()
 		{

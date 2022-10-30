@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Raiko's Flame");
-			Tooltip.SetDefault("Summon a flame that engulfs you, shots homing flame projectiles, can only summon one");
+			Tooltip.SetDefault("Summon a flame that engulfs you, shoots homing flame projectiles, can only summon one");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.Summon
 
 		public override void SetDefaults()
 		{
-			Item.damage = 13;
+			Item.damage = 11;
 			Item.DamageType = DamageClass.Summon;
 			Item.mana = 10;
 			Item.width = 50;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.Summon
 			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
-			Item.knockBack = 3;
+			Item.knockBack = 2;
 			Item.value = Item.buyPrice(0, 8, 50, 0);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item96;

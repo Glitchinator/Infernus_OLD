@@ -17,12 +17,12 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 48;
+            Item.damage = 66;
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
-            Item.useTime = 28;
-            Item.useAnimation = 28;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
             Item.useStyle = 5;
             Item.knockBack = 6;
             Item.value = Item.buyPrice(0, 15, 50, 0);
@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.shoot = ModContent.ProjectileType<Gas>();
             Item.noUseGraphic = false;
             Item.shootSpeed = 22f;
-            Item.mana = 10;
+            Item.mana = 8;
         }
         public override void AddRecipes()
         {

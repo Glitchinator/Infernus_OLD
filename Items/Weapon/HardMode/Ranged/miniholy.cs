@@ -19,7 +19,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
 		public override void SetDefaults()
 		{
-			Item.damage = 75;
+			Item.damage = 70;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 76;
 			Item.height = 34;
@@ -45,23 +45,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 		{
 			return new Vector2(-10, 0);
 		}
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            const int NumProjectiles = 2;
-
-            for (int i = 0; i < NumProjectiles; i++)
-            {
-
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));
-
-
-                newVelocity *= 1f - Main.rand.NextFloat(.2f);
-
-                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
-            }
-
-            return false;
-        }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{
 			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));

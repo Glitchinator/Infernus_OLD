@@ -16,6 +16,7 @@ namespace Infernus.Projectiles
 			AIType = ProjectileID.CultistBossFireBall;
 			Projectile.friendly = false;
 			Projectile.hostile = true;
+			Projectile.netImportant = true;
 		}
 
 		public override bool PreKill(int timeLeft)

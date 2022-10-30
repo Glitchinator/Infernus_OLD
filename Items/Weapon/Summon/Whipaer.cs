@@ -13,8 +13,9 @@ namespace Infernus.Items.Weapon.Summon
 		{
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			DisplayName.SetDefault("Aeritite Whip");
-			Tooltip.SetDefault("Your minions will attack struck foes");
-		}
+			Tooltip.SetDefault("Your minions will attack struck foes"
+				+ "\n + 4 summon tag damage");
+        }
 
 		public override void SetDefaults()
 		{

@@ -30,12 +30,17 @@ namespace Infernus.Projectiles
 			set => Projectile.ai[0] = value;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
-		}
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 
-		private void DrawLine(List<Vector2> list)
+            if (Main.rand.NextBool(2))
+            {
+                target.AddBuff(ModContent.BuffType<Buffs.gemwhipbuff>(), 300);
+            }
+        }
+
+        private void DrawLine(List<Vector2> list)
 		{
 			Texture2D texture = TextureAssets.FishingLine.Value;
 			Rectangle frame = texture.Frame();

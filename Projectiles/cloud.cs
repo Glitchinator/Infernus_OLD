@@ -12,17 +12,11 @@ namespace Infernus.Projectiles
 		}
 		public override void SetDefaults()
 		{
-			Projectile.CloneDefaults(ProjectileID.JavelinFriendly);
-			AIType = ProjectileID.JavelinFriendly;
+			Projectile.CloneDefaults(ProjectileID.Bone);
+			AIType = ProjectileID.Bone;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-		}
-
-		public override bool PreKill(int timeLeft)
-		{
-			Projectile.type = ProjectileID.Bullet;
-			return true;
 		}
 	}
 }

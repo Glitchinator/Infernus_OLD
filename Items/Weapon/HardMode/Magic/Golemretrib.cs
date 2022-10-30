@@ -22,8 +22,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 28;
             Item.height = 30;
-            Item.useTime = 10;
-            Item.useAnimation = 10;
+            Item.useTime = 18;
+            Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 7;
             Item.value = Item.buyPrice(0, 18, 50, 0);
@@ -37,7 +37,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 10;
+            const int NumProjectiles = 7;
 
             for (int i = 0; i < NumProjectiles; i++)
             {

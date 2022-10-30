@@ -18,7 +18,13 @@ namespace Infernus.Projectiles
 		{
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 
-			int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.DD2ExplosiveTrapT3Explosion, (int)(Projectile.damage * 2f), 0, Projectile.owner);
+            if (Main.rand.NextBool(2))
+            {
+                target.AddBuff(ModContent.BuffType<Buffs.drillwhipbuff>(), 300);
+            }
+            target.AddBuff(ModContent.BuffType<Buffs.icewhipbuff>(), 300);
+
+            int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.DD2ExplosiveTrapT3Explosion, (int)(Projectile.damage * 2f), 0, Projectile.owner);
 			Main.projectile[a].tileCollide = false;
 			Main.projectile[a].friendly = true;
 		}

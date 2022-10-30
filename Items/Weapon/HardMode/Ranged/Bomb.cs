@@ -12,20 +12,21 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chlorophyte Launcher");
-			Tooltip.SetDefault("turns musket shots to plant shots that fall");
+			Tooltip.SetDefault("burst leaf shotgun");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()
 		{
-			Item.damage = 42;
+			Item.damage = 28;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 70;
 			Item.height = 22;
-			Item.useAnimation = 22;
-			Item.useTime = 22;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 9;
+            Item.useAnimation = 12;
+            Item.useTime = 8;
+            Item.reuseDelay = 16;
+            Item.useStyle = ItemUseStyleID.Shoot;
+			Item.knockBack = 7;
 			Item.value = Item.buyPrice(0, 18, 50, 0);
 			Item.rare = ItemRarityID.Lime;
 			Item.UseSound = SoundID.Item62;
@@ -40,17 +41,22 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 		{
 			return new Vector2(-10, 0);
 		}
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-			Vector2 offset = new Vector2(velocity.X * 3, velocity.Y * 3);
-			position += offset;
-			type = ProjectileID.ChlorophyteOrb;
-			Vector2 perturbedSpeed = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(3));
-			Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, type, damage, knockback, player.whoAmI);
-			return false;
-		}
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            const int NumProjectiles = 4;
 
-		public override void AddRecipes()
+            for (int i = 0; i < NumProjectiles; i++)
+            {
+
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(25));
+
+                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
+            }
+
+            return false;
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SoulofLight, 6);

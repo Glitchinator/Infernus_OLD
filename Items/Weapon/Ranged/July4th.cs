@@ -20,14 +20,14 @@ namespace Infernus.Items.Weapon.Ranged
 
 		public override void SetDefaults()
 		{
-			Item.damage = 3;
+			Item.damage = 12;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 68;
 			Item.height = 22;
 			Item.useAnimation = 9;
 			Item.useTime = 9;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 2;
+			Item.knockBack = 8;
 			Item.value = Item.buyPrice(0, 12, 50, 0);
 			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item36;

@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
 		public override void SetDefaults()
 		{
-			Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Whipmech>(), 130, 5, 9);
+			Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Whipmech>(), 90, 5, 9);
 			Item.value = Item.buyPrice(0, 32, 50, 0);
             Item.useTime = 9;
 

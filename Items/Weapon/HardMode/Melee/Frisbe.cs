@@ -17,14 +17,14 @@ namespace Infernus.Items.Weapon.HardMode.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 140;
+            Item.damage = 260;
             Item.DamageType = DamageClass.Melee;
             Item.width = 32;
             Item.height = 32;
-            Item.useTime = 12;
-            Item.useAnimation = 12;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
             Item.useStyle = 1;
-            Item.knockBack = 22;
+            Item.knockBack = 8;
             Item.noUseGraphic = true;
             Item.value = Item.buyPrice(0, 26, 50, 0);
             Item.rare = ItemRarityID.Cyan;
@@ -32,7 +32,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Frisbe>();
             Item.crit = 8;
-            Item.shootSpeed = 18;
+            Item.shootSpeed = 20;
         }
         public override void AddRecipes()
         {

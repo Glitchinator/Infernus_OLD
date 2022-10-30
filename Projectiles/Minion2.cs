@@ -35,7 +35,6 @@ namespace Infernus.Projectiles
 		{
 			return true;
 		}
-        protected float shootCool = 30f;
 
         public override void AI()
 		{
@@ -104,7 +103,7 @@ namespace Infernus.Projectiles
                     Projectile.ai[1] += 1f;
                 }
             }
-            if (Projectile.ai[1] > shootCool)
+            if (Projectile.ai[1] > 50)
             {
                 Projectile.ai[1] = 0f;
                 Projectile.netUpdate = true;

@@ -20,7 +20,7 @@ namespace Infernus.Projectiles
             Projectile.height = 40;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 10;
-            Projectile.timeLeft = 960;
+            Projectile.timeLeft = 240;
         }
 		public override void AI()
 		{

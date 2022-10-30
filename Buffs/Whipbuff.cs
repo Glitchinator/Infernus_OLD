@@ -13,23 +13,23 @@ namespace Infernus.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetGlobalNPC<ExampleWhipDebuffNPC>().markedByExampleWhip = true;
+            npc.GetGlobalNPC<palWhipDebuffNPC>().markedBypalWhip = true;
         }
     }
 
-    public class ExampleWhipDebuffNPC : GlobalNPC
+    public class palWhipDebuffNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
 
-        public bool markedByExampleWhip;
+        public bool markedBypalWhip;
 
         public override void ResetEffects(NPC npc)
         {
-            markedByExampleWhip = false;
+            markedBypalWhip = false;
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (markedByExampleWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type]))
+            if (markedBypalWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type]))
             {
                 damage += 28;
                 knockback += 2f;

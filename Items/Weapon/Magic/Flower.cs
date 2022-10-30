@@ -17,13 +17,13 @@ namespace Infernus.Items.Weapon.Magic
 
 		public override void SetDefaults()
 		{
-			Item.damage = 14;
+			Item.damage = 18;
 			Item.DamageType = DamageClass.Magic;
 			Item.noMelee = true;
 			Item.width = 60;
 			Item.height = 60;
-			Item.useTime = 26;
-			Item.useAnimation = 26;
+			Item.useTime = 23;
+			Item.useAnimation = 23;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 5, 50, 0);

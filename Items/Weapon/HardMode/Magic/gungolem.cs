@@ -22,8 +22,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 36;
             Item.height = 36;
-            Item.useTime = 12;
-            Item.useAnimation = 12;
+            Item.useTime = 18;
+            Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 5;
             Item.value = Item.buyPrice(0, 19, 50, 0);
@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.shoot = ModContent.ProjectileType<plant>();
             Item.autoReuse = true;
             Item.shootSpeed = 16f;
-            Item.mana = 12;
+            Item.mana = 10;
         }
         public override Vector2? HoldoutOffset()
         {

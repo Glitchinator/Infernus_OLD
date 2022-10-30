@@ -34,8 +34,8 @@ namespace Infernus.Items.Weapon.Magic
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.cloud>();
             Item.noUseGraphic = true;
-            Item.shootSpeed = 9f;
-            Item.mana = 11;
+            Item.shootSpeed = 10f;
+            Item.mana = 8;
         }
         public override void AddRecipes()
         {

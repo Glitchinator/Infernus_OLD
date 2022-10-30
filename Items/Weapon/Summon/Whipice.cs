@@ -12,8 +12,9 @@ namespace Infernus.Items.Weapon.Summon
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			DisplayName.SetDefault("Iceicle Snap");
 			Tooltip.SetDefault("Your minions will attack struck foes"
-								+ "\n + Frostburn");
-		}
+								+ "\n + Frostburn"
+								+ "\n + 8 summon tag damage");
+        }
 
 		public override void SetDefaults()
 		{

@@ -37,7 +37,8 @@ namespace Infernus.Projectiles
 			if (Main.rand.NextBool(2))
 			{
 				target.AddBuff(BuffID.Frostburn, 300);
-			}
+                target.AddBuff(ModContent.BuffType<Buffs.icewhipbuff>(), 300);
+            }
 		}
 
 		private void DrawLine(List<Vector2> list)

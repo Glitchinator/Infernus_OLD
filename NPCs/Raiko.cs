@@ -10,6 +10,8 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Infernus.Items.Weapon.Melee;
 using Infernus.Items.BossSummon;
+using Infernus.Projectiles;
+using System.Reflection.Metadata;
 
 namespace Infernus.NPCs
 {
@@ -34,6 +36,8 @@ namespace Infernus.NPCs
                     BuffID.Frostburn,
                     BuffID.CursedInferno,
                     BuffID.ShadowFlame,
+                    BuffID.Oiled,
+                    BuffID.Daybreak,
 
                     BuffID.Confused
 				}
@@ -63,18 +67,16 @@ namespace Infernus.NPCs
             NPC.npcSlots = 3;
         }
 
-        const float ShootKnockback = 0.8554f;
-
         int Timer;
         public override void AI()
         {
+            NPC.netUpdate = true;
             {
                 Timer++;
                 if (Main.expertMode == true)
                 {
                     if (Timer <= 140)
                     {
-                        Target();
                         Move(new Vector2((Main.rand.Next(0)), -400f));
                     }
                     else if (Timer == 100)
@@ -93,7 +95,6 @@ namespace Infernus.NPCs
                     }
                     if (Timer == 140)
                     {
-                        Target();
                         Move(new Vector2((Main.rand.Next(0)), -150f));
                     }
                     if (Timer == 146)
@@ -111,7 +112,6 @@ namespace Infernus.NPCs
                     }
                     else if (Timer == 160)
                     {
-                        Target();
                         Move(new Vector2((Main.rand.Next(0)), -400f));
                     }
                     if (Timer == 170)
@@ -129,7 +129,6 @@ namespace Infernus.NPCs
                 }
                 if (Timer <= 140)
                 {
-                    Target();
                     Move(new Vector2((Main.rand.Next(0)), -400f));
                 }
                 else if (Timer == 100)
@@ -148,7 +147,6 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 140)
                 {
-                    Target();
                     Move(new Vector2((Main.rand.Next(0)), -150f));
                 }
                 if (Timer == 146)
@@ -158,7 +156,6 @@ namespace Infernus.NPCs
                 }
                 else if (Timer == 150)
                 {
-                    Target();
                     Move(new Vector2((Main.rand.Next(0)), -400f));
                 }
                 if (Timer == 160)
@@ -190,7 +187,7 @@ namespace Infernus.NPCs
             {
                 NPC.TargetClosest(false);
                 NPC.direction = 1;
-                NPC.velocity.Y = NPC.velocity.Y - 7f;
+                NPC.velocity.Y = NPC.velocity.Y - 1f;
                 if (NPC.timeLeft > 20)
                 {
                     NPC.timeLeft = 20;
@@ -200,6 +197,7 @@ namespace Infernus.NPCs
         }
         private void Move(Vector2 offset)
         {
+            player = Main.player[NPC.target];
             speed = 35f;
             Vector2 moveTo = player.Center + offset;
             Vector2 move = moveTo - NPC.Center;
@@ -219,38 +217,40 @@ namespace Infernus.NPCs
         }
         private void bigshot()
         {
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, -7, 0, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, 7, 0, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, 0, 7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, 0, -7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, -7, -7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, 7, -7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, -7, 7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.position.X + 40, NPC.position.Y + 40, 7, 7, 962, 9, ShootKnockback, Main.myPlayer, 0f, 0f);
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                var entitySource = NPC.GetSource_FromAI();
+                for (int i = 0; i < 8; i++)
+                {
+                    Vector2 velocity = player.Center - NPC.Center;
+                    float magnitude = Magnitude(velocity);
+                    if (magnitude > 0)
+                    {
+                        velocity *= 6f / magnitude;
+                    }
+                    else
+                    {
+                        velocity = new Vector2(0f, 5f);
+                    }
+                    Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(150));
+
+                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.DeerclopsRangedProjectile, 12, NPC.whoAmI);
+                }
+            }
         }
         private void Dash()
         {
-            NPC.velocity.X *= 0.98f;
-            NPC.velocity.Y *= 0.98f;
-            Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height * 0.5f));
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                float rotation = (float)Math.Atan2((vector8.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), (vector8.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
-                NPC.velocity.X = (float)(Math.Cos(rotation) * 12) * -1;
-                NPC.velocity.Y = (float)(Math.Sin(rotation) * 12) * -1;
+                NPC.velocity.X *= 10f;
+                NPC.velocity.Y *= 10f;
+                Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
+                {
+                    float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));
+                    NPC.velocity.X = (float)(Math.Cos(rotation) * 24) * -1;
+                    NPC.velocity.Y = (float)(Math.Sin(rotation) * 24) * -1;
+                }
             }
-            //Dust
-            NPC.ai[0] %= (float)Math.PI * 2f;
-            Vector2 offset = new Vector2((float)Math.Cos(NPC.ai[0]), (float)Math.Sin(NPC.ai[0]));
-            NPC.ai[2] = -80;
-            Color color = new Color();
-            Rectangle rectangle = new Rectangle((int)NPC.position.X, (int)(NPC.position.Y + ((NPC.height - NPC.width) / 2)), NPC.width, NPC.width);
-            int count = 20;
-            for (int i = 1; i <= count; i++)
-            {
-                int dust = Dust.NewDust(NPC.position, rectangle.Width, rectangle.Height, 6, 0, 0, 100, color, 2.5f);
-                Main.dust[dust].noGravity = false;
-            }
-            return;
         }
         public override void OnKill()
         {
@@ -259,28 +259,29 @@ namespace Infernus.NPCs
 
         private void spawnnpc()
         {
-            var entitySource = NPC.GetSource_FromAI();
-            NPC.NewNPC(entitySource, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Midlite>(), NPC.whoAmI);
-        }
-        private void Target()
-        {
-            player = Main.player[NPC.target];
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                var entitySource = NPC.GetSource_FromAI();
+                NPC.NewNPC(entitySource, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Midlite>(), NPC.whoAmI);
+            }
         }
         private void Shoot()
         {
-
-            int type = ModContent.ProjectileType<Projectiles.Shot>();
-            Vector2 velocity = player.Center - NPC.Center;
-            float magnitude = Magnitude(velocity);
-            if (magnitude > 0)
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                velocity *= 8f / magnitude;
+                var entitySource = NPC.GetSource_FromAI();
+                Vector2 velocity = player.Center - NPC.Center;
+                float magnitude = Magnitude(velocity);
+                if (magnitude > 0)
+                {
+                    velocity *= 8f / magnitude;
+                }
+                else
+                {
+                    velocity = new Vector2(0f, 5f);
+                }
+                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ModContent.ProjectileType<Projectiles.Shot>(), 12, NPC.whoAmI);
             }
-            else
-            {
-                velocity = new Vector2(0f, 5f);
-            }
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), NPC.Center, velocity, type, 12, .5f);
         }
         private float Magnitude(Vector2 mag)
         {

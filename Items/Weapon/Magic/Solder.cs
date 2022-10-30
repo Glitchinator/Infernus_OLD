@@ -11,30 +11,31 @@ namespace Infernus.Items.Weapon.Magic
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("First Prism");
-			Tooltip.SetDefault("Shoot a exploding beam");
+			Tooltip.SetDefault("conjures exploding aeritite shards");
 			Item.staff[Item.type] = true;
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()
 		{
-			Item.damage = 18;
+			Item.damage = 21;
 			Item.DamageType = DamageClass.Magic;
 			Item.noMelee = true;
 			Item.width = 60;
 			Item.height = 60;
-			Item.useTime = 42;
-			Item.useAnimation = 42;
-			Item.useStyle = 5;
+            Item.useAnimation = 42;
+            Item.useTime = 32;
+            Item.reuseDelay = 38;
+            Item.useStyle = 5;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 6, 50, 0);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item8;
-			Item.shoot = ProjectileID.CrystalBullet;
-			Item.shootSpeed = 8f;
+			Item.shoot = ProjectileID.NailFriendly;
+			Item.shootSpeed = 9f;
 			Item.crit = 4;
 			Item.autoReuse = true;
-			Item.mana = 11;
+			Item.mana = 9;
 		}
 		public override void AddRecipes()
 		{

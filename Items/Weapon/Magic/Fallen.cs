@@ -26,9 +26,9 @@ namespace Infernus.Items.Weapon.Magic
 			Item.width = 50;
 			Item.height = 50;
 			Item.useAnimation = 12;
-			Item.useTime = 8;
+			Item.useTime = 12;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 2;
+			Item.knockBack = 3;
 			Item.value = Item.buyPrice(0, 10, 50, 0);
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item8;
@@ -36,7 +36,7 @@ namespace Infernus.Items.Weapon.Magic
 			Item.noMelee = true;
 			Item.shoot = ProjectileID.HallowStar;
 			Item.shootSpeed = 12f;
-			Item.mana = 14;
+			Item.mana = 10;
 			Item.crit = 4;
 		}
 		public override void AddRecipes()

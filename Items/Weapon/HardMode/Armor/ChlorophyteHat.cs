@@ -35,8 +35,8 @@ namespace Infernus.Items.Weapon.HardMode.Armor
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Leaf Power" + "\n 3+ Summons + Leaf Crystal";
-			player.maxMinions += 3;
+			player.setBonus = "Leaf Power" + "\n 2+ Summons + Leaf Crystal";
+			player.maxMinions += 2;
 			player.AddBuff(60, 60, true);
 
 		}

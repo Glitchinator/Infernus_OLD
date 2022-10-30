@@ -13,8 +13,7 @@ namespace Infernus.Items.Weapon.Ranged
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bullet Launcher");
-			Tooltip.SetDefault("Shoots so many bullets"
-				+ "\n Community Idea Item");
+			Tooltip.SetDefault("Shoots bullets in a square area around you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -24,8 +23,8 @@ namespace Infernus.Items.Weapon.Ranged
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 68;
 			Item.height = 22;
-			Item.useAnimation = 50;
-			Item.useTime = 50;
+			Item.useAnimation = 60;
+			Item.useTime = 60;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 9;
 			Item.value = Item.buyPrice(0, 8, 50, 0);
@@ -44,7 +43,7 @@ namespace Infernus.Items.Weapon.Ranged
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			const int NumProjectiles = 70;
+			const int NumProjectiles = 50;
 
 			for (int i = 0; i < NumProjectiles; i++)
 			{
