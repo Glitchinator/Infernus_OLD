@@ -56,5 +56,5 @@ namespace Infernus.Items.Weapon.Magic
 		{
 			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(15));
 		}
-	}
+    }
 }

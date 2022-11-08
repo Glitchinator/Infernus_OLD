@@ -242,8 +242,8 @@ namespace Infernus.NPCs
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.velocity.X *= 10f;
-                NPC.velocity.Y *= 10f;
+                NPC.velocity.X *= 3f;
+                NPC.velocity.Y *= 3f;
                 Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
                 {
                     float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));

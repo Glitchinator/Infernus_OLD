@@ -62,5 +62,5 @@ namespace Infernus.Items.Weapon.Magic
 			}
 			return false;
 		}
-	}
+    }
 }

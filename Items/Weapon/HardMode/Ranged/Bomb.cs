@@ -18,10 +18,10 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
 		public override void SetDefaults()
 		{
-			Item.damage = 28;
+			Item.damage = 24;
 			Item.DamageType = DamageClass.Ranged;
-			Item.width = 70;
-			Item.height = 22;
+			Item.width = 46;
+			Item.height = 36;
             Item.useAnimation = 12;
             Item.useTime = 8;
             Item.reuseDelay = 16;
@@ -39,7 +39,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 		}
 		public override Vector2? HoldoutOffset()
 		{
-			return new Vector2(-10, 0);
+			return new Vector2(-4, 0);
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
