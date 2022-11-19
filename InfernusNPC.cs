@@ -16,7 +16,23 @@ namespace Infernus
 			{
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Melee.Murawhip>(), 20, 1, 1));
 			}
-		}
+            if (npc.type == NPCID.SkeletonSniper)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.TommyGun>(), 20, 1, 1));
+            }
+            if (npc.type == NPCID.RedDevil)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.DemonStaff>(), 20, 1, 1));
+            }
+            if (npc.type == NPCID.ShadowFlameApparition)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.GoblinStaff>(), 20, 1, 1));
+            }
+            if (npc.type == NPCID.GiantBat)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 20, 1, 1));
+            }
+        }
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))

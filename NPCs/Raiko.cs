@@ -247,8 +247,8 @@ namespace Infernus.NPCs
                 Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
                 {
                     float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));
-                    NPC.velocity.X = (float)(Math.Cos(rotation) * 24) * -1;
-                    NPC.velocity.Y = (float)(Math.Sin(rotation) * 24) * -1;
+                    NPC.velocity.X = (float)(Math.Cos(rotation) * 18) * -1;
+                    NPC.velocity.Y = (float)(Math.Sin(rotation) * 18) * -1;
                 }
             }
         }

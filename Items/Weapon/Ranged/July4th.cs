@@ -54,7 +54,6 @@ namespace Infernus.Items.Weapon.Ranged
 
 				newVelocity *= 1f - Main.rand.NextFloat(0.3f);
 
-				// Create a projectile.
 				Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
 			}
 
