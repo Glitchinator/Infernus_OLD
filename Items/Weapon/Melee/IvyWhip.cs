@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -41,7 +40,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddIngredient(ItemID.Vine, 4);
             recipe.AddIngredient(ItemID.Stinger, 16);
             recipe.AddIngredient(ItemID.JungleSpores, 12);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

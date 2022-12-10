@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 
@@ -41,12 +40,12 @@ namespace Infernus.Items.Weapon.Magic
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Weapon.Magic.Sword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Sword>(), 1);
             recipe.AddIngredient(ItemID.RainCloud, 45);
             recipe.AddIngredient(ItemID.Bone, 36);
             recipe.AddIngredient(ItemID.WaterCandle, 2);
             recipe.AddIngredient(ItemID.AquaScepter, 1);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

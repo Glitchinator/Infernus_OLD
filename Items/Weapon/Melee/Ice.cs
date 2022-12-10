@@ -1,8 +1,6 @@
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 
@@ -40,7 +38,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 38);
             recipe.AddIngredient(ItemID.IceBlock, 32);
             recipe.AddIngredient(ItemID.WoodenSword, 1);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)

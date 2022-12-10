@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
@@ -37,7 +36,7 @@ namespace Infernus.Items.Accesories
             recipe.AddIngredient(ItemID.Bone, 26);
             recipe.AddIngredient(ItemID.AntlionMandible, 6);
             recipe.AddIngredient(ItemID.SandBlock, 30);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

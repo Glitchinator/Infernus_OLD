@@ -48,7 +48,7 @@ namespace Infernus.Items.Weapon.Summon
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Bone, 48);
 			recipe.AddIngredient(ItemID.Cobweb, 26);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
@@ -36,7 +35,7 @@ namespace Infernus.Items.Accesories
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HellstoneBar, 16);
             recipe.AddIngredient(ItemID.Bone, 26);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

@@ -1,3 +1,4 @@
+using Infernus.Placeable;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -38,7 +39,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.StoneBlock, 80);
-            recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 14);
+            recipe.AddIngredient(ModContent.ItemType<Rock>(), 14);
             recipe.AddIngredient(ItemID.SoulofLight, 6);
             recipe.AddIngredient(ItemID.SoulofNight, 6);
             recipe.AddTile(TileID.MythrilAnvil);

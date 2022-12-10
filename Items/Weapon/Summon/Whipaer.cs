@@ -2,7 +2,6 @@ using Infernus.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Summon
@@ -28,9 +27,9 @@ namespace Infernus.Items.Weapon.Summon
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gaming>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gravel>(), 7);
-			recipe.AddTile(ModContent.TileType<Work>());
+			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 5);
+			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 7);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 		public override bool MeleePrefix()

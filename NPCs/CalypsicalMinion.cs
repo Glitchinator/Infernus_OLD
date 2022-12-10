@@ -63,7 +63,7 @@ namespace Infernus.NPCs
 
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
                 new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-                new FlavorTextBestiaryInfoElement("deez")
+                new FlavorTextBestiaryInfoElement("Eyes that are used in defense and support.")
             });
         }
 

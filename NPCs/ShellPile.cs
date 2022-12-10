@@ -46,7 +46,7 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 1; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 0, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt, 4f * hitDirection, -2.5f, 0, default, 1f);
 				}
 				int frontGoreType = Mod.Find<ModGore>("Shell_Pile").Type;
 

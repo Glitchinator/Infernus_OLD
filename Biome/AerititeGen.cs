@@ -12,7 +12,7 @@ namespace Infernus.Biome
 
         protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
         {
-            progress.Message = "Aeritite Ore Generation";
+            progress.Message = "Aeritite ore is being added to your amazing world";
 
             for (int i = 0; i < (int)((Main.maxTilesX * Main.maxTilesY) * 6E-04); i++)
             {

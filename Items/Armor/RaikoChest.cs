@@ -33,10 +33,10 @@ namespace Infernus.Items.Armor
 		{
 
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Armor.ChestPLate>());
+			recipe.AddIngredient(ModContent.ItemType<ChestPLate>());
 			recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 76);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

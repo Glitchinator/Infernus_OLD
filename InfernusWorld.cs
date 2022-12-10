@@ -67,6 +67,12 @@ namespace Infernus
 		{
 			DoBossChecklistIntegration();
 		}
+		/// Boss Checklist bugs
+
+		/// DONT put a tile of any sort in collection. It bugs and breaks, it only allows if it's loaded from a enemy. So have the item in the enemies loot pool,
+		/// but don't let it be dropped. No tile, None. Boss Checklist hates it.
+
+		/// DONT TOUCH THE VERSION. That is a kill switch if it fails to load. DONT TOUCH IT.
 		private void DoBossChecklistIntegration()
 		{
 
@@ -275,7 +281,7 @@ namespace Infernus
 			);
             string EventName = "Boulder Invasion Pre-HM";
 
-            int EventType = ModContent.NPCType<NPCs.Boulder1>();
+            int EventType = ModContent.NPCType<NPCs.Boulder5>();
 
             float Eventweight = 5.8f;
 
@@ -285,8 +291,7 @@ namespace Infernus
 
             List<int> Eventcollection = new List<int>()
             {
-                ModContent.ItemType<Items.Weapon.Ranged.July4th>(),
-                ModContent.ItemType<Items.Materials.Rock>()
+                ModContent.ItemType<Items.Weapon.Ranged.July4th>()
             };
 
             int EventsummonItem = ModContent.ItemType<Invas.ThickBoulder>();
@@ -318,11 +323,11 @@ namespace Infernus
 
             string EventName2 = "Boulder Invasion HM";
 
-            int EventType2 = ModContent.NPCType<NPCs.Boulder1jung>(); ;
+            int EventType2 = ModContent.NPCType<NPCs.Boulder5>();
 
             float Eventweight2 = 12.4f;
 
-            Func<bool> Eventdowned2 = () => DownedBoss.downedBoulderInvasionPHM;
+            Func<bool> Eventdowned2 = () => DownedBoss.downedBoulderInvasionHM;
 
             Func<bool> Eventavailable2 = () => true;
 
@@ -332,8 +337,9 @@ namespace Infernus
                 ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Magic.Venom>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Magic.Bouldermagicweapon>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Accessories.Wings>(),
-                ModContent.ItemType<Items.Materials.Rock>()
+                ModContent.ItemType<Items.Weapon.HardMode.Accessories.HiveHeart>()
             };
 
             int EventsummonItem2 = ModContent.ItemType<Invas.ThickBoulder>();

@@ -11,8 +11,7 @@ namespace Infernus.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Aeritite Hood");
-			Tooltip.SetDefault("+ 5% Magic Damage  + 1 Max Summon"
-				+ "\n For both Magic and Summon");
+			Tooltip.SetDefault("+ 1 Max Summon");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -22,11 +21,10 @@ namespace Infernus.Items.Armor
 			Item.height = 18;
 			Item.value = Item.buyPrice(0, 1, 25, 0);
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 2;
+			Item.defense = 4;
 		}
 		public override void UpdateEquip(Player player)
 		{
-			player.GetDamage(DamageClass.Magic) += .05f;
 			player.maxMinions++;
 		}
 
@@ -37,17 +35,17 @@ namespace Infernus.Items.Armor
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Magic Hands" + "\n + 35 Mana";
-			player.statManaMax2 += 35;
+			player.setBonus = "Summoner's Pride" + "\n + 12% Melee Speed";
+            player.GetAttackSpeed(DamageClass.Melee) += .12f;
 
-		}
+        }
 
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 18);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

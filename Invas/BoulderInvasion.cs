@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
-using Terraria.Audio;
+using Infernus.NPCs;
 
 namespace Infernus.Invas
 {
@@ -13,14 +13,30 @@ namespace Infernus.Invas
 		public static int[] PreHardmodeInvaders = {
 			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder1").Type,
 			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder2").Type,
-			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder3").Type
-	    };
+			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder3").Type,
+            ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder4").Type,
+            ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder5").Type
+        };
 
 		public static int[] HardmodeInvaders = {
 			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder1jung").Type,
 			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder2jung").Type,
-			ModLoader.GetMod("Infernus").Find<ModNPC>("Boulderminiboss").Type
-		};
+            ModLoader.GetMod("Infernus").Find<ModNPC>("Boulder3jung").Type,
+            NPCID.RockGolem,
+			NPCID.MossHornet,
+        };
+
+        public static int[] BossInvasion = {
+            ModLoader.GetMod("Infernus").Find<ModNPC>("Boulderminiboss").Type
+        };
+        public static int[] GetBossNOW()
+        {
+            int[] list = new int[BossInvasion.Length];
+
+            BossInvasion.CopyTo(list, 0);
+
+            return list;
+        }
 
         public static int[] GetFullInvaderList()
 		{
@@ -64,53 +80,48 @@ namespace Infernus.Invas
 						Main.invasionX = 0.0;
 						return;
 					}
-					Main.invasionX = (double)Main.maxTilesX;
+					Main.invasionX = Main.maxTilesX;
 				}
 			}
 		}
 		public static void BoulderInvasionWarning()
 		{
-			String text = "";
-			if (Main.invasionX == (double)Main.spawnTileX)
+			if (Main.invasionX == Main.spawnTileX)
 			{
-				Main.NewText("The boulders begin their persuit", 175, 75, 255);
+				Main.NewText("An onslaught of rock and earth approaches from the west.", 207, 196, 162);
 			}
 			if (Main.invasionSize <= 0)
 			{
-				Main.NewText("The boulders leave, planning...", 175, 75, 255);
+				Main.NewText("The boulders leave, tunneling back into the ground.", 207, 196, 162);
             }
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				return;
 			}
-			if (Main.netMode == 2)
-			{
-				NetMessage.SendData(25, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f, 0, 0, 0);
-			}
 		}
 
-			public static void UpdateDungeonInvasion()
+		public static void UpdateDungeonInvasion()
 		{
-			if(InfernusWorld.BoulderInvasionUp)
+			if (InfernusWorld.BoulderInvasionUp)
 			{
-				if(Main.invasionSize <= 0)
+				if (Main.invasionSize <= 0)
 				{
 					InfernusWorld.BoulderInvasionUp = false;
 					BoulderInvasionWarning();
 					Main.invasionType = 0;
 					Main.invasionDelay = 0;
 				}
-				if (Main.invasionX == (double)Main.spawnTileX)
+				if (Main.invasionX == Main.spawnTileX)
 				{
-                    return;
+					return;
 				}
 				float num = (float)Main.dayRate;
-				if (Main.invasionX > (double)Main.spawnTileX)
+				if (Main.invasionX > Main.spawnTileX)
 				{
-					Main.invasionX -= (double)num;
-					if (Main.invasionX <= (double)Main.spawnTileX)
+					Main.invasionX -= num;
+					if (Main.invasionX <= Main.spawnTileX)
 					{
-						Main.invasionX = (double)Main.spawnTileX;
+						Main.invasionX = Main.spawnTileX;
 						BoulderInvasionWarning();
 					}
 					else
@@ -120,12 +131,12 @@ namespace Infernus.Invas
 				}
 				else
 				{
-					if (Main.invasionX < (double)Main.spawnTileX)
+					if (Main.invasionX < Main.spawnTileX)
 					{
-						Main.invasionX += (double)num;
-						if (Main.invasionX >= (double)Main.spawnTileX)
+						Main.invasionX += num;
+						if (Main.invasionX >= Main.spawnTileX)
 						{
-							Main.invasionX = (double)Main.spawnTileX;
+							Main.invasionX = Main.spawnTileX;
 							BoulderInvasionWarning();
 						}
 						else
@@ -136,8 +147,8 @@ namespace Infernus.Invas
 				}
 			}
 		}
-		
-		public static void CheckInvasionProgress()
+
+        public static void CheckInvasionProgress()
 		{
 			int[] FullList = GetFullInvaderList();
 			
@@ -161,7 +172,7 @@ namespace Infernus.Invas
 					{
 						if(type == FullList[n])
 						{
-							Rectangle value = new Rectangle((int)(Main.npc[i].position.X + (float)(Main.npc[i].width / 2)) - num, (int)(Main.npc[i].position.Y + (float)(Main.npc[i].height / 2)) - num, num * 2, num * 2);
+							Rectangle value = new Rectangle((int)(Main.npc[i].position.X + (Main.npc[i].width / 2)) - num, (int)(Main.npc[i].position.Y + (Main.npc[i].height / 2)) - num, num * 2, num * 2);
 							if (rectangle.Intersects(value))
 							{
 								flag = true;
@@ -177,14 +188,14 @@ namespace Infernus.Invas
 			{
 				progressMax3 = Main.invasionSizeStart;
 			}
-			if(InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
+			if(InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
 			{
 				Main.ReportInvasionProgress(Main.invasionSizeStart - Main.invasionSize, progressMax3, icon, 0);
 			}
 			
 			foreach(Player p in Main.player)
 			{
-				NetMessage.SendData(78, p.whoAmI, -1, null, Main.invasionSizeStart - Main.invasionSize, (float)Main.invasionSizeStart, (float)(Main.invasionType + 3), 0f, 0, 0, 0);
+				NetMessage.SendData(MessageID.InvasionProgressReport, p.whoAmI, -1, null, Main.invasionSizeStart - Main.invasionSize, Main.invasionSizeStart, (Main.invasionType + 3), 0f, 0, 0, 0);
 			}
 		}
     }

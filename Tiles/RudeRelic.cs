@@ -64,7 +64,7 @@ namespace Infernus.Tiles
 			switch (placeStyle)
 			{
 				case 0:
-					itemType = ModContent.ItemType<Infernus.Placeable.RudeRelic>();
+					itemType = ModContent.ItemType<Placeable.RudeRelic>();
 					break;
 			}
 

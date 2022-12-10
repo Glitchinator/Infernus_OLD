@@ -41,7 +41,7 @@ namespace Infernus.NPCs
 
 		public override void SetDefaults()
 		{
-			NPC.lifeMax = 1033000;
+			NPC.lifeMax = 533000;
 			NPC.damage = 120;
 			NPC.defense = 0;
 			NPC.knockBackResist = 0.0f;
@@ -54,7 +54,7 @@ namespace Infernus.NPCs
 			NPC.value = Item.buyPrice(1, 50, 0, 0);
 			NPC.boss = true;
             AIType = NPCID.AngryBones;
-            Music = MusicID.OtherworldlyWoF;
+            Music = MusicID.LunarBoss;
             NPC.noTileCollide = true;
 			NPC.lavaImmune = true;
             NPC.npcSlots = 8;
@@ -76,81 +76,81 @@ namespace Infernus.NPCs
                 {
 
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 110)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 160)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 210)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 260)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 280)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 300)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 320)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 340)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 400)
                 {
 
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 450)
                 {
 
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 500)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 550)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 580)
@@ -171,19 +171,19 @@ namespace Infernus.NPCs
                 if (Timer == 730)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 780)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 830)
                 {
                     Dash();
-                    spread360shot();
+                    Shotgun360();
                     SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, NPC.position);
                 }
                 if (Timer == 900)
@@ -204,39 +204,39 @@ namespace Infernus.NPCs
                 }
                 if (Timer >= 1000)
                 {
-                    rapidfire();
+                    Rapidfire();
                     speed = 100;
                     Move(new Vector2((Main.rand.Next(0)), -400f));
                 }
                 if (Timer == 1020)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 1040)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 1060)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 1080)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 1100)
                 {
-                    homingmissles();
+                    Homingmissles();
                     SoundEngine.PlaySound(SoundID.Item94, NPC.position);
-                    spreadslowfast();
+                    HomingStars();
                 }
                 if (Timer == 1150)
                 {
@@ -245,24 +245,6 @@ namespace Infernus.NPCs
                         Timer = 0;
                     }
                 }
-
-                if (Timer >= 1450)
-                {
-                    NPC.life = 0;
-                }
-
-                if (NPC.life <= 0)
-                {
-                    if (Main.netMode == 0)
-                    {
-                        Main.NewText("You Cannot Escape", 145, 9, 18);
-                    }
-                    if (Main.netMode == 1)
-                    {
-                        Main.NewText("You Cannot Escape", 145, 9, 18);
-                    }
-                }
-
                 if (NPC.life <= 2000)
                 {
                     Music = MusicID.Credits;
@@ -296,18 +278,40 @@ namespace Infernus.NPCs
                         }
                         SoundEngine.PlaySound(SoundID.NPCDeath14, NPC.position);
                     }
-                    if (Main.rand.NextBool(100))
+                    if (Timer == 1180)
                     {
-                        if (Main.netMode == 0)
+                        if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
+                            Main.NewText("I cannot believe what I am feeling.", 159, 0, 0);
                         }
-                        if (Main.netMode == 1)
+                        if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
-                            Main.NewText("You Cannot slay me, not without dying FIRST", 145, 9, 18);
+                            Main.NewText("I cannot believe what I am feeling.", 159, 0, 0);
                         }
                     }
-                    if (Timer >= 1250)
+                    if (Timer == 1270)
+                    {
+                        if (Main.netMode == NetmodeID.SinglePlayer)
+                        {
+                            Main.NewText("Defeat, such a cause for distress, I won't let it happen.", 159, 0, 0);
+                        }
+                        if (Main.netMode == NetmodeID.MultiplayerClient)
+                        {
+                            Main.NewText("Defeat, such a cause for distress, I won't let it happen.", 159, 0, 0);
+                        }
+                    }
+                    if (Timer == 1360)
+                    {
+                        if (Main.netMode == NetmodeID.SinglePlayer)
+                        {
+                            Main.NewText("I congratulate you on your triumph. But this will not do. Gods must favor the irony, I sought the best.", 159, 0, 0);
+                        }
+                        if (Main.netMode == NetmodeID.MultiplayerClient)
+                        {
+                            Main.NewText("I congratulate you on your triumph. But this will not do. Gods must favor the irony, I sought the best.", 159, 0, 0);
+                        }
+                    }
+                    if (Timer >= 1360)
                     {
                         NPC.dontTakeDamage = false;
                         return;
@@ -345,7 +349,7 @@ namespace Infernus.NPCs
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             NPC.damage = (int)(NPC.damage * .6f);
-            NPC.lifeMax = (int)(NPC.lifeMax = 1503600 + numPlayers);
+            NPC.lifeMax = (int)(NPC.lifeMax = 703600 + numPlayers);
         }
         private void Dash()
         {
@@ -408,7 +412,7 @@ namespace Infernus.NPCs
                 }
             }
         }
-        private void homingmissles()
+        private void Homingmissles()
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -432,7 +436,7 @@ namespace Infernus.NPCs
                 }
             }
         }
-        private void rapidfire()
+        private void Rapidfire()
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -500,12 +504,12 @@ namespace Infernus.NPCs
             }
             NPC.velocity = move;
         }
-        private float Magnitude(Vector2 mag)
+        private static float Magnitude(Vector2 mag)
         {
             return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
         }
 
-        private void spreadslowfast()
+        private void HomingStars()
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -528,7 +532,7 @@ namespace Infernus.NPCs
                 }
             }
         }
-        private void spread360shot()
+        private void Shotgun360()
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -554,6 +558,17 @@ namespace Infernus.NPCs
 
         public override void HitEffect(int hitDirection, double damage)
         {
+            if(NPC.life <= 0)
+            {
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText("A power you are. Judgement was my fist mistake. Your escape is futile though. For the machine is immortal", 159, 0, 0);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    Main.NewText("A power you are. Judgement was my fist mistake. Your escape is futile though. For the machine is immortal", 159, 0, 0);
+                }
+            }
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
@@ -565,7 +580,7 @@ namespace Infernus.NPCs
                 {
                     for (int k = 0; k < 1; k++)
                     {
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+                        Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 4f * hitDirection, -2.5f, 0, default, 1f);
                     }
                     int backGoreType = Mod.Find<ModGore>("Scy1").Type;
 

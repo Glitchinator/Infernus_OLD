@@ -35,7 +35,6 @@ namespace Infernus.Projectiles
 
             if (Main.rand.NextBool(2))
             {
-                target.AddBuff(BuffID.Frostburn, 300);
                 target.AddBuff(ModContent.BuffType<Buffs.aerwhipbuff>(), 300);
             }
         }
@@ -43,7 +42,7 @@ namespace Infernus.Projectiles
 		{
 			Texture2D texture = TextureAssets.FishingLine.Value;
 			Rectangle frame = texture.Frame();
-			Vector2 origin = new Vector2(frame.Width / 80, 5);
+			Vector2 origin = new(frame.Width / 80, 5);
 
 			Vector2 pos = list[0];
 			for (int i = 0; i < list.Count - 1; i++)
@@ -53,7 +52,7 @@ namespace Infernus.Projectiles
 
 				float rotation = diff.ToRotation() - MathHelper.PiOver2;
 				Color color = Lighting.GetColor(element.ToTileCoordinates(), Color.Gray);
-				Vector2 scale = new Vector2(1, (diff.Length() + 2) / frame.Height);
+				Vector2 scale = new(1, (diff.Length() + 2) / frame.Height);
 
 				Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, SpriteEffects.None, 0);
 
@@ -63,7 +62,7 @@ namespace Infernus.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-			List<Vector2> list = new List<Vector2>();
+			List<Vector2> list = new();
 			Projectile.FillWhipControlPoints(Projectile, list);
 
 			DrawLine(list);
@@ -77,8 +76,8 @@ namespace Infernus.Projectiles
 
 			for (int i = 0; i < list.Count - 1; i++)
 			{
-				Rectangle frame = new Rectangle(0, 0, 20, 26);
-				Vector2 origin = new Vector2(5, 8);
+				Rectangle frame = new(0, 0, 20, 26);
+				Vector2 origin = new(5, 8);
 				float scale = 1;
 
 				if (i == list.Count - 2)

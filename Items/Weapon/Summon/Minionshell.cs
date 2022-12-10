@@ -1,5 +1,4 @@
 using Infernus.Buffs;
-using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -53,7 +52,7 @@ namespace Infernus.Items.Weapon.Summon
 			recipe.AddIngredient(ItemID.JunoniaShell, 4);
 			recipe.AddIngredient(ItemID.LightningWhelkShell, 4);
 			recipe.AddIngredient(ItemID.ShellPileBlock, 4);
-			recipe.AddTile(ModContent.TileType<Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

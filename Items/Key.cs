@@ -16,8 +16,8 @@ namespace Infernus.Items
 
 		public override void SetDefaults()
 		{
-			Item.width = 20;
-			Item.height = 30;
+			Item.width = 46;
+			Item.height = 46;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.useStyle = ItemUseStyleID.Swing;
@@ -34,7 +34,7 @@ namespace Infernus.Items
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 12);
 			recipe.AddRecipeGroup("IronBar", 8);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

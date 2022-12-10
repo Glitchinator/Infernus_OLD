@@ -29,11 +29,14 @@ namespace Infernus
 			{
                 price = 100;
             }
-			base.ModifyNursePrice(nurse, health, removeDebuffs, ref price);
 		}
+        public override void OnRespawn(Player player)
+        {
+            ///SoundEngine.PlaySound(SoundID.AchievementComplete);
+        }
 
 
-		public override void ResetEffects()
+        public override void ResetEffects()
 		{
 			DoomDash = false;
 

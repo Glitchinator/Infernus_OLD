@@ -46,8 +46,8 @@ namespace Infernus.Items.Weapon.Ranged
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Firebow>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.IceBow>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<Firebow>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<IceBow>(), 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -41,7 +40,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddIngredient(ModContent.ItemType<BoldnBash>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Murawhip>(), 1);
             recipe.AddIngredient(ModContent.ItemType<IvyWhip>(), 1);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

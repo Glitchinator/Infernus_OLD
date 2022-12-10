@@ -9,7 +9,6 @@ namespace Infernus
 {
 	public class InfernusNPC : GlobalNPC
 	{
-
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
 		{
 			if (npc.type == NPCID.AngryBones)
@@ -35,7 +34,7 @@ namespace Infernus
         }
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
-            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
+            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
             {
                 pool.Clear();
                 if (NPC.downedPlantBoss)
@@ -67,18 +66,18 @@ namespace Infernus
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
+            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
             {
-                spawnRate = 50;
-                maxSpawns = 100;
+                spawnRate = 5;
+                maxSpawns = 20;
             }
         }
 
         public override void PostAI(NPC npc)
         {
-            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == (double)Main.spawnTileX))
+            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
             {
-                npc.timeLeft = 1000;
+                npc.timeLeft = 400;
             }
         }
 
@@ -92,6 +91,14 @@ namespace Infernus
                     if (npc.type == invader)
                     {
                         Main.invasionSize -= 1;
+                    }
+                }
+                int[] Boss = BoulderInvasion.GetBossNOW();
+                foreach (int Bossenemy in Boss)
+                {
+                    if (npc.type == Bossenemy)
+                    {
+                        Main.invasionSize -= 9;
                     }
                 }
             }

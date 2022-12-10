@@ -41,8 +41,8 @@ namespace Infernus.Items.Weapon.Ranged
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 6);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 14);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 		public override Vector2? HoldoutOffset()
 		{

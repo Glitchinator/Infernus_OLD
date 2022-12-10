@@ -11,7 +11,7 @@ namespace Infernus.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Aeritite Helm");
-			Tooltip.SetDefault("+ 5% Melee Damage");
+			Tooltip.SetDefault("+ 6% Melee Damage");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -21,11 +21,11 @@ namespace Infernus.Items.Armor
 			Item.height = 18;
 			Item.value = Item.buyPrice(0, 1, 25, 0);
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 4;
+			Item.defense = 5;
 		}
 		public override void UpdateEquip(Player player)
 		{
-			player.GetDamage(DamageClass.Melee) += .05f;
+			player.GetDamage(DamageClass.Melee) += .06f;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -35,8 +35,8 @@ namespace Infernus.Items.Armor
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Extreme" + "\n+ 6% Melee Speed";
-			player.GetAttackSpeed(DamageClass.Melee)  += .06f;
+			player.setBonus = "Melee's Speed" + "\n+ 12% Melee Speed";
+			player.GetAttackSpeed(DamageClass.Melee)  += .12f;
 			
 		}
 
@@ -45,7 +45,7 @@ namespace Infernus.Items.Armor
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 18);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -65,7 +65,7 @@ namespace Infernus.Tiles
 			switch (placeStyle)
 			{
 				case 0:
-					itemType = ModContent.ItemType<Infernus.Placeable.SharkRelic>();
+					itemType = ModContent.ItemType<Placeable.SharkRelic>();
 					break;
 			}
 

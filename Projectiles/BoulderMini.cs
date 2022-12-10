@@ -17,6 +17,7 @@ namespace Infernus.Projectiles
 			Projectile.hostile = false;
 			Projectile.width = 20;
 			Projectile.height = 20;
+			Projectile.penetrate = 2;
 		}
 		public override void AI()
 		{

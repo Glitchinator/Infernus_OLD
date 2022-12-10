@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -47,7 +46,7 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 44; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 186, 4f * (float)hitDirection, -2.5f, 0, default(Color), 3f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.RedsWingsRun, 4f * hitDirection, -2.5f, 0, default, 3f);
 				}
 			}
 		}

@@ -51,7 +51,7 @@ namespace Infernus.NPCs
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.value = Item.buyPrice(0, 10, 50, 0);
 			NPC.boss = true;
-            Music = MusicID.OtherworldlyUGHallow;
+            Music = MusicID.Boss4;
             NPC.noTileCollide = true;
 			NPC.lavaImmune = true;
             NPC.npcSlots = 20;
@@ -267,6 +267,17 @@ namespace Infernus.NPCs
 
         public override void HitEffect(int hitDirection, double damage)
         {
+            if (NPC.life <= 0)
+            {
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText("A storm rumbles in the distance. Flashes of lightning and thunder are known from afar.", 159, 197, 232);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    Main.NewText("A storm rumbles in the distance. Flashes of lightning and thunder are known from afar.", 159, 197, 232);
+                }
+            }
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
@@ -274,17 +285,9 @@ namespace Infernus.NPCs
 
             if (NPC.life <= 0)
             {
-                if (Main.netMode == 0)
-                {
-                    Main.NewText("A storm is brewing", 175, 75, 255);
-                }
-                if (Main.netMode == 1)
-                {
-                    Main.NewText("A storm is brewing", 175, 75, 255);
-                }
                 for (int k = 0; k < 1; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Cloud, 4f * hitDirection, -2.5f, 0, default, 1f);
                 }
                 int frontGoreType = Mod.Find<ModGore>("Ice2").Type;
                 int backGoreType = Mod.Find<ModGore>("Ice1").Type;

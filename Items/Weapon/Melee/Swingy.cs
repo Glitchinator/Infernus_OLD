@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -41,8 +40,8 @@ namespace Infernus.Items.Weapon.Melee
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 24);
 			recipe.AddIngredient(ItemID.WoodenSword, 1);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

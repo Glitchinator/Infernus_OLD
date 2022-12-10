@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -37,7 +36,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddIngredient(ItemID.TulipShell, 4);
             recipe.AddIngredient(ItemID.JunoniaShell, 4);
             recipe.AddIngredient(ItemID.LightningWhelkShell, 4);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

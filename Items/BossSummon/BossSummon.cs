@@ -11,8 +11,9 @@ namespace Infernus.Items.BossSummon
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Receivers Call");
-			Tooltip.SetDefault("Summons Ruberibus");
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
+			Tooltip.SetDefault("Summons Ruberibus"
+				+ "\n Must be in snow biome");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
 		}
 
 		public override void SetDefaults() 

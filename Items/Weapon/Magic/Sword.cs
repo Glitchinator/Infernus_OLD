@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 
@@ -43,7 +42,7 @@ namespace Infernus.Items.Weapon.Magic
             recipe.AddIngredient(ItemID.Cloud, 80);
             recipe.AddIngredient(ItemID.Feather, 12);
             recipe.AddIngredient(ItemID.SunplateBlock, 40);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

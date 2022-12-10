@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -41,7 +40,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.AddIngredient(ModContent.ItemType<Infernus.Items.Materials.Gravel>(), 9);
             recipe.AddIngredient(ItemID.Chain, 9);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

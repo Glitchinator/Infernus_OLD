@@ -14,19 +14,12 @@ namespace Infernus
                 AutoloadGores = true,
                 AutoloadSounds = true
             };
-
         }
-
         internal class ModProperties
         {
-            public ModProperties()
-            {
-            }
-
             public bool Autoload { get; set; }
             public bool AutoloadGores { get; set; }
             public bool AutoloadSounds { get; set; }
         }
-
     }
 }

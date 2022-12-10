@@ -34,7 +34,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
 				player.GetCritChance(DamageClass.Generic) += 16;
 				player.GetDamage(DamageClass.Generic) += .15f;
 				player.accMerman = true;
-				player.lifeRegen = 6;
+				player.lifeRegen += 6;
 			}
 
 		}

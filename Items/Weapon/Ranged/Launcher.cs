@@ -2,13 +2,12 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Ranged
 {
-	public class Launcher : ModItem
+    public class Launcher : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -62,10 +61,10 @@ namespace Infernus.Items.Weapon.Ranged
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 42);
+			recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 42);
 			recipe.AddIngredient(ItemID.MusketBall, 999);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

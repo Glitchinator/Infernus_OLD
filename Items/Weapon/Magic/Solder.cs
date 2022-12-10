@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Magic
@@ -41,8 +40,8 @@ namespace Infernus.Items.Weapon.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gravel>(), 9);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gaming>(), 9);
+            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gaming>(), 9);
 			recipe.Register();
 		}
 	}

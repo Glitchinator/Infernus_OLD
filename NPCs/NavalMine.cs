@@ -46,11 +46,11 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 170, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ichor, 4f * hitDirection, -2.5f, 0, default, 1f);
 				}
 				for (int k = 0; k < 26; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 186, 4f * (float)hitDirection, -2.5f, 0, default(Color), 2f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.RedsWingsRun, 4f * hitDirection, -2.5f, 0, default, 2f);
 				}
 			}
 		}

@@ -57,7 +57,7 @@ namespace Infernus.NPCs
 			NPC.breathCounter = 999;
 			NPC.value = Item.buyPrice(gold: 36);
 			NPC.boss = true;
-			Music = MusicID.OtherworldlyPlantera;
+			Music = MusicID.Boss2;
 		}
         int Timer;
 		public override void AI()
@@ -410,11 +410,11 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 45; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 229, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Vortex, 4f * hitDirection, -2.5f, 0, default, 1f);
 				}
 				for (int k = 0; k < 45; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 228, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldFlame, 4f * hitDirection, -2.5f, 0, default, 1f);
 				}
 			}
 		}

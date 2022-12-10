@@ -33,7 +33,7 @@ namespace Infernus.Placeable
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.WorkBench);
 			recipe.AddIngredient(ItemID.Wood, 8);
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gravel>(), 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.Gravel>(), 8);
 			recipe.Register();
 		}
 	}

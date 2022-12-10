@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Infernus.Placeable;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
-	public class Boulder2jung : ModNPC
+    public class Boulder2jung : ModNPC
 	{
 
 		public override void SetStaticDefaults()
@@ -19,10 +19,10 @@ namespace Infernus.NPCs
 
 		public override void SetDefaults()
 		{
-			NPC.lifeMax = 2050;
-			NPC.damage = 50;
-			NPC.defense = 21;
-			NPC.knockBackResist = 0.0f;
+			NPC.lifeMax = 1650;
+			NPC.damage = 90;
+			NPC.defense = 40;
+			NPC.knockBackResist = 0.1f;
 			NPC.width = 100;
 			NPC.height = 80;
 			NPC.aiStyle = 2;
@@ -33,9 +33,10 @@ namespace Infernus.NPCs
 			AnimationType = NPCID.DemonEye;
             Banner = Item.NPCtoBanner(NPCID.RockGolem);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 9, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 20);
         }
-		public override void HitEffect(int hitDirection, double damage)
+
+        public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
 			{
@@ -45,38 +46,27 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 1.2f);
-				}
-				{
-					for (int k = 0; k < damage / NPC.lifeMax * 50.0; k++)
-					{
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, (float)hitDirection, -1f, 0, default(Color), 1.2f);
-					}
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, default, 1.2f);
 				}
 			}
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			if (Main.rand.NextBool(4))
-			{
-				target.AddBuff(BuffID.Venom, 180, quiet: false);
-			}
+			target.AddBuff(BuffID.Venom, 180);
 		}
-		public override void ModifyNPCLoot(NPCLoot npcLoot)
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Rock>(), 4, 1, 2));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(), 55, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(), 55, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Magic.Venom>(), 55, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.Bog>(), 55, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Accessories.Wings>(), 55, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.LifeFruit, 75, 1, 2));
+            npcLoot.Add(ItemDropRule.Common(ItemID.StoneBlock, 1, 4, 6));
+            npcLoot.Add(ItemDropRule.Common(ItemID.BoulderStatue, 95, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Rock>(), 4, 2, 3));
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, long slept in the jungle, flys to destroy you")
+				new FlavorTextBestiaryInfoElement("A Winger Boulder with pores that ooze venom, it harms itself through this process.")
 			});
 		}
         public override void OnKill()

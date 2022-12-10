@@ -17,7 +17,7 @@ namespace Infernus.Items.Weapon.Summon
 
 		public override void SetDefaults()
 		{
-			Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Whipgem>(), 23, 3, 7);
+			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipgem>(), 23, 3, 7);
 			Item.value = Item.buyPrice(0, 9, 50, 0);
 
 			Item.shootSpeed = 4;
@@ -31,8 +31,8 @@ namespace Infernus.Items.Weapon.Summon
 			recipe.AddIngredient(ItemID.Ruby, 3);
 			recipe.AddIngredient(ItemID.Amethyst, 3);
 			recipe.AddIngredient(ItemID.Topaz, 3);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 		public override bool MeleePrefix()
 		{

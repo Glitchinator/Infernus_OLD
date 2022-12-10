@@ -10,8 +10,6 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Infernus.Items.Weapon.Melee;
 using Infernus.Items.BossSummon;
-using Infernus.Projectiles;
-using System.Reflection.Metadata;
 
 namespace Infernus.NPCs
 {
@@ -61,7 +59,7 @@ namespace Infernus.NPCs
 			NPC.boss = true;
             AnimationType = NPCID.DemonEye;
             AIType = NPCID.AngryBones;
-            Music = MusicID.OtherworldlyUGCorrption;
+            Music = MusicID.Boss2;
             NPC.noTileCollide = true;
 			NPC.lavaImmune = true;
             NPC.npcSlots = 3;
@@ -290,6 +288,18 @@ namespace Infernus.NPCs
 
         public override void HitEffect(int hitDirection, double damage)
         {
+            if (NPC.life <= 0)
+            {
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText("Meteors storm the upper atmosphere. Burning before they touch ground, such a sight to see.", 239, 106, 15);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    Main.NewText("Meteors storm the upper atmosphere. Burning before they touch ground, such a sight to see.", 239, 106, 15);
+                }
+            }
+
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
@@ -297,31 +307,20 @@ namespace Infernus.NPCs
 
             if (NPC.life <= 0)
             {
-                if (NPC.life <= 0)
+                for (int k = 0; k < 1; k++)
                 {
-                    if (Main.netMode == 0)
-                    {
-                        Main.NewText("The Meteors glare at you, The boulders want their fun", 175, 75, 255);
-                    }
-                    if (Main.netMode == 1)
-                    {
-                        Main.NewText("The Meteors glare at you, The boulders want their fun", 175, 75, 255);
-                    }
-                    for (int k = 0; k < 1; k++)
-                    {
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
-                    }
-                    int backGoreType = Mod.Find<ModGore>("Raiko1").Type;
-
-                    var entitySource = NPC.GetSource_Death();
-
-                    for (int i = 0; i < 1; i++)
-                    {
-                        Gore.NewGore(entitySource, NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), backGoreType);
-                    }
-
-                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 4f * hitDirection, -2.5f, 0, default, 1f);
                 }
+                int backGoreType = Mod.Find<ModGore>("Raiko1").Type;
+
+                var entitySource = NPC.GetSource_Death();
+
+                for (int i = 0; i < 1; i++)
+                {
+                    Gore.NewGore(entitySource, NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), backGoreType);
+                }
+
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)

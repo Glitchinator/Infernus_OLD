@@ -5,10 +5,11 @@ using Terraria.ModLoader;
 using Infernus.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
+using Infernus.Placeable;
 
 namespace Infernus.Items.Weapon.Magic
 {
-	public class Buther : ModItem
+    public class Buther : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -75,11 +76,11 @@ namespace Infernus.Items.Weapon.Magic
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 28);
+			recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 28);
 			recipe.AddIngredient(ItemID.Spike, 28);
 			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Magic.MeteorEater>(), 1);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

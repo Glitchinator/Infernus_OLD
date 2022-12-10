@@ -16,7 +16,7 @@ namespace Infernus.Placeable
 
 		public override void SetDefaults()
 		{
-			Item.DefaultToPlaceableTile(ModContent.TileType<Infernus.Tiles.RudeRelic>());
+			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.RudeRelic>());
 
 			Item.width = 30;
 			Item.height = 40;

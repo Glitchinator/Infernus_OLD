@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -42,7 +41,7 @@ namespace Infernus.Items.Weapon.Melee
             recipe.AddIngredient(ItemID.Bone, 54);
             recipe.AddIngredient(ItemID.WoodenHammer, 1);
             recipe.AddIngredient(ItemID.Cobweb, 24);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
         public override bool CanUseItem(Player player)

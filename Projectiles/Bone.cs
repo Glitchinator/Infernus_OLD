@@ -27,7 +27,7 @@ namespace Infernus.Projectiles
         {
             Projectile.rotation += 0.2f * (float)Projectile.direction;
             if (Main.rand.NextBool(7))
-            {
+                {
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Blood, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
             Projectile.ai[0] += 1f;

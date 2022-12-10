@@ -17,7 +17,7 @@ namespace Infernus.Items.Materials
         {
             Item.Size = new Vector2(30);
             Item.value = Item.buyPrice(0, 1, 20, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ItemRarityID.White;
             Item.maxStack = 999;
         }
 

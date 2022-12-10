@@ -42,7 +42,7 @@ namespace Infernus.Items.Weapon.Ranged
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 32);
 			recipe.AddIngredient(ItemID.Minishark, 1);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 		public override bool CanConsumeAmmo(Item ammo, Player player)

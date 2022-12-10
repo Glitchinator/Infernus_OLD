@@ -43,9 +43,9 @@ namespace Infernus.Items.Armor
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Armor.Helmet>());
+			recipe.AddIngredient(ModContent.ItemType<Helmet>());
 			recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 68);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

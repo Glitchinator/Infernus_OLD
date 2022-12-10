@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Infernus.Buffs;
 using Terraria.GameContent.Creative;
 
@@ -47,10 +46,10 @@ namespace Infernus.Items.Weapon.Summon
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gaming>(), 8);
-			recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Gravel>(), 16);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 8);
+			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 16);
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

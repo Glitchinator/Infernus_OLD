@@ -40,8 +40,8 @@ namespace Infernus.Items.Weapon.Magic
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.JungleSpores, 16);
 			recipe.AddIngredient(ItemID.Vine, 2);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

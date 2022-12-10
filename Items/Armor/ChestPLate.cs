@@ -21,7 +21,7 @@ namespace Infernus.Items.Armor
 			Item.height = 18;
 			Item.value = Item.buyPrice(0, 1, 25, 0);
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 5;
+			Item.defense = 6;
 		}
 
 		public override void AddRecipes()
@@ -29,8 +29,8 @@ namespace Infernus.Items.Armor
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 14);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 20);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

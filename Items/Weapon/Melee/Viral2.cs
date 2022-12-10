@@ -45,8 +45,8 @@ namespace Infernus.Items.Weapon.Melee
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DemoniteBar, 10);
 			recipe.AddIngredient(ItemID.ShadowScale, 14);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{

@@ -11,8 +11,9 @@ namespace Infernus.Items.BossSummon
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Beetle Bait");
-			Tooltip.SetDefault("Summons a Fish");
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
+			Tooltip.SetDefault("Summons a Fish"
+                + "\n Must be in ocean biome");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
 		}
 
 		public override void SetDefaults() 

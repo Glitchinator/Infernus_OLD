@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
@@ -40,10 +39,10 @@ namespace Infernus.Items.Weapon.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 36);
+            recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36);
             recipe.AddIngredient(ModContent.ItemType<Melee.SkullBasher>(), 1);
             recipe.AddIngredient(ItemID.Sapphire, 8);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
         public override bool CanUseItem(Player player)

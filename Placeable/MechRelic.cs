@@ -16,7 +16,7 @@ namespace Infernus.Placeable
 
 		public override void SetDefaults()
 		{
-			Item.DefaultToPlaceableTile(ModContent.TileType<Infernus.Tiles.MechRelic>());
+			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.MechRelic>());
 
 			Item.width = 30;
 			Item.height = 40;

@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
@@ -33,10 +32,10 @@ namespace Infernus.Items.Accesories
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Accesories.Throwing>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Throwing>(), 1);
             recipe.AddIngredient(ItemID.Obsidian, 8);
             recipe.AddIngredient(ItemID.ShadowScale, 8);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

@@ -41,8 +41,8 @@ namespace Infernus.Items.Weapon.Magic
 			recipe.AddIngredient(ItemID.Starfish, 14);
 			recipe.AddIngredient(ItemID.ShellPileBlock, 28);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

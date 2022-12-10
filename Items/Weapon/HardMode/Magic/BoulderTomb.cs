@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 using Infernus.Projectiles;
+using Infernus.Placeable;
 
 namespace Infernus.Items.Weapon.HardMode.Magic
 {
@@ -56,7 +57,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 16);
+            recipe.AddIngredient(ModContent.ItemType<Rock>(), 16);
             recipe.AddIngredient(ItemID.Book, 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

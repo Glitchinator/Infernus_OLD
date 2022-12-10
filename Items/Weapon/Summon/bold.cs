@@ -3,13 +3,12 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Infernus.Buffs;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Summon
 {
-	public class bold : ModItem
+    public class bold : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -47,11 +46,11 @@ namespace Infernus.Items.Weapon.Summon
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Materials.Rock>(), 36);
+			recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36);
 			recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Summon.Minion2>(), 1);
 			recipe.AddIngredient(ItemID.Bone, 36);
-			recipe.AddTile(ModContent.TileType<Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

@@ -50,8 +50,8 @@ namespace Infernus.Items.Weapon.Ranged
 			recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 28);
 			recipe.AddIngredient(ItemID.IceBlock, 16);
 			recipe.AddIngredient(ItemID.Gel, 15);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 	}
 }

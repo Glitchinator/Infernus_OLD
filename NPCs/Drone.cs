@@ -43,7 +43,7 @@ namespace Infernus.NPCs
 				{
 					for (int k = 0; k < 1; k++)
 					{
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, 4f * (float)hitDirection, -2.5f, 0, default(Color), 1f);
+						Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 4f * hitDirection, -2.5f, 0, default, 1f);
 					}
 				int frontGoreType = Mod.Find<ModGore>("Dron2").Type;
 				int backGoreType = Mod.Find<ModGore>("Dron1").Type;
@@ -75,7 +75,7 @@ namespace Infernus.NPCs
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("These drones have been really annoying with their buzzing lately, I wish they would buzz-off.")
+				new FlavorTextBestiaryInfoElement("Creations sent to wander the land, lost without a home.")
 			});
 		}
 	}

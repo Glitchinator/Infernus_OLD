@@ -49,7 +49,7 @@ namespace Infernus.Items.Weapon.Summon
 			recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 37);
 			recipe.AddIngredient(ItemID.IceBlock, 16);
 			recipe.AddIngredient(ItemID.Shiverthorn, 1);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Infernus.Placeable;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -8,20 +8,20 @@ using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
-	public class Boulder1 : ModNPC
+    public class Boulder1 : ModNPC
 	{
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hoppin Boulder");
+			DisplayName.SetDefault("Spry Stone");
 		}
 
 		public override void SetDefaults()
 		{
-			NPC.lifeMax = 286;
-			NPC.damage = 16;
+			NPC.lifeMax = 134;
+			NPC.damage = 24;
 			NPC.defense = 21;
-			NPC.knockBackResist = 0.0f;
+			NPC.knockBackResist = 0.1f;
 			NPC.width = 40;
 			NPC.height = 40;
 			NPC.aiStyle = 1;
@@ -31,7 +31,7 @@ namespace Infernus.NPCs
 			NPC.DeathSound = SoundID.NPCDeath41;
             Banner = Item.NPCtoBanner(NPCID.RockGolem);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 3, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 20);
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{
@@ -43,19 +43,15 @@ namespace Infernus.NPCs
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 1.2f);
-				}
-				{
-					for (int k = 0; k < damage / NPC.lifeMax * 50.0; k++)
-					{
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, (float)hitDirection, -1f, 0, default(Color), 1.2f);
-					}
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, default, 1.2f);
 				}
 			}
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Rock>(), 4, 1, 2));
+            npcLoot.Add(ItemDropRule.Common(ItemID.StoneBlock, 1, 4, 6));
+            npcLoot.Add(ItemDropRule.Common(ItemID.BoulderStatue, 95, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Rock>(), 4, 2, 3));
 			if (NPC.downedBoss3)
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.July4th>(), 70, 1, 1));
 		}
@@ -64,7 +60,7 @@ namespace Infernus.NPCs
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A boulder mad that you killed Raiko, now hops to crush you")
+				new FlavorTextBestiaryInfoElement("It hops. Shouldn't it roll like the others?")
 			});
 		}
         public override void OnKill()

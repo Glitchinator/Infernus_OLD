@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
@@ -38,7 +37,7 @@ namespace Infernus.Items.Accesories
             recipe.AddIngredient(ItemID.Bone, 16);
             recipe.AddIngredient(ItemID.Cobweb, 16);
             recipe.AddIngredient(ItemID.ManaCrystal, 4);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

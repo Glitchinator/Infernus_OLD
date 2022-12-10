@@ -43,8 +43,8 @@ namespace Infernus.Items.Weapon.Magic
 			recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 26);
 			recipe.AddIngredient(ItemID.IceBlock, 30);
 			recipe.AddIngredient(ItemID.Obsidian, 25);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{

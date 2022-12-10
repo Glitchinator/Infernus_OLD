@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Ranged
@@ -41,7 +40,7 @@ namespace Infernus.Items.Weapon.Ranged
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 12);
             recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 4);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

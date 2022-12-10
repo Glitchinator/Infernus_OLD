@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -19,7 +18,7 @@ namespace Infernus.Items.Materials
         {
             Item.Size = new Vector2(20);
             Item.value = Item.buyPrice(0, 1, 35, 0);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.White;
             Item.maxStack = 999;
         }
 

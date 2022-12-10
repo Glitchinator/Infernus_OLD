@@ -18,7 +18,7 @@ namespace Infernus.Items.Weapon.Summon
 
 		public override void SetDefaults()
 		{
-			Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Whipice>(), 32, 3, 7);
+			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipice>(), 32, 3, 7);
 			Item.value = Item.buyPrice(0, 10, 50, 0);
 
 			Item.shootSpeed = 5;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.Summon
 			recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 25);
 			recipe.AddIngredient(ItemID.IceBlock, 36);
 			recipe.AddIngredient(ModContent.ItemType<Summon.Whipaer>(), 1);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 		public override bool MeleePrefix()

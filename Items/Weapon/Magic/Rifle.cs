@@ -44,8 +44,8 @@ namespace Infernus.Items.Weapon.Magic
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddIngredient(ItemID.Wood, 8);
-			recipe.AddTile(ModContent.TileType<Tiles.Work>());
-			recipe.Register();
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{

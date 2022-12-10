@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Tiles;
 using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Ranged
@@ -11,7 +10,7 @@ namespace Infernus.Items.Weapon.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rough HoneyComb");
-            Tooltip.SetDefault("explodes into stingers");
+            Tooltip.SetDefault("Explodes into stingers");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -41,7 +40,7 @@ namespace Infernus.Items.Weapon.Ranged
             recipe.AddIngredient(ItemID.HoneyComb, 1);
             recipe.AddIngredient(ItemID.Grenade, 100);
             recipe.AddIngredient(ItemID.Stinger, 12);
-            recipe.AddTile(ModContent.TileType<Work>());
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }
