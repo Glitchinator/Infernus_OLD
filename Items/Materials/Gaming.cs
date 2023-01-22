@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,18 +14,18 @@ namespace Infernus.Items.Materials
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 30;
+            Item.height = 24;
             Item.rare = ItemRarityID.White;
             Item.maxStack = 999;
-            Item.value = Item.buyPrice(0, 0, 45, 0);
+            Item.value = Item.buyPrice(0, 0, 0, 15);
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Placeable.Ore>(), 3);
-            recipe.AddTile(TileID.Furnaces);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Placeable.Ore>(), 3)
+            .AddTile(TileID.Furnaces)
+            .Register();
         }
-
     }
 }

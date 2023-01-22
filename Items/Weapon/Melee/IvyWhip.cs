@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
 {
@@ -18,8 +18,8 @@ namespace Infernus.Items.Weapon.Melee
         {
             Item.damage = 18;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 30;
+            Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = 5;

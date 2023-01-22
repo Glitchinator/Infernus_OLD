@@ -10,22 +10,15 @@ namespace Infernus.Items.Pets
 		{
 			DisplayName.SetDefault("Horseshoe Crab");
 			Description.SetDefault("A Horseshoe Crab is following you");
-
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}
-
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-
-			int projType = ModContent.ProjectileType<CrabPet>();
-
-			if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[projType] <= 0)
+			if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<CrabPet>()] <= 0)
 			{
-				var entitySource = player.GetSource_Buff(buffIndex);
-
-				Projectile.NewProjectile(entitySource, player.Center, Vector2.Zero, projType, 0, 0f, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<CrabPet>(), 0, 0f, player.whoAmI);
 			}
 		}
 	}

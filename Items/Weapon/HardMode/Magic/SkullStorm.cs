@@ -1,9 +1,9 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.HardMode.Magic
 {
@@ -50,7 +50,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
             for (int i = 0; i < NumProjectiles; i++)
             {
-                type = Main.rand.Next(new int[] { type, ProjectileID.ClothiersCurse, ProjectileID.BookOfSkullsSkull,});
+                type = Main.rand.Next(new int[] { type, ProjectileID.ClothiersCurse, ProjectileID.BookOfSkullsSkull, });
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(15));
 

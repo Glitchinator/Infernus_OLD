@@ -1,32 +1,32 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Infernus.Buffs;
+﻿using Infernus.Buffs;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
-	
-	public class DemonHand : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+
+    public class DemonHand : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
-		public override void SetDefaults()
-		{
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Summon;
-			Projectile.width = 70;
-			Projectile.height = 78;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
-			Projectile.minion = true;
-			Projectile.minionSlots = 1f;
-			Projectile.penetrate = -1;
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Summon;
+            Projectile.width = 70;
+            Projectile.height = 78;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+            Projectile.minion = true;
+            Projectile.minionSlots = 1f;
+            Projectile.penetrate = -1;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
@@ -34,7 +34,7 @@ namespace Infernus.Projectiles
             target.immune[Projectile.owner] = 7;
         }
         public override void AI()
-		{
+        {
             Projectile.rotation += (float)Projectile.direction * 14;
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             Player player = Main.player[Projectile.owner];
@@ -52,13 +52,13 @@ namespace Infernus.Projectiles
             }
 
             if (player.dead || !player.active)
-			{
-				player.ClearBuff(ModContent.BuffType<DemonBuff>());
-			}
-			if (player.HasBuff(ModContent.BuffType<DemonBuff>()))
-			{
-				Projectile.timeLeft = 2;
-			}
+            {
+                player.ClearBuff(ModContent.BuffType<DemonBuff>());
+            }
+            if (player.HasBuff(ModContent.BuffType<DemonBuff>()))
+            {
+                Projectile.timeLeft = 2;
+            }
 
             float distanceFromTarget = 250f;
             Vector2 targetCenter = Projectile.position;
@@ -137,9 +137,9 @@ namespace Infernus.Projectiles
                 }
             }
         }
-		public override bool MinionContactDamage()
-		{
-			return true;
-		}
-	}
+        public override bool MinionContactDamage()
+        {
+            return true;
+        }
+    }
 }

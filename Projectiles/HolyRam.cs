@@ -17,10 +17,9 @@ namespace Infernus.Projectiles
             Projectile.CloneDefaults(ProjectileID.JavelinFriendly);
             AIType = ProjectileID.JavelinFriendly;
             Projectile.penetrate = 1;
+            Projectile.netImportant = true;
 
         }
-
-
         public override void AI()
         {
             if (Main.rand.NextBool(11))
@@ -29,8 +28,7 @@ namespace Infernus.Projectiles
                 Main.projectile[a].timeLeft = 200;
                 Main.projectile[a].netImportant = false;
             }
-
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f); 
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f);
         }
     }
 }

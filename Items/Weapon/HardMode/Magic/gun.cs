@@ -1,9 +1,9 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.HardMode.Magic
 {
@@ -37,11 +37,11 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-                type = Main.rand.Next(new int[] { type, ProjectileID.GreenLaser, ProjectileID.PurpleLaser, ProjectileID.BulletHighVelocity, });
+            type = Main.rand.Next(new int[] { type, ProjectileID.GreenLaser, ProjectileID.PurpleLaser, ProjectileID.BulletHighVelocity, });
 
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));
+            Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));
 
-                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
 
             return false;
         }

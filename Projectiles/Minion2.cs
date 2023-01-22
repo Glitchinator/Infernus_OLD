@@ -6,38 +6,38 @@ using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
-	public class Minion2 : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+    public class Minion2 : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = false;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
 
-		public sealed override void SetDefaults()
-		{
-			Projectile.width = 28;
+        public sealed override void SetDefaults()
+        {
+            Projectile.width = 28;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.height = 60;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
             Projectile.minion = true;
-			Projectile.minionSlots = 1f;
-			Projectile.penetrate = -1;
-		}
-		public override bool? CanCutTiles()
-		{
-			return false;
-		}
-		public override bool MinionContactDamage()
-		{
-			return true;
-		}
+            Projectile.minionSlots = 1f;
+            Projectile.penetrate = -1;
+        }
+        public override bool? CanCutTiles()
+        {
+            return false;
+        }
+        public override bool MinionContactDamage()
+        {
+            return true;
+        }
 
         public override void AI()
-		{
+        {
             if (Main.rand.NextBool(3))
             {
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
@@ -46,19 +46,19 @@ namespace Infernus.Projectiles
 
             Player player = Main.player[Projectile.owner];
 
-			if (player.dead || !player.active)
-			{
-				player.ClearBuff(ModContent.BuffType<RaikoBuff>());
-			}
-			if (player.HasBuff(ModContent.BuffType<RaikoBuff>()))
-			{
-				Projectile.timeLeft = 2;
-			}
+            if (player.dead || !player.active)
+            {
+                player.ClearBuff(ModContent.BuffType<RaikoBuff>());
+            }
+            if (player.HasBuff(ModContent.BuffType<RaikoBuff>()))
+            {
+                Projectile.timeLeft = 2;
+            }
 
-			Projectile.Center = player.Center;
-			Projectile.position.X = player.position.X - 6;
-			Projectile.position.Y = player.position.Y - 10;
-			Projectile.rotation = player.velocity.X * -0.01f;
+            Projectile.Center = player.Center;
+            Projectile.position.X = player.position.X - 6;
+            Projectile.position.Y = player.position.Y - 10;
+            Projectile.rotation = player.velocity.X * -0.01f;
 
 
             float distanceFromTarget = 250f;
@@ -134,5 +134,5 @@ namespace Infernus.Projectiles
                 }
             }
         }
-	}
+    }
 }

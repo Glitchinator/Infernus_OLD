@@ -31,10 +31,10 @@ namespace Infernus.NPCs
 			NPC.breath = 999;
 			NPC.breathCounter = 999;
 			AnimationType = NPCID.DemonEye;
-            Banner = Item.NPCtoBanner(NPCID.Squid);
-            BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 3, 25, 0);
-        }
+			Banner = Item.NPCtoBanner(NPCID.Squid);
+			BannerItem = Item.BannerToItem(Banner);
+			NPC.value = Item.buyPrice(0, 1, 25, 0);
+		}
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -70,8 +70,8 @@ namespace Infernus.NPCs
 		{
 			npcLoot.Add(ItemDropRule.Common(ItemID.BlackInk, 1, 1, 1));
 			npcLoot.Add(ItemDropRule.Common(ItemID.PinkJellyfish, 1, 1, 1));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Pizza, 25, 1, 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Consumable.Potion>(), 1, 5, 8));
+			npcLoot.Add(ItemDropRule.Common(ItemID.Pizza, 25, 1, 1));
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Consumable.Potion>(), 1, 5, 8));
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{

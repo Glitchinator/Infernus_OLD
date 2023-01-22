@@ -1,39 +1,39 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Infernus.Buffs;
+﻿using Infernus.Buffs;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
-	
-	public class Blizzard : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+
+    public class Blizzard : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
-		public override void SetDefaults()
-		{
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Summon;
-			Projectile.width = 42;
-			Projectile.height = 42;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
-			Projectile.minion = true;
-			Projectile.minionSlots = 1f;
-			Projectile.penetrate = -1;
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Summon;
+            Projectile.width = 42;
+            Projectile.height = 42;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+            Projectile.minion = true;
+            Projectile.minionSlots = 1f;
+            Projectile.penetrate = -1;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             for (int k = 0; k < 20; k++)
             {
                 float hitDirection = 0;
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FrostHydra, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 1.2f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FrostHydra, 2.5f * (float)hitDirection, -2.5f, 0, default, 1.2f);
             }
             for (int k = 0; k < 1; k++)
             {
@@ -44,8 +44,8 @@ namespace Infernus.Projectiles
             }
         }
         public override void AI()
-		{
-			Player player = Main.player[Projectile.owner];
+        {
+            Player player = Main.player[Projectile.owner];
 
             Vector2 withplayer = player.Center;
             withplayer.Y -= 48f;
@@ -60,13 +60,13 @@ namespace Infernus.Projectiles
             }
 
             if (player.dead || !player.active)
-			{
-				player.ClearBuff(ModContent.BuffType<IceBuff>());
-			}
-			if (player.HasBuff(ModContent.BuffType<IceBuff>()))
-			{
-				Projectile.timeLeft = 2;
-			}
+            {
+                player.ClearBuff(ModContent.BuffType<IceBuff>());
+            }
+            if (player.HasBuff(ModContent.BuffType<IceBuff>()))
+            {
+                Projectile.timeLeft = 2;
+            }
 
             float distanceFromTarget = 250f;
             Vector2 targetCenter = Projectile.position;
@@ -146,9 +146,9 @@ namespace Infernus.Projectiles
             }
             Projectile.rotation += (float)Projectile.direction * 7;
         }
-		public override bool MinionContactDamage()
-		{
-			return true;
-		}
-	}
+        public override bool MinionContactDamage()
+        {
+            return true;
+        }
+    }
 }

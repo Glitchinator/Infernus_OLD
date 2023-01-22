@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
 {
@@ -10,7 +10,6 @@ namespace Infernus.Items.Weapon.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadow's Reach");
-            Tooltip.SetDefault("Inflicts bleeding and has a chance to spawn golden knifes on hit");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -18,8 +17,8 @@ namespace Infernus.Items.Weapon.Melee
         {
             Item.damage = 24;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 38;
+            Item.height = 34;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = 5;
@@ -38,8 +37,8 @@ namespace Infernus.Items.Weapon.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<BoldnBash>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Murawhip>(), 1);
             recipe.AddIngredient(ModContent.ItemType<IvyWhip>(), 1);
+            recipe.AddIngredient(ItemID.BlueMoon, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

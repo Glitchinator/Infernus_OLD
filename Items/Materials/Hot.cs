@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,11 +14,11 @@ namespace Infernus.Items.Materials
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(30);
-            Item.value = Item.buyPrice(0, 1, 20, 0);
+            Item.width = 16;
+            Item.height = 20;
+            Item.value = Item.buyPrice(0, 0, 5, 0);
             Item.rare = ItemRarityID.White;
             Item.maxStack = 999;
         }
-
     }
 }

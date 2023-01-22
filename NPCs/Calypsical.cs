@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Infernus.Items.BossSummon;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using Infernus.Items.BossSummon;
-using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
@@ -19,9 +19,9 @@ namespace Infernus.NPCs
         private float speed;
         private int damage;
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Calypsical");
-			Main.npcFrameCount[NPC.type] = 3;
+        {
+            DisplayName.SetDefault("Calypsical");
+            Main.npcFrameCount[NPC.type] = 3;
 
             NPCID.Sets.MPAllowedEnemies[Type] = true;
 
@@ -39,24 +39,24 @@ namespace Infernus.NPCs
             NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.lifeMax = 533000;
-			NPC.damage = 120;
-			NPC.defense = 0;
-			NPC.knockBackResist = 0.0f;
-			NPC.width = 200;
-			NPC.height = 276;
-			NPC.aiStyle = -1;
-			NPC.noGravity = true;
-			NPC.HitSound = SoundID.Tink;
-			NPC.DeathSound = SoundID.NPCDeath62;
-			NPC.value = Item.buyPrice(1, 50, 0, 0);
-			NPC.boss = true;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 533000;
+            NPC.damage = 120;
+            NPC.defense = 0;
+            NPC.knockBackResist = 0.0f;
+            NPC.width = 200;
+            NPC.height = 276;
+            NPC.aiStyle = -1;
+            NPC.noGravity = true;
+            NPC.HitSound = SoundID.Tink;
+            NPC.DeathSound = SoundID.NPCDeath62;
+            NPC.value = Item.buyPrice(1, 50, 0, 0);
+            NPC.boss = true;
             AIType = NPCID.AngryBones;
             Music = MusicID.LunarBoss;
             NPC.noTileCollide = true;
-			NPC.lavaImmune = true;
+            NPC.lavaImmune = true;
             NPC.npcSlots = 8;
         }
 
@@ -240,7 +240,7 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 1150)
                 {
-                    if(NPC.dontTakeDamage == false)
+                    if (NPC.dontTakeDamage == false)
                     {
                         Timer = 0;
                     }
@@ -320,7 +320,7 @@ namespace Infernus.NPCs
                     {
                         NPC.dontTakeDamage = true;
                     }
-                } 
+                }
             }
             base.AI();
             NPC.TargetClosest(true);
@@ -558,7 +558,7 @@ namespace Infernus.NPCs
 
         public override void HitEffect(int hitDirection, double damage)
         {
-            if(NPC.life <= 0)
+            if (NPC.life <= 0)
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
@@ -567,6 +567,14 @@ namespace Infernus.NPCs
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
                     Main.NewText("A power you are. Judgement was my fist mistake. Your escape is futile though. For the machine is immortal", 159, 0, 0);
+                }
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText("You hear the Infernheads rejoice", InfernusPlayer.GainXP_Resource);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    Main.NewText("You hear the Infernheads rejoice", InfernusPlayer.GainXP_Resource);
                 }
             }
             if (Main.netMode == NetmodeID.Server)
@@ -622,7 +630,7 @@ namespace Infernus.NPCs
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A galactic challenger that faces the worst of the universes threats, including you")
+                new FlavorTextBestiaryInfoElement("A galactic challenger that faces the worst of the universes threats, including you")
             });
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -630,6 +638,7 @@ namespace Infernus.NPCs
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Mechbag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Placeable.MechTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tools.MechPole>(), 10));
 
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Placeable.MechRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Pets.MechItem>()));

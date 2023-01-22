@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Infernus.Items.BossSummon;
+using Infernus.Items.Weapon.Melee;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using Infernus.Items.Weapon.Melee;
-using Infernus.Items.BossSummon;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
@@ -19,15 +19,15 @@ namespace Infernus.NPCs
         private Player player;
         private float speed;
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Raiko");
-			Main.npcFrameCount[NPC.type] = 2;
+        {
+            DisplayName.SetDefault("Raiko");
+            Main.npcFrameCount[NPC.type] = 2;
 
             NPCID.Sets.MPAllowedEnemies[Type] = true;
 
             NPCID.Sets.BossBestiaryPriority.Add(Type);
 
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
+            NPCDebuffImmunityData debuffData = new()
             {
                 SpecificallyImmuneTo = new int[] {
                     BuffID.OnFire,
@@ -38,30 +38,30 @@ namespace Infernus.NPCs
                     BuffID.Daybreak,
 
                     BuffID.Confused
-				}
+                }
             };
             NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.lifeMax = 2850;
-			NPC.damage = 28;
-			NPC.defense = 12;
-			NPC.knockBackResist = 0.0f;
-			NPC.width = 120;
-			NPC.height = 120;
-			NPC.aiStyle = -1;
-			NPC.noGravity = true;
-			NPC.HitSound = SoundID.Item62;
-			NPC.DeathSound = SoundID.NPCDeath10;
-			NPC.value = Item.buyPrice(0, 8, 50, 0);
-			NPC.boss = true;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 2850;
+            NPC.damage = 28;
+            NPC.defense = 12;
+            NPC.knockBackResist = 0.0f;
+            NPC.width = 120;
+            NPC.height = 120;
+            NPC.aiStyle = -1;
+            NPC.noGravity = true;
+            NPC.HitSound = SoundID.Item62;
+            NPC.DeathSound = SoundID.NPCDeath10;
+            NPC.value = Item.buyPrice(0, 8, 50, 0);
+            NPC.boss = true;
             AnimationType = NPCID.DemonEye;
             AIType = NPCID.AngryBones;
             Music = MusicID.Boss2;
             NPC.noTileCollide = true;
-			NPC.lavaImmune = true;
+            NPC.lavaImmune = true;
             NPC.npcSlots = 3;
         }
 
@@ -242,7 +242,7 @@ namespace Infernus.NPCs
             {
                 NPC.velocity.X *= 3f;
                 NPC.velocity.Y *= 3f;
-                Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
+                Vector2 whereboss = new(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
                 {
                     float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));
                     NPC.velocity.X = (float)(Math.Cos(rotation) * 18) * -1;
@@ -259,8 +259,7 @@ namespace Infernus.NPCs
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                var entitySource = NPC.GetSource_FromAI();
-                NPC.NewNPC(entitySource, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Midlite>(), NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Midlite>(), NPC.whoAmI);
             }
         }
         private void Shoot()
@@ -342,7 +341,7 @@ namespace Infernus.NPCs
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("Conceived from space itself, the vengeful spite meteor is here to get revenge for your actions")
+                new FlavorTextBestiaryInfoElement("Conceived from space itself, the vengeful spite meteor is here to get revenge for your actions")
             });
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)

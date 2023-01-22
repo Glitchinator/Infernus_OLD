@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.HardMode.Magic
 {
@@ -41,6 +41,6 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
-        } 
+        }
     }
 }

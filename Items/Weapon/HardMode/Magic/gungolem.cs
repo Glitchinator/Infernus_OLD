@@ -1,10 +1,9 @@
+using Infernus.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
-using Infernus.Projectiles;
 
 namespace Infernus.Items.Weapon.HardMode.Magic
 {

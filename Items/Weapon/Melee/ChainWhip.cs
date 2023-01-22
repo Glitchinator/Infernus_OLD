@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
 {
@@ -9,19 +9,19 @@ namespace Infernus.Items.Weapon.Melee
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Metalic Flail");
+            DisplayName.SetDefault("Aeritite Mace");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 12;
+            Item.damage = 14;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 30;
+            Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2;
             Item.value = Item.buyPrice(0, 5, 50, 0);
             Item.rare = ItemRarityID.Green;
@@ -36,12 +36,10 @@ namespace Infernus.Items.Weapon.Melee
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("IronBar", 3);
-            recipe.AddIngredient(ModContent.ItemType<Infernus.Items.Materials.Gravel>(), 9);
-            recipe.AddIngredient(ItemID.Chain, 9);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.Gaming>(), 6)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

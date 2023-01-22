@@ -26,6 +26,7 @@ namespace Infernus.Projectiles
             Projectile.hide = true;
             Projectile.ownerHitCheck = true;
             Projectile.DamageType = DamageClass.Melee;
+            Projectile.netImportant = true;
         }
 
 
@@ -95,7 +96,7 @@ namespace Infernus.Projectiles
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
             int frameHeight = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
             int startY = frameHeight * Projectile.frame;
-            Rectangle sourceRectangle = new Rectangle(0, startY, texture.Width, frameHeight);
+            Rectangle sourceRectangle = new(0, startY, texture.Width, frameHeight);
             Vector2 origin = sourceRectangle.Size() / 2f;
             origin.X = (float)((Projectile.spriteDirection == -50) ? (sourceRectangle.Width - 40) : 40);
 

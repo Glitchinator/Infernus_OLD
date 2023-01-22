@@ -28,12 +28,12 @@ namespace Infernus.NPCs
 			{
 				SpecificallyImmuneTo = new int[] {
 
-                    BuffID.Electrified,
-                    BuffID.Frostburn2,
-                    BuffID.Frostburn,
+					BuffID.Electrified,
+					BuffID.Frostburn2,
+					BuffID.Frostburn,
 
 
-                    BuffID.Confused
+					BuffID.Confused
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
@@ -59,12 +59,12 @@ namespace Infernus.NPCs
 			NPC.boss = true;
 			Music = MusicID.Boss2;
 		}
-        int Timer;
+		int Timer;
 		public override void AI()
-        {
+		{
 			NPC.netUpdate = true;
 			{
-                Timer++;
+				Timer++;
 				if (Timer == 20)
 				{
 					Dash();
@@ -222,35 +222,35 @@ namespace Infernus.NPCs
 					Shoot2();
 				}
 				if (Timer == 1000)
-                {
+				{
 					Timer = 0;
-                }
+				}
 
 			}
-            base.AI();
-            NPC.TargetClosest(true);
-            Player player = Main.player[NPC.target];
-            Vector2 target = NPC.HasPlayerTarget ? player.Center : Main.npc[NPC.target].Center;
+			base.AI();
+			NPC.TargetClosest(true);
+			Player player = Main.player[NPC.target];
+			Vector2 target = NPC.HasPlayerTarget ? player.Center : Main.npc[NPC.target].Center;
 
-            NPC.rotation = 0.0f;
-            NPC.netAlways = true;
-            NPC.TargetClosest(true);
+			NPC.rotation = 0.0f;
+			NPC.netAlways = true;
+			NPC.TargetClosest(true);
 
-            if (NPC.life >= NPC.lifeMax)
-                NPC.life = NPC.lifeMax;
+			if (NPC.life >= NPC.lifeMax)
+				NPC.life = NPC.lifeMax;
 
-            if (NPC.target < 0 || NPC.target == 255 || player.dead || !player.active)
-            {
-                NPC.TargetClosest(false);
-                NPC.direction = 1;
-                NPC.velocity.Y = NPC.velocity.Y + 1f;
-                if (NPC.timeLeft > 20)
-                {
-                    NPC.timeLeft = 20;
-                    return;
-                }
-            }
-        }
+			if (NPC.target < 0 || NPC.target == 255 || player.dead || !player.active)
+			{
+				NPC.TargetClosest(false);
+				NPC.direction = 1;
+				NPC.velocity.Y = NPC.velocity.Y + 1f;
+				if (NPC.timeLeft > 20)
+				{
+					NPC.timeLeft = 20;
+					return;
+				}
+			}
+		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			NPC.damage = (int)(NPC.damage * .4f);
@@ -265,56 +265,56 @@ namespace Infernus.NPCs
 		{
 			potionType = ItemID.GreaterHealingPotion;
 		}
-        private void bigshot()
-        {
-            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                var entitySource = NPC.GetSource_FromAI();
-                for (int i = 0; i < 5; i++)
-                {
-                    Vector2 velocity = player.Center - NPC.Center;
-                    float magnitude = Magnitude(velocity);
-                    if (magnitude > 0)
-                    {
-                        velocity *= 7f / magnitude;
-                    }
-                    else
-                    {
-                        velocity = new Vector2(0f, 5f);
-                    }
-                    Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(110));
+		private void bigshot()
+		{
+			if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				var entitySource = NPC.GetSource_FromAI();
+				for (int i = 0; i < 5; i++)
+				{
+					Vector2 velocity = player.Center - NPC.Center;
+					float magnitude = Magnitude(velocity);
+					if (magnitude > 0)
+					{
+						velocity *= 7f / magnitude;
+					}
+					else
+					{
+						velocity = new Vector2(0f, 5f);
+					}
+					Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(110));
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FairyQueenLance, 25, NPC.whoAmI);
-                }
-            }
-        }
-        private void bigshot4()
-        {
-            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                var entitySource = NPC.GetSource_FromAI();
-                for (int i = 0; i < 9; i++)
-                {
-                    Vector2 velocity = player.Center - NPC.Center;
-                    float magnitude = Magnitude(velocity);
-                    if (magnitude > 0)
-                    {
-                        velocity *= 6.5f / magnitude;
-                    }
-                    else
-                    {
-                        velocity = new Vector2(0f, 5f);
-                    }
-                    Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(180));
+					Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FairyQueenLance, 25, NPC.whoAmI);
+				}
+			}
+		}
+		private void bigshot4()
+		{
+			if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				var entitySource = NPC.GetSource_FromAI();
+				for (int i = 0; i < 9; i++)
+				{
+					Vector2 velocity = player.Center - NPC.Center;
+					float magnitude = Magnitude(velocity);
+					if (magnitude > 0)
+					{
+						velocity *= 6.5f / magnitude;
+					}
+					else
+					{
+						velocity = new Vector2(0f, 5f);
+					}
+					Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(180));
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FrostWave, 25, NPC.whoAmI);
-                }
-            }
-        }
+					Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FrostWave, 25, NPC.whoAmI);
+				}
+			}
+		}
 		private void Move(Vector2 offset)
 		{
 			player = Main.player[NPC.target];
-            speed = 75f;
+			speed = 75f;
 			Vector2 moveTo = player.Center - offset;
 			Vector2 move = moveTo - NPC.Center;
 			float magnitude = Magnitude(move);
@@ -331,45 +331,45 @@ namespace Infernus.NPCs
 			}
 			NPC.velocity = move;
 		}
-        private void Shoot()
-        {
-            player = Main.player[NPC.target];
-            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                var entitySource = NPC.GetSource_FromAI();
-                Vector2 velocity = player.Center - NPC.Center;
-                float magnitude = Magnitude(velocity);
-                if (magnitude > 0)
-                {
-                    velocity *= 8f / magnitude;
-                }
-                else
-                {
-                    velocity = new Vector2(0f, 5f);
-                }
+		private void Shoot()
+		{
+			player = Main.player[NPC.target];
+			if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				var entitySource = NPC.GetSource_FromAI();
+				Vector2 velocity = player.Center - NPC.Center;
+				float magnitude = Magnitude(velocity);
+				if (magnitude > 0)
+				{
+					velocity *= 8f / magnitude;
+				}
+				else
+				{
+					velocity = new Vector2(0f, 5f);
+				}
 
-                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.CultistBossLightningOrb, 15, NPC.whoAmI);
-            }
-        }
-        private void Shoot2()
-        {
-            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                var entitySource = NPC.GetSource_FromAI();
-                Vector2 velocity = player.Center - NPC.Center;
-                float magnitude = Magnitude(velocity);
-                if (magnitude > 0)
-                {
-                    velocity *= 8f / magnitude;
-                }
-                else
-                {
-                    velocity = new Vector2(0f, 5f);
-                }
+				Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.CultistBossLightningOrb, 15, NPC.whoAmI);
+			}
+		}
+		private void Shoot2()
+		{
+			if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				var entitySource = NPC.GetSource_FromAI();
+				Vector2 velocity = player.Center - NPC.Center;
+				float magnitude = Magnitude(velocity);
+				if (magnitude > 0)
+				{
+					velocity *= 8f / magnitude;
+				}
+				else
+				{
+					velocity = new Vector2(0f, 5f);
+				}
 
-                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.CultistBossIceMist, 35, NPC.whoAmI);
-            }
-        }
+				Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.CultistBossIceMist, 35, NPC.whoAmI);
+			}
+		}
 		private void spawnnpc()
 		{
 			var entitySource = NPC.GetSource_FromAI();
@@ -385,21 +385,21 @@ namespace Infernus.NPCs
 		{
 			return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
 		}
-        private void Dash()
-        {
-            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                NPC.velocity.X *= 12f;
-                NPC.velocity.Y *= 12f;
-                Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
-                {
-                    float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));
-                    NPC.velocity.X = (float)(Math.Cos(rotation) * 24) * -1;
-                    NPC.velocity.Y = (float)(Math.Sin(rotation) * 24) * -1;
-                }
-            }
-        }
-        public override void HitEffect(int hitDirection, double damage)
+		private void Dash()
+		{
+			if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				NPC.velocity.X *= 12f;
+				NPC.velocity.Y *= 12f;
+				Vector2 whereboss = new Vector2(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
+				{
+					float rotation = (float)Math.Atan2((whereboss.Y) - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height)), (whereboss.X) - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width)));
+					NPC.velocity.X = (float)(Math.Cos(rotation) * 24) * -1;
+					NPC.velocity.Y = (float)(Math.Sin(rotation) * 24) * -1;
+				}
+			}
+		}
+		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
 			{

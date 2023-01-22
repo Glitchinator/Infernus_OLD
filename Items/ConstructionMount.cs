@@ -7,9 +7,8 @@ using Terraria.ModLoader;
 
 namespace Infernus.Items
 {
-	public class ConstructionMount : ModMount
-	{
-
+    public class ConstructionMount : ModMount
+    {
         public override void SetStaticDefaults()
         {
             MountData.jumpHeight = 5;
@@ -55,7 +54,6 @@ namespace Infernus.Items
                 MountData.textureHeight = MountData.backTexture.Height();
             }
         }
-
         public override void UpdateEffects(Player player)
         {
             if (Math.Abs(player.velocity.X) > 4f)
@@ -65,7 +63,6 @@ namespace Infernus.Items
                 Dust.NewDust(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, DustID.Smoke);
             }
         }
-
         public override void SetMount(Player player, ref bool skipDust)
         {
             if (!Main.dedServ)

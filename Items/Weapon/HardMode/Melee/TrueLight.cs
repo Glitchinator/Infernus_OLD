@@ -1,8 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.HardMode.Melee
 {
@@ -20,8 +20,8 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.damage = 48;
             Item.DamageType = DamageClass.Melee;
             Item.noMelee = true;
-            Item.width = 30;
-            Item.height = 32;
+            Item.width = 38;
+            Item.height = 34;
             Item.useTime = 28;
             Item.useAnimation = 20;
             Item.useStyle = 1;
@@ -38,7 +38,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Melee.Light>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Weapon.Melee.Light>(), 1);
             recipe.AddIngredient(ItemID.SoulofNight, 8);
             recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
             recipe.AddIngredient(ItemID.SoulofMight, 6);

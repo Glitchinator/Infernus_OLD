@@ -30,11 +30,11 @@ namespace Infernus.Placeable
 
 		public override void AddRecipes()
 		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.WorkBench);
-			recipe.AddIngredient(ItemID.Wood, 8);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.Gravel>(), 8);
-			recipe.Register();
+			CreateRecipe()
+			.AddIngredient(ItemID.WorkBench)
+			.AddIngredient(ItemID.Wood, 8)
+			.AddIngredient(ModContent.ItemType<Items.Materials.Gaming>(), 8)
+			.Register();
 		}
 	}
 }

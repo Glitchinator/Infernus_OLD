@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -19,14 +18,13 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(40);
+            Item.width = 40;
+            Item.height = 40;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 4, 45, 0);
             Item.rare = ItemRarityID.Expert;
             Item.expert = true;
         }
-
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.jumpBoost = true;

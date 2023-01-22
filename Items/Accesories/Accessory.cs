@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Infernus.Buffs;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Infernus.Buffs;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -19,7 +18,8 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 20;
+            Item.height = 20;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 6, 45, 0);
             Item.rare = ItemRarityID.Expert;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Accesories
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-           player.AddBuff(Item.buffType, 2);
+            player.AddBuff(Item.buffType, 2);
         }
     }
 }

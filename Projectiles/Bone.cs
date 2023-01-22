@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using System;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
@@ -22,12 +21,13 @@ namespace Infernus.Projectiles
             Projectile.hostile = false;
             Projectile.timeLeft = 250;
             Projectile.penetrate = 3;
+            Projectile.netImportant = true;
         }
         public override void AI()
         {
             Projectile.rotation += 0.2f * (float)Projectile.direction;
             if (Main.rand.NextBool(7))
-                {
+            {
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Blood, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
             Projectile.ai[0] += 1f;

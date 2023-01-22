@@ -1,41 +1,38 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.Creative;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.Items
 {
-	public class Key : ModItem
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Construction Key");
-			Tooltip.SetDefault("Why you always chasing me? (Why me)");
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
-
-		public override void SetDefaults()
-		{
-			Item.width = 46;
-			Item.height = 46;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.value = Item.sellPrice(0, 6, 15, 0);
-			Item.rare = ItemRarityID.Blue;
-			Item.UseSound = SoundID.Item79;
-			Item.noMelee = true;
-			Item.mountType = ModContent.MountType<ConstructionMount>();
-		}
-
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 20);
-			recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 12);
-			recipe.AddRecipeGroup("IronBar", 8);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
-	}
+    public class Key : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Construction Key");
+            Tooltip.SetDefault("Why you always chasing me? (Why me)");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 46;
+            Item.height = 46;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.value = Item.sellPrice(0, 0, 85, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.UseSound = SoundID.Item79;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<ConstructionMount>();
+        }
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.Gaming>(), 30)
+            .AddRecipeGroup(RecipeGroupID.IronBar, 16)
+            .AddTile(TileID.Anvils)
+            .Register();
+        }
+    }
 }

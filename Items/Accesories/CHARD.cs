@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -17,13 +16,12 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 44;
+            Item.height = 44;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 5, 65, 0);
             Item.rare = ItemRarityID.Orange;
         }
-
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetDamage(DamageClass.Summon) += .12f;
@@ -31,13 +29,13 @@ namespace Infernus.Items.Accesories
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Accesories.Charge>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.Hot>(), 7);
-            recipe.AddIngredient(ModContent.ItemType<global::Infernus.Items.Materials.IceSpikes>(), 7);
-            recipe.AddIngredient(ItemID.HellstoneBar, 10);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Charge>(), 1)
+            .AddIngredient(ModContent.ItemType<Materials.Hot>(), 7)
+            .AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 7)
+            .AddIngredient(ItemID.HellstoneBar, 10)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

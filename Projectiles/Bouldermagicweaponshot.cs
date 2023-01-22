@@ -1,13 +1,11 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using System;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
 
-    public class Bouldermagicweaponshot: ModProjectile
+    public class Bouldermagicweaponshot : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -22,6 +20,7 @@ namespace Infernus.Projectiles
             Projectile.width = 16;
             Projectile.hostile = false;
             Projectile.timeLeft = 250;
+            Projectile.netImportant = true;
         }
         public override void AI()
         {

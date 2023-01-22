@@ -1,8 +1,8 @@
 using Infernus.Projectiles;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon
 {

@@ -7,14 +7,10 @@ using Terraria.ModLoader;
 
 namespace Infernus
 {
-	public class InfernusNPC : GlobalNPC
-	{
+    public class InfernusNPC : GlobalNPC
+    {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
-		{
-			if (npc.type == NPCID.AngryBones)
-			{
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Melee.Murawhip>(), 20, 1, 1));
-			}
+        {
             if (npc.type == NPCID.SkeletonSniper)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.TommyGun>(), 20, 1, 1));
@@ -23,6 +19,10 @@ namespace Infernus
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.DemonStaff>(), 20, 1, 1));
             }
+            if (npc.type == NPCID.MartianSaucer)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tools.MartianPole>(), 30, 1, 1));
+            }
             if (npc.type == NPCID.ShadowFlameApparition)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.GoblinStaff>(), 20, 1, 1));
@@ -30,6 +30,14 @@ namespace Infernus
             if (npc.type == NPCID.GiantBat)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 20, 1, 1));
+            }
+            if (npc.CountsAsACritter == false && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Level.XP_Item>(), 2, 1, 1));
+            }
+            if (npc.boss == true)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Level.XP_Item>(), 1, 1, 5));
             }
         }
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -41,14 +49,14 @@ namespace Infernus
                 {
                     if (Main.rand.Next(5) > 0)
                     {
-                        foreach (int i in BoulderInvasion.HardmodeInvaders)
+                        foreach (int i in BoulderInvasion.HMInvaders)
                         {
                             pool.Add(i, 1f);
                         }
                     }
                     else
                     {
-                        foreach (int i in BoulderInvasion.PreHardmodeInvaders)
+                        foreach (int i in BoulderInvasion.PHMInvaders)
                         {
                             pool.Add(i, 1f);
                         }
@@ -56,7 +64,7 @@ namespace Infernus
                 }
                 else
                 {
-                    foreach (int i in BoulderInvasion.PreHardmodeInvaders)
+                    foreach (int i in BoulderInvasion.PHMInvaders)
                     {
                         pool.Add(i, 1f);
                     }
@@ -85,7 +93,7 @@ namespace Infernus
         {
             if (InfernusWorld.BoulderInvasionUp)
             {
-                int[] FullList = BoulderInvasion.GetFullInvaderList();
+                int[] FullList = BoulderInvasion.GetInvadersNOW();
                 foreach (int invader in FullList)
                 {
                     if (npc.type == invader)

@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Melee
 {
@@ -9,7 +9,7 @@ namespace Infernus.Items.Weapon.Melee
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skull Bash");
+            DisplayName.SetDefault("Skullbasher");
             Tooltip.SetDefault("Spooky, Scary, Boomerang");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -22,13 +22,13 @@ namespace Infernus.Items.Weapon.Melee
             Item.height = 44;
             Item.useTime = 16;
             Item.useAnimation = 16;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
             Item.value = Item.buyPrice(0, 9, 50, 0);
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item19;
             Item.noMelee = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.skull>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SkullBasher>();
             Item.channel = true;
             Item.noUseGraphic = true;
             Item.shootSpeed = 16f;
@@ -37,12 +37,12 @@ namespace Infernus.Items.Weapon.Melee
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Bone, 54);
-            recipe.AddIngredient(ItemID.WoodenHammer, 1);
-            recipe.AddIngredient(ItemID.Cobweb, 24);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Bone, 54)
+            .AddIngredient(ItemID.WoodenHammer, 1)
+            .AddIngredient(ItemID.Cobweb, 24)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool CanUseItem(Player player)
         {

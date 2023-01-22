@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Weapon.Ranged
 {
@@ -28,7 +28,7 @@ namespace Infernus.Items.Weapon.Ranged
             Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item19;
-            Item.shootSpeed = 15f;
+            Item.shootSpeed = 7f;
             Item.shoot = ModContent.ProjectileType<Projectiles.Cement>();
             Item.autoReuse = true;
             Item.noUseGraphic = true;
@@ -36,12 +36,10 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("IronBar", 3);
-            recipe.AddIngredient(ModContent.ItemType<Materials.Gravel>(), 12);
-            recipe.AddIngredient(ModContent.ItemType<Materials.Gaming>(), 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.Gaming>(), 4)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

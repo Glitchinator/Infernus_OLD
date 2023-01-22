@@ -10,7 +10,6 @@ namespace Infernus.Items.Pets
 		{
 			DisplayName.SetDefault("Lost Eye");
 			Description.SetDefault("A confused Eye is following you");
-
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}
@@ -18,14 +17,9 @@ namespace Infernus.Items.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-
-			int projType = ModContent.ProjectileType<MechPet>();
-
-			if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[projType] <= 0)
+			if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<MechPet>()] <= 0)
 			{
-				var entitySource = player.GetSource_Buff(buffIndex);
-
-				Projectile.NewProjectile(entitySource, player.Center, Vector2.Zero, projType, 0, 0f, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<MechPet>(), 0, 0f, player.whoAmI);
 			}
 		}
 	}

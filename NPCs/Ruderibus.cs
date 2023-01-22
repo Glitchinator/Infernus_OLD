@@ -1,13 +1,13 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.GameContent.Bestiary;
 using Terraria.DataStructures;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
@@ -18,9 +18,9 @@ namespace Infernus.NPCs
         private float speed;
 
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Ruderibus");
-			Main.npcFrameCount[NPC.type] = 5;
+        {
+            DisplayName.SetDefault("Ruderibus");
+            Main.npcFrameCount[NPC.type] = 5;
 
             NPCID.Sets.MPAllowedEnemies[Type] = true;
 
@@ -37,23 +37,23 @@ namespace Infernus.NPCs
             NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.lifeMax = 7850;
-			NPC.damage = 35;
-			NPC.defense = 16;
-			NPC.knockBackResist = 0.0f;
-			NPC.width = 120;
-			NPC.height = 120;
-			NPC.aiStyle = -1;
-			NPC.noGravity = true;
-			NPC.HitSound = SoundID.NPCHit42;
-			NPC.DeathSound = SoundID.NPCDeath44;
-			NPC.value = Item.buyPrice(0, 10, 50, 0);
-			NPC.boss = true;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 7850;
+            NPC.damage = 35;
+            NPC.defense = 16;
+            NPC.knockBackResist = 0.0f;
+            NPC.width = 120;
+            NPC.height = 120;
+            NPC.aiStyle = -1;
+            NPC.noGravity = true;
+            NPC.HitSound = SoundID.NPCHit42;
+            NPC.DeathSound = SoundID.NPCDeath44;
+            NPC.value = Item.buyPrice(0, 10, 50, 0);
+            NPC.boss = true;
             Music = MusicID.Boss4;
             NPC.noTileCollide = true;
-			NPC.lavaImmune = true;
+            NPC.lavaImmune = true;
             NPC.npcSlots = 20;
         }
 

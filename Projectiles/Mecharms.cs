@@ -6,54 +6,54 @@ using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
-	public class Mecharms : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+    public class Mecharms : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = false;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
 
-		public sealed override void SetDefaults()
-		{
-			Projectile.width = 102;
+        public sealed override void SetDefaults()
+        {
+            Projectile.width = 102;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.height = 40;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
             Projectile.minion = true;
-			Projectile.minionSlots = 1f;
-			Projectile.penetrate = -1;
-		}
-		public override bool? CanCutTiles()
-		{
-			return false;
-		}
-		public override bool MinionContactDamage()
-		{
-			return true;
-		}
+            Projectile.minionSlots = 1f;
+            Projectile.penetrate = -1;
+        }
+        public override bool? CanCutTiles()
+        {
+            return false;
+        }
+        public override bool MinionContactDamage()
+        {
+            return true;
+        }
 
         protected float shootCool = 6f;
 
         public override void AI()
-		{
+        {
             Player player = Main.player[Projectile.owner];
 
-			if (player.dead || !player.active)
-			{
-				player.ClearBuff(ModContent.BuffType<MechBuff>());
-			}
-			if (player.HasBuff(ModContent.BuffType<MechBuff>()))
-			{
-				Projectile.timeLeft = 2;
-			}
+            if (player.dead || !player.active)
+            {
+                player.ClearBuff(ModContent.BuffType<MechBuff>());
+            }
+            if (player.HasBuff(ModContent.BuffType<MechBuff>()))
+            {
+                Projectile.timeLeft = 2;
+            }
 
-			Projectile.Center = player.Center;
-			Projectile.position.X = player.position.X - 45;
-			Projectile.position.Y = player.position.Y - 16;
+            Projectile.Center = player.Center;
+            Projectile.position.X = player.position.X - 45;
+            Projectile.position.Y = player.position.Y - 16;
 
             float distanceFromTarget = 250f;
             Vector2 targetCenter = Projectile.position;
@@ -132,5 +132,5 @@ namespace Infernus.Projectiles
                 }
             }
         }
-	}
+    }
 }

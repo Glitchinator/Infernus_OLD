@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -18,13 +17,12 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 22;
+            Item.height = 22;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 4, 45, 0);
             Item.rare = ItemRarityID.Orange;
         }
-
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetAttackSpeed(DamageClass.Melee) += .10f;
@@ -32,11 +30,11 @@ namespace Infernus.Items.Accesories
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HellstoneBar, 16);
-            recipe.AddIngredient(ItemID.Bone, 26);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HellstoneBar, 16)
+            .AddIngredient(ItemID.Bone, 26)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

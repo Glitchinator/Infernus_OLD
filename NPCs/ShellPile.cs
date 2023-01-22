@@ -31,10 +31,10 @@ namespace Infernus.NPCs
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.breath = 999;
 			NPC.breathCounter = 999;
-            Banner = Item.NPCtoBanner(NPCID.SandSlime);
-            BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 7, 0);
-        }
+			Banner = Item.NPCtoBanner(NPCID.SandSlime);
+			BannerItem = Item.BannerToItem(Banner);
+			NPC.value = Item.buyPrice(0, 0, 0, 75);
+		}
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
@@ -78,7 +78,7 @@ namespace Infernus.NPCs
 			npcLoot.Add(ItemDropRule.Common(ItemID.LightningWhelkShell, 1, 1, 2));
 			npcLoot.Add(ItemDropRule.Common(ItemID.TulipShell, 1, 1, 2));
 			npcLoot.Add(ItemDropRule.Common(ItemID.Starfish, 1, 1, 2));
-            npcLoot.Add(ItemDropRule.Common(ItemID.BBQRibs, 25, 1, 1));
-        }
-    }
+			npcLoot.Add(ItemDropRule.Common(ItemID.BBQRibs, 50, 1, 1));
+		}
+	}
 }

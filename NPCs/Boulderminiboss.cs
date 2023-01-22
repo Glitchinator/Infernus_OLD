@@ -13,13 +13,13 @@ namespace Infernus.NPCs
 {
     [AutoloadBossHead]
     public class Boulderminiboss : ModNPC
-	{
+    {
         private Player player;
         private float speed;
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Base Rocker");
-			Main.npcFrameCount[NPC.type] = 2;
+        {
+            DisplayName.SetDefault("Base Rocker");
+            Main.npcFrameCount[NPC.type] = 2;
             NPCID.Sets.MPAllowedEnemies[Type] = true;
 
             NPCID.Sets.BossBestiaryPriority.Add(Type);
@@ -36,21 +36,21 @@ namespace Infernus.NPCs
             NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.lifeMax = 29600;
-			NPC.damage = 80;
-			NPC.defense = 38;
-			NPC.knockBackResist = 0.0f;
-			NPC.width = 250;
-			NPC.height = 126;
-			NPC.aiStyle = -1;
-			NPC.noGravity = false;
-			NPC.noTileCollide = true;
-			NPC.HitSound = SoundID.NPCHit7;
-			NPC.DeathSound = SoundID.NPCDeath41;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 29600;
+            NPC.damage = 80;
+            NPC.defense = 38;
+            NPC.knockBackResist = 0.0f;
+            NPC.width = 250;
+            NPC.height = 126;
+            NPC.aiStyle = -1;
+            NPC.noGravity = false;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit7;
+            NPC.DeathSound = SoundID.NPCDeath41;
             AnimationType = NPCID.DemonEye;
-            NPC.value = Item.buyPrice(0, 1, 15, 0);
+            NPC.value = Item.buyPrice(0, 0, 70, 0);
             NPC.boss = true;
             Music = MusicID.PirateInvasion;
         }
@@ -269,27 +269,27 @@ namespace Infernus.NPCs
             potionType = ItemID.GreaterHealingPotion;
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
-		{
+        {
             npcLoot.Add(ItemDropRule.Common(ItemID.LifeFruit, 75, 1, 2));
             npcLoot.Add(ItemDropRule.Common(ItemID.StoneBlock, 1, 4, 6));
             npcLoot.Add(ItemDropRule.Common(ItemID.BoulderStatue, 95, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Rock>(), 4, 2, 3));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(), 12, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(), 12, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Magic.Venom>(), 12, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.bould>(), 12, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(), 12, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Magic.Venom>(), 12, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Magic.Bouldermagicweapon>(), 12, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.Bog>(), 12, 1, 1));
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Accessories.Wings>(), 12, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Accessories.Wings>(), 12, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Accessories.HiveHeart>(), 12, 1, 1));
         }
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-		{
-			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A mass of rock, vines and beehives enchanted by a jungle green rune. Dug out from the ground after being attacked.")
-			});
-		}
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
+                new FlavorTextBestiaryInfoElement("A mass of rock, vines and beehives enchanted by a jungle green rune. Dug out from the ground after being attacked.")
+            });
+        }
         public override void OnKill()
         {
             DownedBoss.downedBoulderInvasionHM = true;

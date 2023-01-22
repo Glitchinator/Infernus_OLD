@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -18,13 +17,12 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 36;
+            Item.height = 36;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 6, 45, 0);
             Item.rare = ItemRarityID.Orange;
         }
-
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.statManaMax2 += 40;
@@ -32,13 +30,13 @@ namespace Infernus.Items.Accesories
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.IceBlock, 26);
-            recipe.AddIngredient(ItemID.Bone, 16);
-            recipe.AddIngredient(ItemID.Cobweb, 16);
-            recipe.AddIngredient(ItemID.ManaCrystal, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.IceBlock, 26)
+            .AddIngredient(ItemID.Bone, 16)
+            .AddIngredient(ItemID.Cobweb, 16)
+            .AddIngredient(ItemID.ManaCrystal, 4)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

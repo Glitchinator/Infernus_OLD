@@ -16,17 +16,18 @@ namespace Infernus.Projectiles
             Projectile.timeLeft = 600;
             Projectile.CloneDefaults(ProjectileID.JavelinFriendly);
             AIType = ProjectileID.JavelinFriendly;
-         
-   
-    }
+            Projectile.netImportant = true;
+
+
+        }
         public override bool PreKill(int timeLeft)
         {
             Projectile.type = ProjectileID.Bullet;
             return true;
         }
-    public override void AI()
+        public override void AI()
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.MagicMirror, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f); 
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.MagicMirror, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f);
         }
     }
 }

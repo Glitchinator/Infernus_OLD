@@ -10,7 +10,7 @@ Boss Checklist. Currently in total I have made around 300 additions/changes, but
 + Infernus Mod has a post MoonLord boss.
 
 What Inferus offers:
-* 178 New items - including new armor sets, weapons for each class, accessories, new materials.
+* 177 New items - including new armor sets, weapons for each class, accessories, new materials.
 * 4 New bosses - every boss has it's own AI, loot, treasure bag with unique expert items.
 * 2 New miniboss - basically just stronger enemies but drop good items.
 * 21 New Enemies - each NPC has it's own use. One NPC also drops new things after a certain boss is defeated.

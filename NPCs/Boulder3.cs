@@ -9,59 +9,59 @@ using Terraria.ModLoader;
 namespace Infernus.NPCs
 {
     public class Boulder3 : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Crumbling Aquifer");
-		}
+        {
+            DisplayName.SetDefault("Crumbling Aquifer");
+        }
 
-		public override void SetDefaults()
-		{
-			NPC.lifeMax = 146;
-			NPC.damage = 13;
-			NPC.defense = 19;
-			NPC.knockBackResist = 0.1f;
-			NPC.width = 40;
-			NPC.height = 38;
-			NPC.aiStyle = 49;
-			NPC.noGravity = true;
-			NPC.noTileCollide = false;
-			NPC.HitSound = SoundID.NPCHit7;
-			NPC.DeathSound = SoundID.NPCDeath41;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 146;
+            NPC.damage = 13;
+            NPC.defense = 19;
+            NPC.knockBackResist = 0.1f;
+            NPC.width = 40;
+            NPC.height = 38;
+            NPC.aiStyle = 49;
+            NPC.noGravity = true;
+            NPC.noTileCollide = false;
+            NPC.HitSound = SoundID.NPCHit7;
+            NPC.DeathSound = SoundID.NPCDeath41;
             Banner = Item.NPCtoBanner(NPCID.RockGolem);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 0, 20);
+            NPC.value = Item.buyPrice(0, 0, 0, 10);
         }
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
-			{
-				return;
-			}
-			if (NPC.life <= 0)
-			{
-				for (int k = 0; k < 20; k++)
-				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, default, 1.2f);
-				}
-			}
-		}
-		public override void ModifyNPCLoot(NPCLoot npcLoot)
-		{
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (Main.netMode == NetmodeID.Server)
+            {
+                return;
+            }
+            if (NPC.life <= 0)
+            {
+                for (int k = 0; k < 20; k++)
+                {
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, default, 1.2f);
+                }
+            }
+        }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
             npcLoot.Add(ItemDropRule.Common(ItemID.StoneBlock, 1, 4, 6));
             npcLoot.Add(ItemDropRule.Common(ItemID.BoulderStatue, 95, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Rock>(), 4, 2, 3));
-			if (NPC.downedBoss3)
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.July4th>(), 70, 1, 1));
-		}
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-		{
-			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
-				new FlavorTextBestiaryInfoElement("A floating aquifer that drips... major.")
-			});
-		}
+            if (NPC.downedBoss3)
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.July4th>(), 70, 1, 1));
+        }
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
+                new FlavorTextBestiaryInfoElement("A floating aquifer that drips... major.")
+            });
+        }
         public override void OnKill()
         {
             DownedBoss.downedBoulderInvasionPHM = true;

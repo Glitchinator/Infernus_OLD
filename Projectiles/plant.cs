@@ -1,20 +1,20 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 namespace Infernus.Projectiles
 {
-	
-	public class plant : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Pistol Shot");
-		}
-		public override void SetDefaults()
-		{
-			Projectile.DamageType = DamageClass.Magic;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+
+    public class plant : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pistol Shot");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.netImportant = true;
             Projectile.width = 40;
             Projectile.height = 40;
@@ -22,8 +22,8 @@ namespace Infernus.Projectiles
             Projectile.localNPCHitCooldown = 10;
             Projectile.timeLeft = 240;
         }
-		public override void AI()
-		{
+        public override void AI()
+        {
 
             Projectile.ai[0] += 1f;
             if (Projectile.ai[0] >= 30f)

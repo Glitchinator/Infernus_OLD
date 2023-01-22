@@ -1,27 +1,28 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {
-	
-	public class CrimShot : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Crimtane Energy");
-		}
-		public override void SetDefaults()
-		{
+
+    public class CrimShot : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crimtane Energy");
+        }
+        public override void SetDefaults()
+        {
             Projectile.CloneDefaults(ProjectileID.Bullet);
             AIType = ProjectileID.Bullet;
             Projectile.DamageType = DamageClass.Magic;
-			Projectile.friendly = true;
+            Projectile.friendly = true;
             Projectile.height = 34;
             Projectile.width = 14;
-			Projectile.hostile = false;
-		}
+            Projectile.hostile = false;
+            Projectile.netImportant = true;
+        }
         public override void AI()
         {
             if (Main.rand.NextBool(4))

@@ -1,9 +1,9 @@
+using Infernus.Placeable;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
-using Infernus.Placeable;
 
 namespace Infernus.Items.Weapon.HardMode.Melee
 {
@@ -21,8 +21,8 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.damage = 55;
             Item.DamageType = DamageClass.Melee;
             Item.noMelee = true;
-            Item.width = 30;
-            Item.height = 32;
+            Item.width = 38;
+            Item.height = 34;
             Item.useTime = 28;
             Item.useAnimation = 20;
             Item.useStyle = 1;
@@ -39,7 +39,7 @@ namespace Infernus.Items.Weapon.HardMode.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.HardMode.Melee.TrueLight>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TrueLight>(), 1);
             recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
             recipe.AddIngredient(ModContent.ItemType<Rock>(), 26);
             recipe.AddTile(TileID.MythrilAnvil);

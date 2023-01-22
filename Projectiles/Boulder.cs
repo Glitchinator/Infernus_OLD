@@ -1,23 +1,24 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 namespace Infernus.Projectiles
 {
-	
-	public class Boulder : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Boulder");
-		}
-		public override void SetDefaults()
-		{
-			Projectile.DamageType = DamageClass.Magic;
+
+    public class Boulder : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Boulder");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.width = 40;
             Projectile.height = 40;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-		}
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.netImportant = true;
+        }
         public override void AI()
         {
             if (Main.rand.NextBool(2))

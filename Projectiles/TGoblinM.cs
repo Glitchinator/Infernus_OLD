@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Infernus.Buffs;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Infernus.Buffs;
+using Terraria.ModLoader;
 
 namespace Infernus.Projectiles
 {

@@ -1,12 +1,8 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Infernus.Items.Weapon;
 using Terraria.GameContent.Creative;
-using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Infernus.Items.Consumable
 {
@@ -19,7 +15,6 @@ namespace Infernus.Items.Consumable
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
-
         public override void SetDefaults()
         {
             Item.maxStack = 999;
@@ -49,6 +44,8 @@ namespace Infernus.Items.Consumable
             itemLoot.Add(ItemDropRule.Common(ItemID.WormholePotion, 1, 4, 4));
             itemLoot.Add(ItemDropRule.Common(ItemID.Torch, 1, 30, 30));
             itemLoot.Add(ItemDropRule.Common(ItemID.ManaCrystal, 1, 1, 1));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Tools.Magic9Ball>()));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Tools.LevelEnabler>()));
         }
     }
 }

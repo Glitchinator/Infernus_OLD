@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Creative;
 
 namespace Infernus.Items.Accesories
 {
@@ -17,16 +16,22 @@ namespace Infernus.Items.Accesories
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
+            Item.width = 44;
+            Item.height = 44;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 2, 45, 0);
             Item.rare = ItemRarityID.Green;
         }
-
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetDamage(DamageClass.Summon) += .08f;
+        }
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddRecipeGroup(RecipeGroupID.IronBar, 8)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }
