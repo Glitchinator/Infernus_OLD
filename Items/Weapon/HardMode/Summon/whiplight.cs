@@ -14,12 +14,12 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Tooltip.SetDefault("Throw two whips one named Crackle and the other Pop"
                 + "\n Your minions will attack struck foes"
                             + "\n + Frostburn and Fire"
-                            + "\n + 14 summon tag damage");
+                            + "\n + 12 summon tag damage");
         }
 
         public override void SetDefaults()
         {
-            Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Whipele>(), 110, 3, 7);
+            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipele>(), 95, 3, 7);
             Item.value = Item.buyPrice(0, 27, 50, 0);
             Item.useTime = 10;
 

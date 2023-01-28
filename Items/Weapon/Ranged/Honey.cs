@@ -16,15 +16,15 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 24;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 1;
-            Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 7, 50, 0);
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 4f;
+            Item.value = Item.buyPrice(0, 5, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
@@ -35,13 +35,13 @@ namespace Infernus.Items.Weapon.Ranged
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Cement>(), 1);
-            recipe.AddIngredient(ItemID.HoneyComb, 1);
-            recipe.AddIngredient(ItemID.Grenade, 100);
-            recipe.AddIngredient(ItemID.Stinger, 12);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Cement>(), 1)
+            .AddIngredient(ItemID.HoneyComb, 1)
+            .AddIngredient(ItemID.Grenade, 60)
+            .AddIngredient(ItemID.Stinger, 6)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

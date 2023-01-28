@@ -12,44 +12,42 @@ namespace Infernus.Items.Weapon.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lever Action Rifle");
-            Tooltip.SetDefault("Mark em");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 46;
+            Item.damage = 40;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 64;
             Item.height = 28;
-            Item.useAnimation = 44;
-            Item.useTime = 44;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 5;
-            Item.value = Item.buyPrice(0, 9, 50, 0);
+            Item.knockBack = 5f;
+            Item.value = Item.buyPrice(0, 7, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item40;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ProjectileID.SilverCoin;
+            Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 15f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 4;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectileDirect(source, position, velocity, ProjectileID.SilverCoin, damage, knockback, player.whoAmI);
+            Projectile.NewProjectileDirect(source, position, velocity, ProjectileID.BulletHighVelocity, damage, knockback, player.whoAmI);
 
             return false;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("IronBar", 16);
-            recipe.AddIngredient(ItemID.Bone, 12);
-            recipe.AddIngredient(ItemID.Wood, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddRecipeGroup(RecipeGroupID.IronBar, 16)
+            .AddIngredient(ItemID.Bone, 12)
+            .AddIngredient(ItemID.Wood, 6)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override Vector2? HoldoutOffset()
         {

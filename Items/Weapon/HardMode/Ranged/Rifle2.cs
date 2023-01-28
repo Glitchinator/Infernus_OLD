@@ -18,31 +18,29 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 120;
+            Item.damage = 160;
             Item.DamageType = DamageClass.Ranged;
             Item.noMelee = true;
             Item.width = 70;
             Item.height = 24;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.useStyle = 5;
-            Item.knockBack = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 23, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item40;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.MoonlordBullet;
             Item.shootSpeed = 15f;
-            Item.crit = 16;
+            Item.crit = 26;
             Item.useAmmo = AmmoID.Bullet;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Vector2 offset = new Vector2(velocity.X * 3, velocity.Y * 3);
+            Vector2 offset = new(velocity.X * 3, velocity.Y * 3);
             position += offset;
-            type = ProjectileID.MoonlordBullet;
-            Vector2 perturbedSpeed = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(1));
-            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, ProjectileID.MoonlordBullet, damage, knockback, player.whoAmI);
             return false;
         }
         public override Vector2? HoldoutOffset()
@@ -51,11 +49,11 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Ectoplasm, 12);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Levercoin>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Ectoplasm, 12)
+            .AddIngredient(ModContent.ItemType<Weapon.Ranged.Levercoin>(), 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

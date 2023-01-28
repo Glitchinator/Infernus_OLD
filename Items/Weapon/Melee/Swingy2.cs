@@ -22,9 +22,9 @@ namespace Infernus.Items.Weapon.Melee
             Item.height = 54;
             Item.useTime = 7;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
-            Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 11, 50, 0);
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 3f;
+            Item.value = Item.buyPrice(0, 9, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -33,7 +33,6 @@ namespace Infernus.Items.Weapon.Melee
             Item.channel = true;
             Item.noUseGraphic = true;
             Item.shootSpeed = 40f;
-            Item.crit = 6;
         }
         public override void AddRecipes()
         {

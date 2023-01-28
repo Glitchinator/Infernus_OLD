@@ -18,27 +18,25 @@ namespace Infernus.Items.Weapon.HardMode.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 80;
+            Item.damage = 160;
             Item.DamageType = DamageClass.Melee;
             Item.width = 80;
             Item.height = 80;
             Item.useTime = 20;
             Item.useAnimation = 15;
-            Item.useStyle = 1;
-            Item.knockBack = 13;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 8f;
             Item.value = Item.buyPrice(0, 26, 50, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.elumfire>();
-            Item.crit = 8;
             Item.shootSpeed = 10;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 2;
 
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(180));
@@ -53,10 +51,10 @@ namespace Infernus.Items.Weapon.HardMode.Melee
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LunarBar, 18);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LunarBar, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {

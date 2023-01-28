@@ -58,7 +58,7 @@ namespace Infernus.NPCs
         {
             if (spawnInfo.Player.ZoneBeach)
             {
-                return .4f;
+                return .5f;
             }
             return 0f;
         }

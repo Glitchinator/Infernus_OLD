@@ -41,7 +41,7 @@ namespace Infernus.Items.BossSummon
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.HardMode.Magic.Lightning>(), 2));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.HardMode.Melee.Electricice>(), 2));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.HardMode.Summon.whiplight>(), 2));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.HardMode.Ranged.ElectricBow>(), 2));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.HardMode.Ranged.Electricbow>(), 2));
 
             itemLoot.Add(ItemDropRule.Common(ItemID.SharkFin, 13, 3, 3));
             itemLoot.Add(ItemDropRule.Common(ItemID.FloatingTube, 13, 1, 1));
@@ -60,7 +60,7 @@ namespace Infernus.Items.BossSummon
                 Vector2 center = Item.Center + new Vector2(0f, Item.height * -0.1f);
                 Vector2 direction = Main.rand.NextVector2CircularEdge(Item.width * 0.6f, Item.height * 0.6f);
                 float distance = 0.3f + Main.rand.NextFloat() * 0.5f;
-                Vector2 velocity = new Vector2(0f, -Main.rand.NextFloat() * 0.3f - 1.5f);
+                Vector2 velocity = new(0f, -Main.rand.NextFloat() * 0.3f - 1.5f);
 
                 Dust dust = Dust.NewDustPerfect(center + direction * distance, DustID.SilverFlame, velocity);
                 dust.scale = 0.5f;
@@ -87,7 +87,7 @@ namespace Infernus.Items.BossSummon
             }
 
             Vector2 frameOrigin = frame.Size() / 2f;
-            Vector2 offset = new Vector2(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
+            Vector2 offset = new(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
             Vector2 drawPos = Item.position - Main.screenPosition + frameOrigin + offset;
 
             float time = Main.GlobalTimeWrappedHourly;

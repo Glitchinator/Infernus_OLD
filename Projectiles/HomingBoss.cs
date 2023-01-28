@@ -24,20 +24,18 @@ namespace Infernus.Projectiles
             Projectile.penetrate = 2;
             Projectile.netImportant = true;
             Projectile.netUpdate = true;
+            Projectile.rotation = Projectile.velocity.X * 0.02f;
         }
         public override bool? CanCutTiles()
         {
             return false;
         }
-
         public override void AI()
         {
-            Projectile.rotation = Projectile.velocity.X * 0.02f;
-
-            Vector2 dustPosition = Projectile.Center + new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-4, 5));
-            Dust dust = Dust.NewDustPerfect(dustPosition, DustID.Clentaminator_Red, null, 100, Color.Red, 1.4f);
-            dust.velocity *= 0.3f;
-            dust.noGravity = false;
+            if (Main.rand.NextBool(3))
+            {
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            }
         }
     }
 }

@@ -17,22 +17,22 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipgem>(), 23, 3, 7);
-            Item.value = Item.buyPrice(0, 9, 50, 0);
+            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipgem>(), 20, 3, 7);
+            Item.value = Item.buyPrice(0, 7, 50, 0);
 
             Item.shootSpeed = 4;
             Item.rare = ItemRarityID.Green;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Sapphire, 3);
-            recipe.AddIngredient(ItemID.Emerald, 3);
-            recipe.AddIngredient(ItemID.Ruby, 3);
-            recipe.AddIngredient(ItemID.Amethyst, 3);
-            recipe.AddIngredient(ItemID.Topaz, 3);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Sapphire, 3)
+            .AddIngredient(ItemID.Emerald, 3)
+            .AddIngredient(ItemID.Ruby, 3)
+            .AddIngredient(ItemID.Amethyst, 3)
+            .AddIngredient(ItemID.Topaz, 3)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool MeleePrefix()
         {

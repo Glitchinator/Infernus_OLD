@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 7;
+            Item.knockBack = 7f;
             Item.value = Item.buyPrice(0, 37, 50, 0);
             Item.rare = ItemRarityID.Red;
             Item.UseSound = SoundID.Item96;

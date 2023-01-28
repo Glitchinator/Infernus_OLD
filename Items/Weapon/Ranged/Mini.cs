@@ -26,7 +26,7 @@ namespace Infernus.Items.Weapon.Ranged
             Item.useAnimation = 8;
             Item.useTime = 8;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 2;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item11;
@@ -35,15 +35,14 @@ namespace Infernus.Items.Weapon.Ranged
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 15f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 6;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 32);
-            recipe.AddIngredient(ItemID.Minishark, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.Hot>(), 32)
+            .AddIngredient(ItemID.Minishark, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {
@@ -60,10 +59,6 @@ namespace Infernus.Items.Weapon.Ranged
             Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
 
             return false;
-        }
-        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
-        {
-            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(4));
         }
     }
 }

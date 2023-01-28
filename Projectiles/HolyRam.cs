@@ -16,17 +16,16 @@ namespace Infernus.Projectiles
             Projectile.timeLeft = 600;
             Projectile.CloneDefaults(ProjectileID.JavelinFriendly);
             AIType = ProjectileID.JavelinFriendly;
-            Projectile.penetrate = 1;
+            Projectile.penetrate = 2;
             Projectile.netImportant = true;
 
         }
         public override void AI()
         {
-            if (Main.rand.NextBool(11))
+            if (Main.rand.NextBool(15))
             {
-                int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ModContent.ProjectileType<Projectiles.Homing>(), (int)(Projectile.damage * .8f), 0, Projectile.owner);
-                Main.projectile[a].timeLeft = 200;
-                Main.projectile[a].netImportant = false;
+                int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Homing>(), (int)(Projectile.damage * .8f), 0, Projectile.owner);
+                Main.projectile[a].timeLeft = 100;
             }
             Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Clentaminator_Red, Projectile.velocity.X * -0.5f, Projectile.velocity.Y * -0.5f);
         }

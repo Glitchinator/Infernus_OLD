@@ -245,7 +245,7 @@ namespace Infernus
                 ModContent.ItemType<Placeable.SharkTrophy>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Accessories.eleScale>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Melee.Electricice>(),
-                ModContent.ItemType<Items.Weapon.HardMode.Ranged.ElectricBow>(),
+                ModContent.ItemType<Items.Weapon.HardMode.Ranged.Electricbow>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Magic.Lightning>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Summon.whiplight>(),
                 ItemID.JellyfishDivingGear,

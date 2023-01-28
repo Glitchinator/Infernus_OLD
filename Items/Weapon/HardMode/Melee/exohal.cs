@@ -10,38 +10,38 @@ namespace Infernus.Items.Weapon.HardMode.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shining Gladius");
-            Tooltip.SetDefault("Shoots a homing orb");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 90;
+            Item.damage = 100;
             Item.DamageType = DamageClass.Melee;
             Item.width = 75;
             Item.height = 75;
-            Item.useTime = 80;
-            Item.useAnimation = 18;
-            Item.useStyle = 1;
-            Item.knockBack = 7;
+            Item.useTime = 14;
+            Item.useAnimation = 14;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 7f;
             Item.value = Item.buyPrice(0, 24, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
-            Item.shoot = ProjectileID.MagnetSphereBall;
-            Item.crit = 10;
-            Item.shootSpeed = 12;
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Ectoplasm, 8);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.HardMode.Melee.Coralcronk>(), 1);
-            recipe.AddIngredient(ItemID.ChlorophyteClaymore, 1);
-            recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Ectoplasm, 8)
+            .AddIngredient(ModContent.ItemType<Coralcronk>(), 1)
+            .AddIngredient(ItemID.ChlorophyteClaymore, 1)
+            .AddIngredient(ItemID.BrokenHeroSword, 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
+        }
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        {
+            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), target.Right.X, target.Right.Y, 0, 0, ProjectileID.DD2ExplosiveTrapT1Explosion, damage, 0, player.whoAmI);
         }
     }
 }

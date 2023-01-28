@@ -20,14 +20,14 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 12;
+            Item.damage = 10;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 68;
             Item.height = 22;
-            Item.useAnimation = 9;
-            Item.useTime = 9;
+            Item.useAnimation = 14;
+            Item.useTime = 14;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 8;
+            Item.knockBack = 8f;
             Item.value = Item.buyPrice(0, 12, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item36;
@@ -35,7 +35,6 @@ namespace Infernus.Items.Weapon.Ranged
             Item.noMelee = true;
             Item.shoot = ProjectileID.RocketFireworkRed;
             Item.shootSpeed = 10f;
-            Item.crit = 0;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -43,9 +42,7 @@ namespace Infernus.Items.Weapon.Ranged
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
                 type = Main.rand.Next(new int[] { type, ProjectileID.RocketFireworkYellow, ProjectileID.RocketFireworkRed, ProjectileID.RocketFireworkGreen, ProjectileID.RocketFireworkBlue, });
 

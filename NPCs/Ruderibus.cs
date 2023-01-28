@@ -26,7 +26,7 @@ namespace Infernus.NPCs
 
             NPCID.Sets.BossBestiaryPriority.Add(Type);
 
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
+            NPCDebuffImmunityData debuffData = new()
             {
                 SpecificallyImmuneTo = new int[] {
                     BuffID.Frostburn,
@@ -333,7 +333,7 @@ namespace Infernus.NPCs
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Placeable.RudeRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Pets.RudeItem>()));
 
-            LeadingConditionRule notstatueRule = new LeadingConditionRule(new Conditions.NotFromStatue());
+            LeadingConditionRule notstatueRule = new(new Conditions.NotFromStatue());
 
             int itemType = ModContent.ItemType<Items.Materials.IceSpikes>();
             var parameters = new DropOneByOne.Parameters()

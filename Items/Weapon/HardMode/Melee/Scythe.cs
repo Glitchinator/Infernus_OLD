@@ -16,14 +16,14 @@ namespace Infernus.Items.Weapon.HardMode.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 56;
+            Item.damage = 35;
             Item.DamageType = DamageClass.Melee;
             Item.width = 52;
             Item.height = 44;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.useStyle = 1;
-            Item.knockBack = 4;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 16, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item19;
@@ -33,15 +33,14 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.noUseGraphic = true;
             Item.shootSpeed = 16f;
             Item.autoReuse = true;
-            Item.crit = 8;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Melee.Hatchet>(), 1);
-            recipe.AddIngredient(ItemID.SoulofNight, 18);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Weapon.Melee.Hatchet>(), 1)
+            .AddIngredient(ItemID.SoulofNight, 18)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
         public override bool CanUseItem(Player player)
         {

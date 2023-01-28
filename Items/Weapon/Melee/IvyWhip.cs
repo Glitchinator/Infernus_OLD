@@ -16,32 +16,31 @@ namespace Infernus.Items.Weapon.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 18;
+            Item.damage = 12;
             Item.DamageType = DamageClass.Melee;
             Item.width = 30;
             Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
-            Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 6, 50, 0);
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 4f;
+            Item.value = Item.buyPrice(0, 4, 50, 0);
             Item.rare = ItemRarityID.Blue;
-            Item.UseSound = SoundID.Item71;
+            Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Laserivy>();
             Item.channel = true;
             Item.noUseGraphic = true;
-            Item.crit = 8;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Vine, 4);
-            recipe.AddIngredient(ItemID.Stinger, 16);
-            recipe.AddIngredient(ItemID.JungleSpores, 12);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Vine, 4)
+            .AddIngredient(ItemID.Stinger, 16)
+            .AddIngredient(ItemID.JungleSpores, 12)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

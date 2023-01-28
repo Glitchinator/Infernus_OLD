@@ -40,6 +40,23 @@ namespace Infernus
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Level.XP_Item>(), 1, 1, 5));
             }
         }
+        public override void SetDefaults(NPC npc)
+        {
+            // (DownedBoss.Level_systemON == true && npc.boss == true)
+           //
+           //   npc.lifeMax += (int)(npc.life * 2f);
+           //
+        }
+        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        {
+            if(NPCID.Merchant == type)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FlareGun);
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(ItemID.Flare);
+                nextSlot++;
+            }
+        }
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))

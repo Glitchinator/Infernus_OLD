@@ -49,7 +49,8 @@ namespace Infernus.Items.BossSummon
             itemLoot.Add(ItemDropRule.Common(ItemID.IceSkates, 13, 1, 1));
             itemLoot.Add(ItemDropRule.Common(ItemID.IceMachine, 13, 1, 1));
             itemLoot.Add(ItemDropRule.Common(ItemID.Fish, 13, 1, 1));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Accessory>()));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Accesories.Accessory>()));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Materials.IceSpikes>(), 34));
 
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Ruderibus>()));
         }
@@ -62,7 +63,7 @@ namespace Infernus.Items.BossSummon
                 Vector2 center = Item.Center + new Vector2(0f, Item.height * -0.1f);
                 Vector2 direction = Main.rand.NextVector2CircularEdge(Item.width * 0.6f, Item.height * 0.6f);
                 float distance = 0.3f + Main.rand.NextFloat() * 0.5f;
-                Vector2 velocity = new Vector2(0f, -Main.rand.NextFloat() * 0.3f - 1.5f);
+                Vector2 velocity = new(0f, -Main.rand.NextFloat() * 0.3f - 1.5f);
 
                 Dust dust = Dust.NewDustPerfect(center + direction * distance, DustID.SilverFlame, velocity);
                 dust.scale = 0.5f;
@@ -89,7 +90,7 @@ namespace Infernus.Items.BossSummon
             }
 
             Vector2 frameOrigin = frame.Size() / 2f;
-            Vector2 offset = new Vector2(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
+            Vector2 offset = new(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
             Vector2 drawPos = Item.position - Main.screenPosition + frameOrigin + offset;
 
             float time = Main.GlobalTimeWrappedHourly;

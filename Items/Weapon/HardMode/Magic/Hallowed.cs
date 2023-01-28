@@ -18,14 +18,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 46;
+            Item.damage = 40;
             Item.DamageType = DamageClass.Magic;
             Item.width = 28;
             Item.height = 30;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 7;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 16, 50, 0);
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item8;
@@ -33,7 +33,6 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Homing>();
             Item.shootSpeed = 17f;
-            Item.crit = 8;
             Item.mana = 8;
         }
     }

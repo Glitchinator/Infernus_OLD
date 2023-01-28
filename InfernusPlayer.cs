@@ -23,7 +23,7 @@ namespace Infernus
 
         // XP for level variables
         public int XP_Current;
-        public const int DefaultXP_Max = 200;
+        public const int DefaultXP_Max = 100;
         public int XP_Max;
         public int XP_Max2;
         public static readonly Color GainXP_Resource = new(247, 171, 72);
@@ -55,17 +55,6 @@ namespace Infernus
         {
             XP_Max = DefaultXP_Max;
             Level_Max = DefaultLevel_Max;
-        }
-        public override void OnEnterWorld(Player player)
-        {
-            if (Main.netMode == NetmodeID.SinglePlayer)
-            {
-                Main.NewText("Check your mods, This is INFERNUS not INFERNUM. Welcome to Infernus!", GainXP_Resource);
-            }
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                Main.NewText("Check your mods, This is INFERNUS not INFERNUM. Welcome to Infernus!", GainXP_Resource);
-            }
         }
 
         public override void UpdateDead()

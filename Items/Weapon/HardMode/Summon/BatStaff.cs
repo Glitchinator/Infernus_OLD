@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 28;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 40;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 14, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item96;

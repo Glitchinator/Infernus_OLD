@@ -19,14 +19,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 56;
+            Item.damage = 46;
             Item.DamageType = DamageClass.Magic;
             Item.width = 36;
             Item.height = 36;
             Item.useTime = 22;
             Item.useAnimation = 22;
-            Item.useStyle = 5;
-            Item.knockBack = 2;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 16, 50, 0);
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item8;
@@ -38,9 +38,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
 
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(2));
@@ -55,11 +54,11 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HallowedBar, 14);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Magic.Coralstaff>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HallowedBar, 14)
+            .AddIngredient(ModContent.ItemType<Weapon.Magic.Coralstaff>(), 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

@@ -15,23 +15,22 @@ namespace Infernus.Items.Weapon.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 18;
+            Item.damage = 14;
             Item.DamageType = DamageClass.Melee;
             Item.width = 30;
             Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
-            Item.knockBack = 3;
-            Item.value = Item.buyPrice(0, 6, 50, 0);
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 5f;
+            Item.value = Item.buyPrice(0, 1, 50, 0);
             Item.rare = ItemRarityID.Blue;
-            Item.UseSound = SoundID.Item71;
+            Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Fire>();
             Item.channel = true;
             Item.noUseGraphic = true;
-            Item.crit = 4;
         }
     }
 }

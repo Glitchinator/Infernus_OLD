@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Elemental Staff");
-            Tooltip.SetDefault("Summons a glided vortex to ram enemies");
+            Tooltip.SetDefault("Summons a vortex to ram enemies");
             ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 18;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 7;
             Item.width = 46;
@@ -30,8 +30,8 @@ namespace Infernus.Items.Weapon.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
-            Item.value = Item.buyPrice(0, 12, 50, 0);
+            Item.knockBack = 3f;
+            Item.value = Item.buyPrice(0, 10, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item96;
             Item.shoot = ModContent.ProjectileType<Projectiles.Boldsum>();
@@ -45,12 +45,12 @@ namespace Infernus.Items.Weapon.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Summon.Minion2>(), 1);
-            recipe.AddIngredient(ItemID.Bone, 36);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36)
+            .AddIngredient(ModContent.ItemType<Minion2>(), 1)
+            .AddIngredient(ItemID.Bone, 36)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

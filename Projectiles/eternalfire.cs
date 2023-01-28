@@ -25,6 +25,8 @@ namespace Infernus.Projectiles
             Projectile.tileCollide = false;
             Projectile.timeLeft = 600;
             Projectile.netImportant = true;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 6;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

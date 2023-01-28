@@ -11,8 +11,8 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Praetor Stompers");
-            Tooltip.SetDefault("+ 35% Movement Speed"
-                + "\n + 12% Crit Chance");
+            Tooltip.SetDefault("+ 15% Movement Speed"
+                + "\n + 14% Crit Chance");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -27,21 +27,21 @@ namespace Infernus.Items.Weapon.HardMode.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += .35f;
-            player.GetCritChance(DamageClass.Generic) += 12;
+            player.moveSpeed += .15f;
+            player.GetCritChance(DamageClass.Generic) += 14;
         }
 
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.MartianUniformPants, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 10);
-            recipe.AddIngredient(ItemID.SpectreBar, 10);
-            recipe.AddIngredient(ItemID.HallowedBar, 10);
-            recipe.AddIngredient(ItemID.SoulofMight, 14);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.MartianUniformPants, 1)
+            .AddIngredient(ItemID.ChlorophyteBar, 10)
+            .AddIngredient(ItemID.SpectreBar, 10)
+            .AddIngredient(ItemID.HallowedBar, 10)
+            .AddIngredient(ItemID.SoulofMight, 14)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

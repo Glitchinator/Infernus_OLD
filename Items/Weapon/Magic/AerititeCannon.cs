@@ -17,7 +17,7 @@ namespace Infernus.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 10;
+            Item.damage = 8;
             Item.DamageType = DamageClass.Magic;
             Item.width = 54;
             Item.height = 26;
@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.Magic
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.AerititeShot>();
             Item.shootSpeed = 9f;
-            Item.mana = 10;
+            Item.mana = 12;
         }
         public override Vector2? HoldoutOffset()
         {

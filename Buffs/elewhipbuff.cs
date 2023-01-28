@@ -31,7 +31,7 @@ namespace Infernus.Buffs
         {
             if (markedByeleWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type]))
             {
-                damage += 14;
+                damage += 12;
             }
         }
     }

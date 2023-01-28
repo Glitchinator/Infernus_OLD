@@ -24,8 +24,8 @@ namespace Infernus.NPCs
 
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-			{
+			NPCDebuffImmunityData debuffData = new()
+            {
 				SpecificallyImmuneTo = new int[] {
 
 					BuffID.Electrified,
@@ -436,12 +436,12 @@ namespace Infernus.NPCs
 			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Placeable.SharkRelic>()));
 			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Pets.RudeItem>()));
 
-			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+			LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Magic.Lightning>(), 3));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Melee.Electricice>(), 3));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.whiplight>(), 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.ElectricBow>(), 3));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.Electricbow>(), 3));
 
 			npcLoot.Add(notExpertRule);
 		}

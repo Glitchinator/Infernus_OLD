@@ -18,11 +18,5 @@ namespace Infernus.Projectiles
             Projectile.hostile = false;
             Projectile.netImportant = true;
         }
-
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.Boulder;
-            return true;
-        }
     }
 }

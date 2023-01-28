@@ -12,20 +12,19 @@ namespace Infernus.Items.Weapon.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Scorched Stick");
-            Tooltip.SetDefault("Shoots stars and fire"
-                + "\n Very hot, use hotmits");
+            Tooltip.SetDefault("Shoots stars and fire");
             Item.staff[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 12;
             Item.DamageType = DamageClass.Magic;
             Item.width = 50;
             Item.height = 50;
-            Item.useAnimation = 12;
-            Item.useTime = 12;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 1, 50, 0);
@@ -36,12 +35,11 @@ namespace Infernus.Items.Weapon.Magic
             Item.shoot = ProjectileID.HallowStar;
             Item.shootSpeed = 12f;
             Item.mana = 10;
-            Item.crit = 4;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddRecipeGroup("IronBar", 3)
+            .AddRecipeGroup(RecipeGroupID.IronBar, 3)
             .AddIngredient(ModContent.ItemType<Rifle>(), 1)
             .AddIngredient(ModContent.ItemType<Materials.Hot>(), 32)
             .AddTile(TileID.Anvils)
@@ -53,8 +51,8 @@ namespace Infernus.Items.Weapon.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            int numberProjectiles = 1 + Main.rand.Next(1);
-            for (int i = 0; i < numberProjectiles; i++)
+            int numb = 1 + Main.rand.Next(1);
+            for (int i = 0; i < numb; i++)
             {
                 type = Main.rand.Next(new int[] { type, ProjectileID.BallofFire, ProjectileID.Flames, });
                 Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, type, damage, knockback, player.whoAmI);

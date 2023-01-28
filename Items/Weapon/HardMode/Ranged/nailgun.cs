@@ -24,7 +24,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useAnimation = 5;
             Item.useTime = 5;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 4;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 19, 75, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.Item108;
@@ -33,7 +33,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useAmmo = AmmoID.NailFriendly;
             Item.shoot = ProjectileID.NailFriendly;
             Item.shootSpeed = 22f;
-            Item.crit = 8;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -42,10 +41,10 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LunarBar, 15);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LunarBar, 15)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

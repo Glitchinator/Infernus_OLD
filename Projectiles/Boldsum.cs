@@ -31,6 +31,8 @@ namespace Infernus.Projectiles
             Projectile.minion = true;
             Projectile.minionSlots = 1f;
             Projectile.penetrate = -1;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 14;
         }
         public override void AI()
         {
@@ -46,7 +48,6 @@ namespace Infernus.Projectiles
             {
                 Projectile.position = withplayer;
                 Projectile.velocity *= 0.1f;
-                Projectile.netUpdate = true;
             }
 
             if (player.dead || !player.active)

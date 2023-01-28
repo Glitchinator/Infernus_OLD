@@ -17,15 +17,15 @@ namespace Infernus.Items.Weapon.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 22;
+            Item.damage = 16;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 24;
             Item.useAnimation = 24;
-            Item.useStyle = 1;
-            Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 10, 50, 0);
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 2f;
+            Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item19;
             Item.noMelee = true;
@@ -34,16 +34,15 @@ namespace Infernus.Items.Weapon.Melee
             Item.noUseGraphic = true;
             Item.shootSpeed = 16f;
             Item.autoReuse = true;
-            Item.crit = 4;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36);
-            recipe.AddIngredient(ModContent.ItemType<Melee.SkullBasher>(), 1);
-            recipe.AddIngredient(ItemID.Sapphire, 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36)
+            .AddIngredient(ModContent.ItemType<SkullBasher>(), 1)
+            .AddIngredient(ItemID.Sapphire, 8)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool CanUseItem(Player player)
         {

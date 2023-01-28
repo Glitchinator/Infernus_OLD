@@ -124,10 +124,7 @@ namespace Infernus.Projectiles
                             }
                             shootVel.Normalize();
                             shootVel *= 8;
-                            int proj = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.Flamelash, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
-                            Main.projectile[proj].timeLeft = 300;
-                            Main.projectile[proj].netUpdate = true;
-                            Main.projectile[proj].DamageType = DamageClass.Summon;
+                            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.Flamelash, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                             Projectile.ai[1] = 1f;
                         }
                     }

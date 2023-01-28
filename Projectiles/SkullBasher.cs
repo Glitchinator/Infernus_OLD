@@ -19,11 +19,5 @@ namespace Infernus.Projectiles
             Projectile.DamageType = DamageClass.Melee;
             Projectile.netImportant = true;
         }
-
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.PaladinsHammerFriendly;
-            return true;
-        }
     }
 }

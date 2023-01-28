@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 16;
+            Item.damage = 14;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 50;
@@ -46,14 +46,14 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Seashell, 4);
-            recipe.AddIngredient(ItemID.TulipShell, 4);
-            recipe.AddIngredient(ItemID.JunoniaShell, 4);
-            recipe.AddIngredient(ItemID.LightningWhelkShell, 4);
-            recipe.AddIngredient(ItemID.ShellPileBlock, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Seashell, 4)
+            .AddIngredient(ItemID.TulipShell, 4)
+            .AddIngredient(ItemID.JunoniaShell, 4)
+            .AddIngredient(ItemID.LightningWhelkShell, 4)
+            .AddIngredient(ItemID.ShellPileBlock, 4)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

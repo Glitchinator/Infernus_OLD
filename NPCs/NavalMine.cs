@@ -4,6 +4,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace Infernus.NPCs
 {
@@ -53,16 +54,15 @@ namespace Infernus.NPCs
 				}
 			}
 		}
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-		{
-			if (spawnInfo.Player.ZoneBeach && (Main.hardMode == true) && (NPC.downedPlantBoss == true))
-			{
-				return .1f;
-			}
-
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.ZoneBeach && NPC.downedPlantBoss)
+            {
+                return SpawnCondition.OceanMonster.Chance * .5f;
+            }
 			return 0f;
-		}
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        }
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 
 			bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {

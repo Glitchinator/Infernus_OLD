@@ -12,21 +12,15 @@ namespace Infernus.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[Projectile.owner] = 17;
-            target.AddBuff(BuffID.Bleeding, 240);
 
             for (int k = 0; k < 20; k++)
             {
                 float hitDirection = 0;
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 5, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 1.2f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Blood, 2.5f * (float)hitDirection, -2.5f, 0, default, 1.2f);
             }
             if (Main.rand.Next(3) < 1)
             {
-                if (Main.rand.Next(3) < 1)
-                {
-                    int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.NettleBurstLeft, (int)(Projectile.damage * .60f), 0, Projectile.owner);
-                    Main.projectile[a].tileCollide = false;
-                    Main.projectile[a].friendly = true;
-                }
+                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), target.Center.X, target.Center.Y, 0, 0, ProjectileID.NettleBurstLeft, (int)(damage * .60f), 0, Projectile.owner);
             }
         }
         public override void SetDefaults()
@@ -81,13 +75,6 @@ namespace Infernus.Projectiles
             }
 
             return base.PreDraw(ref lightColor);
-        }
-        public override void OnHitPlayer(Player target, int damage, bool crit)
-        {
-            if (Main.rand.NextBool(4))
-            {
-                target.AddBuff(BuffID.Bleeding, 180, quiet: false);
-            }
         }
     }
 }

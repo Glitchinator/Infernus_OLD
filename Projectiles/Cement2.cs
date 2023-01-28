@@ -19,8 +19,6 @@ namespace Infernus.Projectiles
 
         public sealed override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.BabyBird);
-            AIType = ProjectileID.BabyBird;
             Projectile.width = 32;
             Projectile.height = 32;
             Projectile.tileCollide = false;
@@ -29,6 +27,8 @@ namespace Infernus.Projectiles
             Projectile.minion = true;
             Projectile.minionSlots = 1f;
             Projectile.penetrate = -1;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 10;
         }
         public override bool? CanCutTiles()
         {
@@ -38,15 +38,22 @@ namespace Infernus.Projectiles
         {
             return true;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.immune[Projectile.owner] = 9;
-            target.immune[Projectile.owner] = 9;
-        }
 
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+
+            Vector2 withplayer = player.Center;
+            withplayer.Y -= 48f;
+            float notamongusX = (10 + Projectile.minionPos * 40) * -player.direction;
+            withplayer.X += notamongusX;
+            Vector2 vectorToplayer = withplayer - Projectile.Center;
+            float distanceToplayer = vectorToplayer.Length();
+            if (Main.myPlayer == player.whoAmI && distanceToplayer > 2000f)
+            {
+                Projectile.position = withplayer;
+                Projectile.velocity *= 0.1f;
+            }
 
             if (player.dead || !player.active)
             {
@@ -57,24 +64,86 @@ namespace Infernus.Projectiles
                 Projectile.timeLeft = 2;
             }
 
-            Vector2 idlePosition = player.Center;
-            idlePosition.Y -= 48f;
-            float minionPositionOffsetX = (10 + Projectile.minionPos * 40) * -player.direction;
-            idlePosition.X += minionPositionOffsetX;
-            Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
-            float distanceToIdlePosition = vectorToIdlePosition.Length();
-            if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2000f)
-            {
-                Projectile.position = idlePosition;
-                Projectile.velocity *= 0.1f;
-                Projectile.netUpdate = true;
-            }
-            Projectile.rotation = Projectile.velocity.X * 0.05f;
+            float distanceFromTarget = 250f;
+            Vector2 targetCenter = Projectile.position;
+            bool foundTarget = false;
 
-            Vector2 dustPosition = Projectile.Center + new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-4, 5));
-            Dust dust = Dust.NewDustPerfect(dustPosition, DustID.Stone, null, 100, Color.White, 0.8f);
-            dust.velocity *= 0.3f;
-            dust.noGravity = false;
+            if (player.HasMinionAttackTargetNPC)
+            {
+                NPC npc = Main.npc[player.MinionAttackTargetNPC];
+                float between = Vector2.Distance(npc.Center, Projectile.Center);
+                if (between < 2000f)
+                {
+                    distanceFromTarget = between;
+                    targetCenter = npc.Center;
+                    foundTarget = true;
+                }
+            }
+            if (!foundTarget)
+            {
+                for (int i = 0; i < Main.maxNPCs; i++)
+                {
+                    NPC npc = Main.npc[i];
+                    if (npc.CanBeChasedBy())
+                    {
+                        float between = Vector2.Distance(npc.Center, Projectile.Center);
+                        bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
+                        bool inRange = between < distanceFromTarget;
+                        bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
+                        bool closeThroughWall = between < 100f;
+                        if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall))
+                        {
+                            distanceFromTarget = between;
+                            targetCenter = npc.Center;
+                            foundTarget = true;
+                        }
+                    }
+                }
+            }
+            Projectile.friendly = foundTarget;
+
+
+            float speed = 10f;
+            float inertia = 15f;
+
+            if (foundTarget)
+            {
+                if (distanceFromTarget > 40f)
+                {
+                    Vector2 direction = targetCenter - Projectile.Center;
+                    direction.Normalize();
+                    direction *= speed;
+                    Projectile.velocity = (Projectile.velocity * (inertia - 1) + direction) / inertia;
+                }
+            }
+            else
+            {
+                if (distanceToplayer > 600f)
+                {
+                    speed = 15f;
+                    inertia = 35f;
+                }
+                else
+                {
+                    speed = 6f;
+                    inertia = 50f;
+                }
+                if (distanceToplayer > 20f)
+                {
+                    vectorToplayer.Normalize();
+                    vectorToplayer *= speed;
+                    Projectile.velocity = (Projectile.velocity * (inertia - 1) + vectorToplayer) / inertia;
+                }
+                else if (Projectile.velocity == Vector2.Zero)
+                {
+                    Projectile.velocity.X = -0.01f;
+                    Projectile.velocity.Y = -0.01f;
+                }
+            }
+            if (Main.rand.NextBool(3))
+            {
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Stone, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            }
         }
     }
 }

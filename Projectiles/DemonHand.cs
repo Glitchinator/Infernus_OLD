@@ -20,23 +20,20 @@ namespace Infernus.Projectiles
         {
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.width = 70;
-            Projectile.height = 78;
+            Projectile.width = 48;
+            Projectile.height = 32;
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.minionSlots = 1f;
             Projectile.penetrate = -1;
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.immune[Projectile.owner] = 7;
-            target.immune[Projectile.owner] = 7;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 10;
         }
         public override void AI()
         {
             Projectile.rotation += (float)Projectile.direction * 14;
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+            Projectile.rotation = Projectile.velocity.ToRotation();
             Player player = Main.player[Projectile.owner];
 
             Vector2 withplayer = player.Center;

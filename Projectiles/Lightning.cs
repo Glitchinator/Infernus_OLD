@@ -19,12 +19,6 @@ namespace Infernus.Projectiles
             Projectile.DamageType = DamageClass.Magic;
             Projectile.netImportant = true;
         }
-
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.FrostburnArrow;
-            return true;
-        }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.NextBool(2))
@@ -35,9 +29,9 @@ namespace Infernus.Projectiles
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 16f, Main.rand.Next(-10, 11) * 1f, Main.rand.Next(-10, -5) * .25f, ProjectileID.ThunderSpearShot, (int)(Projectile.damage * .25f), 0, Projectile.owner);
-                    Main.projectile[a].aiStyle = 1;
+                    int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), target.Center.X, target.Center.Y, Main.rand.Next(-10, 11) * 1f, Main.rand.Next(-10, -5) * .25f, ProjectileID.ThunderSpearShot, (int)(damage * .25f), 0, Projectile.owner);
                     Main.projectile[a].tileCollide = true;
+                    Main.projectile[a].penetrate = 1;
                 }
             }
             Projectile.Kill();

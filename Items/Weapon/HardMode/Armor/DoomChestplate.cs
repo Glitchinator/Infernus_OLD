@@ -13,8 +13,7 @@ namespace Infernus.Items.Weapon.HardMode.Armor
             base.SetStaticDefaults();
             DisplayName.SetDefault("Praetor Suit");
             Tooltip.SetDefault("Heals on enemy strike"
-                             + "\n + 32% Damage"
-                             + "\n + 13% Damage reduction");
+                             + "\n + 8% Damage reduction");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -28,21 +27,20 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Generic) += .32f;
             player.onHitRegen = true;
-            player.endurance = .13f - (0.1f * (1f - player.endurance));
+            player.endurance = .08f - (0.1f * (1f - player.endurance));
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.MartianUniformTorso, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
-            recipe.AddIngredient(ItemID.SpectreBar, 12);
-            recipe.AddIngredient(ItemID.HallowedBar, 12);
-            recipe.AddIngredient(ItemID.SoulofFright, 16);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.MartianUniformTorso, 1)
+            .AddIngredient(ItemID.ChlorophyteBar, 12)
+            .AddIngredient(ItemID.SpectreBar, 12)
+            .AddIngredient(ItemID.HallowedBar, 12)
+            .AddIngredient(ItemID.SoulofFright, 16)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

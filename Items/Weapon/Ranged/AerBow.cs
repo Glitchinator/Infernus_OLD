@@ -18,15 +18,15 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 4;
+            Item.damage = 5;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 20;
             Item.height = 36;
             Item.useAnimation = 38;
             Item.useTime = 38;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 7, 50, 0);
+            Item.knockBack = 2f;
+            Item.value = Item.buyPrice(0, 5, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
@@ -34,7 +34,10 @@ namespace Infernus.Items.Weapon.Ranged
             Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.shootSpeed = 15f;
             Item.useAmmo = AmmoID.Arrow;
-            Item.crit = 4;
+        }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2, 0);
         }
         public override void AddRecipes()
         {
@@ -43,21 +46,13 @@ namespace Infernus.Items.Weapon.Ranged
             .AddTile(TileID.Anvils)
             .Register();
         }
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-10, 0);
-        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 2;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 2; i++)
             {
-
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(10));
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(6));
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
-
             return false;
         }
     }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,15 +17,14 @@ namespace Infernus.Projectiles
             AIType = ProjectileID.Bullet;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.friendly = true;
-            Projectile.height = 48;
-            Projectile.width = 8;
+            Projectile.height = 2;
+            Projectile.width = 42;
             Projectile.hostile = false;
-            Projectile.light = .8f;
             Projectile.netImportant = true;
         }
         public override void AI()
         {
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+            Projectile.rotation = Projectile.velocity.ToRotation();
         }
     }
 }

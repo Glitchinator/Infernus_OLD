@@ -23,11 +23,11 @@ namespace Infernus.Items.Weapon.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 48;
-            Item.useTime = 12;
-            Item.useAnimation = 12;
-            Item.useStyle = 5;
-            Item.knockBack = 5;
-            Item.value = Item.buyPrice(0, 10, 50, 0);
+            Item.useTime = 18;
+            Item.useAnimation = 18;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 5f;
+            Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
@@ -35,18 +35,18 @@ namespace Infernus.Items.Weapon.Magic
             Item.shoot = ModContent.ProjectileType<Projectiles.Lightning>();
             Item.noUseGraphic = false;
             Item.shootSpeed = 9f;
-            Item.mana = 10;
+            Item.mana = 12;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Sword>(), 1);
-            recipe.AddIngredient(ItemID.RainCloud, 45);
-            recipe.AddIngredient(ItemID.Bone, 36);
-            recipe.AddIngredient(ItemID.WaterCandle, 2);
-            recipe.AddIngredient(ItemID.AquaScepter, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Sword>(), 1)
+            .AddIngredient(ItemID.RainCloud, 45)
+            .AddIngredient(ItemID.Bone, 36)
+            .AddIngredient(ItemID.WaterCandle, 2)
+            .AddIngredient(ItemID.AquaScepter, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -78,7 +78,6 @@ namespace Infernus.Items.Weapon.Magic
                 heading.Y += Main.rand.Next(-40, 41) * 0.02f;
                 Projectile.NewProjectile(source, position, heading, type, damage, knockback, player.whoAmI, 0f, ceilingLimit);
             }
-
             return false;
         }
     }

@@ -18,28 +18,25 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 78;
+            Item.damage = 90;
             Item.DamageType = DamageClass.Magic;
             Item.width = 28;
             Item.height = 30;
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 7;
+            Item.knockBack = 7f;
             Item.value = Item.buyPrice(0, 26, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<eternalfire>();
+            Item.shoot = ModContent.ProjectileType<Nebulation>();
             Item.shootSpeed = 18f;
-            Item.crit = 6;
-            Item.mana = 16;
+            Item.mana = 12;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 5;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 5; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(5));
@@ -51,11 +48,11 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LunarBar, 8);
-            recipe.AddIngredient(ItemID.FragmentNebula, 18);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LunarBar, 8)
+            .AddIngredient(ItemID.FragmentNebula, 18)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

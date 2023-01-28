@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 65;
+            Item.damage = 54;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 8;
             Item.width = 44;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 18, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item96;
@@ -45,11 +45,11 @@ namespace Infernus.Items.Weapon.HardMode.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SoulofLight, 4);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 22);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.SoulofLight, 4)
+            .AddIngredient(ItemID.ChlorophyteBar, 22)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

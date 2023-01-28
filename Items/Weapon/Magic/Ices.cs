@@ -26,25 +26,24 @@ namespace Infernus.Items.Weapon.Magic
             Item.useTime = 4;
             Item.reuseDelay = 14;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 10, 50, 0);
+            Item.knockBack = 2f;
+            Item.value = Item.buyPrice(0, 7, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ProjectileID.IceBolt;
+            Item.shoot = ProjectileID.FrostBoltStaff;
             Item.shootSpeed = 9f;
             Item.mana = 12;
-            Item.crit = 4;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 26);
-            recipe.AddIngredient(ItemID.IceBlock, 30);
-            recipe.AddIngredient(ItemID.Obsidian, 25);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 26)
+            .AddIngredient(ItemID.IceBlock, 30)
+            .AddIngredient(ItemID.Obsidian, 25)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {

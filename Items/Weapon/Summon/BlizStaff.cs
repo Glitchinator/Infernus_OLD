@@ -31,7 +31,7 @@ namespace Infernus.Items.Weapon.Summon
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 3f;
-            Item.value = Item.buyPrice(0, 16, 50, 0);
+            Item.value = Item.buyPrice(0, 10, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item96;
             Item.shoot = ModContent.ProjectileType<Projectiles.Blizzard>();

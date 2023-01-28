@@ -18,14 +18,14 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 70;
+            Item.damage = 85;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 76;
             Item.height = 34;
             Item.useAnimation = 1;
             Item.useTime = 1;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 5;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 37, 50, 0);
             Item.rare = ItemRarityID.Red;
             Item.UseSound = SoundID.Item11;
@@ -34,7 +34,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 22f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 8;
         }
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {

@@ -18,20 +18,19 @@ namespace Infernus.Items.Weapon
 
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 16;
             Item.noMelee = true;
             Item.width = 32;
             Item.height = 32;
             Item.useTime = 30;
             Item.useAnimation = 30;
-            Item.useStyle = 5;
-            Item.knockBack = 4;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 12, 45, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item19;
             Item.shoot = ModContent.ProjectileType<Meteor1>();
             Item.shootSpeed = 7f;
-            Item.crit = 4;
             Item.channel = true;
             Item.autoReuse = true;
             Item.noUseGraphic = true;

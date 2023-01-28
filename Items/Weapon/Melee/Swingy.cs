@@ -22,8 +22,8 @@ namespace Infernus.Items.Weapon.Melee
             Item.height = 54;
             Item.useTime = 7;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
-            Item.knockBack = 1;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 1.5f;
             Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
@@ -33,15 +33,14 @@ namespace Infernus.Items.Weapon.Melee
             Item.channel = true;
             Item.noUseGraphic = true;
             Item.shootSpeed = 40f;
-            Item.crit = 6;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.Hot>(), 24);
-            recipe.AddIngredient(ItemID.WoodenSword, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.Hot>(), 24)
+            .AddIngredient(ItemID.WoodenSword, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

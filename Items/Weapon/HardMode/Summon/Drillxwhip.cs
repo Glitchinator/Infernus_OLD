@@ -14,12 +14,12 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Tooltip.SetDefault("Belonged to Drill-X"
                 + "\n Your minions will attack struck foes"
                             + "\n + Explosions"
-                            + "\n + 18 summon tag damage");
+                            + "\n + 14 summon tag damage");
         }
 
         public override void SetDefaults()
         {
-            Item.DefaultToWhip(ModContent.ProjectileType<Infernus.Projectiles.Drillx>(), 160, 3, 7);
+            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Drillx>(), 160, 3, 7);
             Item.value = Item.buyPrice(0, 30, 50, 0);
 
             Item.shootSpeed = 10;
@@ -31,12 +31,12 @@ namespace Infernus.Items.Weapon.HardMode.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Drax, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteDrill, 1);
-            recipe.AddIngredient(ItemID.LaserDrill, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Drax, 1)
+            .AddIngredient(ItemID.ChlorophyteDrill, 1)
+            .AddIngredient(ItemID.LaserDrill, 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

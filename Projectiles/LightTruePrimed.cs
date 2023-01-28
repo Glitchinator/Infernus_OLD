@@ -72,9 +72,7 @@ namespace Infernus.Projectiles
             {
                 if (Main.rand.Next(3) < 1)
                 {
-                    int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.MagicDagger, (int)(Projectile.damage * .60f), 0, Projectile.owner);
-                    Main.projectile[a].tileCollide = false;
-                    Main.projectile[a].friendly = true;
+                    Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, Main.rand.Next(-10, 11), Main.rand.Next(-10, -5), ProjectileID.MagicDagger, (int)(damage * .60f), 0, Projectile.owner);
                 }
             }
         }

@@ -19,15 +19,15 @@ namespace Infernus.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 14;
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 8, 50, 0);
+            Item.knockBack = 2f;
+            Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item88;
             Item.autoReuse = true;
@@ -35,7 +35,6 @@ namespace Infernus.Items.Weapon.Magic
             Item.shoot = ModContent.ProjectileType<Projectiles.Shot1>();
             Item.shootSpeed = 9f;
             Item.mana = 12;
-            Item.crit = 4;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

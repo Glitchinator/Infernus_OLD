@@ -12,7 +12,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
             DisplayName.SetDefault("Hive Heart");
             Tooltip.SetDefault("Ripped from a guardian of the hive."
                   + "\n + Immune to venom and poisoned"
-                  + "\n - 100 health, + 12% Damage"
+                  + "\n - 100 health, + 10% Damage"
                   + "\n + 8% Damage reduction, + 12% Crit"
                   + "\n + Increases the strength of bees"
                     + "\n Minor increase to life regen");
@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
             player.buffImmune[BuffID.Venom] = true;
             player.strongBees = true;
             player.GetCritChance(DamageClass.Generic) += 12;
-            player.GetDamage(DamageClass.Generic) += .12f;
+            player.GetDamage(DamageClass.Generic) += .10f;
             player.statLifeMax2 -= 100;
             player.endurance = .08f - (0.1f * (1f - player.endurance));
         }

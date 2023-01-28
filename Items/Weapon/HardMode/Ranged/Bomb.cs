@@ -18,7 +18,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 24;
+            Item.damage = 22;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 46;
             Item.height = 36;
@@ -26,7 +26,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useTime = 8;
             Item.reuseDelay = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 7;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 18, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item62;
@@ -35,34 +35,30 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useAmmo = AmmoID.Bullet;
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 16f;
-            Item.crit = 4;
         }
         public override Vector2? HoldoutOffset()
         {
-            return new Vector2(-4, 0);
+            return new Vector2(-2, 0);
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 4;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 4; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(25));
 
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
-
             return false;
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SoulofLight, 6);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 18);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.SoulofLight, 6)
+            .AddIngredient(ItemID.ChlorophyteBar, 18)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

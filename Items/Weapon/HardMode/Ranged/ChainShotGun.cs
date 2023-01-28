@@ -18,14 +18,14 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 7;
+            Item.damage = 16;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 70;
             Item.height = 22;
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 9;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 15, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item36;
@@ -34,7 +34,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useAmmo = AmmoID.Bullet;
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 14f;
-            Item.crit = 8;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -42,31 +41,24 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 25;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 8; i++)
             {
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(35));
 
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(25));
-
-
-                newVelocity *= 1f - Main.rand.NextFloat(1.2f);
+                newVelocity *= 1f - Main.rand.NextFloat(.6f);
 
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
-
             return false;
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Ranged.Launcher>(), 1);
-            recipe.AddIngredient(ItemID.Shotgun, 1);
-            recipe.AddIngredient(ItemID.SoulofNight, 8);
-            recipe.AddIngredient(ItemID.SoulofLight, 4);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Weapon.Ranged.Launcher>(), 1)
+            .AddIngredient(ItemID.Shotgun, 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

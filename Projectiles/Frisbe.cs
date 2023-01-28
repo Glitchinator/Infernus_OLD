@@ -20,11 +20,5 @@ namespace Infernus.Projectiles
             Projectile.netImportant = true;
             Projectile.penetrate = -1;
         }
-
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.Bananarang;
-            return true;
-        }
     }
 }

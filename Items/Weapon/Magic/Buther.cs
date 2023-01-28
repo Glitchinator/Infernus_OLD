@@ -12,15 +12,14 @@ namespace Infernus.Items.Weapon.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Boulder Staff");
-            Tooltip.SetDefault("Rains different types of boulder and meteor projectiles out of the sky"
-                + "\n'look up and dodge'");
+            Tooltip.SetDefault("Rains different types of boulder and meteor projectiles out of the sky");
             Item.staff[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 14;
             Item.DamageType = DamageClass.Magic;
             Item.width = 38;
             Item.height = 38;

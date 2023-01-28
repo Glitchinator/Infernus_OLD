@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 16;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 44;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 2;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item96;
@@ -45,11 +45,11 @@ namespace Infernus.Items.Weapon.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Minion>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<BlizStaff>(), 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Minion>(), 1)
+            .AddIngredient(ModContent.ItemType<BlizStaff>(), 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

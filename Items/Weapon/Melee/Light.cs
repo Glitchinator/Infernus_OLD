@@ -21,26 +21,25 @@ namespace Infernus.Items.Weapon.Melee
             Item.height = 34;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
-            Item.knockBack = 6;
-            Item.value = Item.buyPrice(0, 10, 50, 0);
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 6f;
+            Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Orange;
-            Item.UseSound = SoundID.Item71;
+            Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Light>();
             Item.channel = true;
             Item.noUseGraphic = true;
-            Item.crit = 6;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BoldnBash>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<IvyWhip>(), 1);
-            recipe.AddIngredient(ItemID.BlueMoon, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<BoldnBash>(), 1)
+            .AddIngredient(ModContent.ItemType<IvyWhip>(), 1)
+            .AddIngredient(ItemID.BlueMoon, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

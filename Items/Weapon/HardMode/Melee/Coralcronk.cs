@@ -20,26 +20,25 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.DamageType = DamageClass.Melee;
             Item.width = 75;
             Item.height = 75;
-            Item.useTime = 44;
-            Item.useAnimation = 22;
-            Item.useStyle = 1;
-            Item.knockBack = 5;
+            Item.useTime = 36;
+            Item.useAnimation = 18;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 16, 50, 0);
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.StarAnise;
-            Item.crit = 10;
             Item.shootSpeed = 12;
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HallowedBar, 12);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Melee.Seashellsword>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HallowedBar, 12)
+            .AddIngredient(ModContent.ItemType<Weapon.Melee.Seashellsword>(), 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

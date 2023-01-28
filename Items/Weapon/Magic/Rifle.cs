@@ -24,11 +24,11 @@ namespace Infernus.Items.Weapon.Magic
             Item.DamageType = DamageClass.Magic;
             Item.width = 50;
             Item.height = 50;
-            Item.useAnimation = 12;
-            Item.useTime = 4;
-            Item.reuseDelay = 14;
+            Item.useAnimation = 16;
+            Item.useTime = 8;
+            Item.reuseDelay = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 2;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 5, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item8;
@@ -37,15 +37,14 @@ namespace Infernus.Items.Weapon.Magic
             Item.shoot = ProjectileID.HallowStar;
             Item.shootSpeed = 9f;
             Item.mana = 10;
-            Item.crit = 4;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FallenStar, 3);
-            recipe.AddIngredient(ItemID.Wood, 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.FallenStar, 3)
+            .AddIngredient(ItemID.Wood, 8)
+            .AddTile(TileID.WorkBenches)
+            .Register();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

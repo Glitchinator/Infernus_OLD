@@ -25,8 +25,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.height = 36;
             Item.useTime = 22;
             Item.useAnimation = 22;
-            Item.useStyle = 5;
-            Item.knockBack = 2;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 22, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item8;
@@ -38,9 +38,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 5;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 5; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(5));

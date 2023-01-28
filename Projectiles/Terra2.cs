@@ -33,6 +33,8 @@ namespace Infernus.Projectiles
             Projectile.ignoreWater = true;
             Projectile.minion = true;
             Projectile.minionSlots = 1;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 9;
         }
         public override bool MinionContactDamage()
         {
@@ -41,6 +43,18 @@ namespace Infernus.Projectiles
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+
+            Vector2 withplayer = player.Center;
+            withplayer.Y -= 48f;
+            float notamongusX = (10 + Projectile.minionPos * 40) * -player.direction;
+            withplayer.X += notamongusX;
+            Vector2 vectorToplayer = withplayer - Projectile.Center;
+            float distanceToplayer = vectorToplayer.Length();
+            if (Main.myPlayer == player.whoAmI && distanceToplayer > 2000f)
+            {
+                Projectile.position = withplayer;
+                Projectile.velocity *= 0.1f;
+            }
 
             if (player.dead || !player.active)
             {
@@ -123,10 +137,7 @@ namespace Infernus.Projectiles
                             }
                             shootVel.Normalize();
                             shootVel *= 16;
-                            int proj = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X + 40, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.CrystalLeafShot, 45, Projectile.knockBack, Main.myPlayer, 0f, 0f);
-                            Main.projectile[proj].timeLeft = 300;
-                            Main.projectile[proj].netUpdate = true;
-                            Main.projectile[proj].DamageType = DamageClass.Summon;
+                            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X + 40, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.CrystalLeafShot, 45, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                             Projectile.ai[1] = 1f;
                         }
                     }

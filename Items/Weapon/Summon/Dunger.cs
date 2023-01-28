@@ -30,8 +30,8 @@ namespace Infernus.Items.Weapon.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
-            Item.value = Item.buyPrice(0, 13, 50, 0);
+            Item.knockBack = 3f;
+            Item.value = Item.buyPrice(0, 9, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item96;
             Item.shoot = ModContent.ProjectileType<Projectiles.Dunger>();
@@ -45,11 +45,11 @@ namespace Infernus.Items.Weapon.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Bone, 48);
-            recipe.AddIngredient(ItemID.Cobweb, 26);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Bone, 48)
+            .AddIngredient(ItemID.Cobweb, 26)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

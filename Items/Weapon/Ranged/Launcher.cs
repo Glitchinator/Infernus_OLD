@@ -25,7 +25,7 @@ namespace Infernus.Items.Weapon.Ranged
             Item.useAnimation = 60;
             Item.useTime = 60;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 9;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item36;
@@ -34,7 +34,6 @@ namespace Infernus.Items.Weapon.Ranged
             Item.useAmmo = AmmoID.Bullet;
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 14f;
-            Item.crit = 0;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -42,9 +41,7 @@ namespace Infernus.Items.Weapon.Ranged
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 35;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 35; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(180));
@@ -54,17 +51,16 @@ namespace Infernus.Items.Weapon.Ranged
 
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
-
             return false;
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Placeable.Rock>(), 42);
-            recipe.AddIngredient(ItemID.MusketBall, 999);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 42)
+            .AddIngredient(ItemID.MusketBall, 999)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

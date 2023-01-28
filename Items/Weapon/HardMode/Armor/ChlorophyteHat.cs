@@ -11,7 +11,7 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Chlorophyte Hat");
-            Tooltip.SetDefault("+ 20% Summon Damage");
+            Tooltip.SetDefault("+ 16% Summon Damage");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -21,11 +21,11 @@ namespace Infernus.Items.Weapon.HardMode.Armor
             Item.height = 18;
             Item.value = Item.buyPrice(0, 11, 50, 0);
             Item.rare = ItemRarityID.Lime;
-            Item.defense = 3;
+            Item.defense = 6;
         }
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Summon) += .20f;
+            player.GetDamage(DamageClass.Summon) += .16f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -43,10 +43,10 @@ namespace Infernus.Items.Weapon.HardMode.Armor
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 16);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.ChlorophyteBar, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

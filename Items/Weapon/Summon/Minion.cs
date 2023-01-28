@@ -30,8 +30,8 @@ namespace Infernus.Items.Weapon.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 8, 50, 0);
+            Item.knockBack = 1.5f;
+            Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item96;
             Item.shoot = ModContent.ProjectileType<Projectiles.Minion2>();

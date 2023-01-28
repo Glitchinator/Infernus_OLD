@@ -20,28 +20,25 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 38;
+            Item.damage = 32;
             Item.DamageType = DamageClass.Magic;
             Item.width = 28;
             Item.height = 30;
             Item.useTime = 26;
             Item.useAnimation = 26;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 15, 25, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<BoulderMini>();
             Item.shootSpeed = 15f;
-            Item.crit = 6;
             Item.mana = 9;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));
@@ -56,11 +53,11 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Rock>(), 16);
-            recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Rock>(), 16)
+            .AddIngredient(ItemID.Book, 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

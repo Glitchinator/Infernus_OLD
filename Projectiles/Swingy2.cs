@@ -39,7 +39,7 @@ namespace Infernus.Projectiles
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return new Color(155, 155, 155, 155) * (1f - (float)Projectile.alpha / 255f);
+            return new Color(155, 155, 155, 155) * (1f - Projectile.alpha / 255f);
         }
 
         public override void AI()
@@ -54,7 +54,6 @@ namespace Infernus.Projectiles
                     Projectile.frame = 0;
                 }
             }
-            Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
             if (player.direction > 0)
             {
                 DrawOffsetX = +0;

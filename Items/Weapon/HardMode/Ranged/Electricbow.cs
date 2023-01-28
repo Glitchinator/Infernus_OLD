@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace Infernus.Items.Weapon.HardMode.Ranged
 {
-    public class ElectricBow : ModItem
+    public class Electricbow : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -18,36 +18,36 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 105;
+            Item.damage = 70;
             Item.DamageType = DamageClass.Ranged;
             Item.noMelee = true;
-            Item.width = 32;
-            Item.height = 64;
+            Item.width = 28;
+            Item.height = 58;
             Item.useTime = 17;
             Item.useAnimation = 17;
-            Item.useStyle = 5;
-            Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 27, 50, 0);
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 4f;
+            Item.value = Item.buyPrice(0, 23, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.shootSpeed = 60f;
-            Item.crit = 6;
             Item.useAmmo = AmmoID.Arrow;
+        }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2, 0);
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
-
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
-                type = ProjectileID.MoonlordArrowTrail;
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(3));
 
                 newVelocity *= 1f - Main.rand.NextFloat(1f);
 
-                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
+                Projectile.NewProjectileDirect(source, position, newVelocity, ProjectileID.MoonlordArrowTrail, damage, knockback, player.whoAmI);
             }
 
             return false;

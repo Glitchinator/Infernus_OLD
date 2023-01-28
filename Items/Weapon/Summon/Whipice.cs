@@ -13,12 +13,12 @@ namespace Infernus.Items.Weapon.Summon
             DisplayName.SetDefault("Iceicle Snap");
             Tooltip.SetDefault("Your minions will attack struck foes"
                                 + "\n + Frostburn"
-                                + "\n + 8 summon tag damage");
+                                + "\n + 4 summon tag damage");
         }
 
         public override void SetDefaults()
         {
-            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipice>(), 32, 3, 7);
+            Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whipice>(), 30, 3, 7);
             Item.value = Item.buyPrice(0, 10, 50, 0);
 
             Item.shootSpeed = 5;
@@ -26,12 +26,12 @@ namespace Infernus.Items.Weapon.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 25);
-            recipe.AddIngredient(ItemID.IceBlock, 36);
-            recipe.AddIngredient(ModContent.ItemType<Summon.Whipaer>(), 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 25)
+            .AddIngredient(ItemID.IceBlock, 36)
+            .AddIngredient(ModContent.ItemType<Whipaer>(), 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override bool MeleePrefix()
         {

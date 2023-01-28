@@ -155,8 +155,7 @@ namespace Infernus.Invas
                 return;
             }
             bool flag = false;
-            Player player = Main.player[Main.myPlayer];
-            Rectangle rectangle = new Rectangle((int)Main.screenPosition.X, (int)Main.screenPosition.Y, Main.screenWidth, Main.screenHeight);
+            Rectangle rectangle = new((int)Main.screenPosition.X, (int)Main.screenPosition.Y, Main.screenWidth, Main.screenHeight);
             int num = 5000;
             int icon = 0;
             for (int i = 0; i < 200; i++)
@@ -169,7 +168,7 @@ namespace Infernus.Invas
                     {
                         if (type == FullList[n])
                         {
-                            Rectangle value = new Rectangle((int)(Main.npc[i].position.X + (Main.npc[i].width / 2)) - num, (int)(Main.npc[i].position.Y + (Main.npc[i].height / 2)) - num, num * 2, num * 2);
+                            Rectangle value = new((int)(Main.npc[i].position.X + (Main.npc[i].width / 2)) - num, (int)(Main.npc[i].position.Y + (Main.npc[i].height / 2)) - num, num * 2, num * 2);
                             if (rectangle.Intersects(value))
                             {
                                 flag = true;
@@ -192,7 +191,7 @@ namespace Infernus.Invas
 
             foreach (Player p in Main.player)
             {
-                NetMessage.SendData(MessageID.InvasionProgressReport, p.whoAmI, -1, null, Main.invasionSizeStart - Main.invasionSize, Main.invasionSizeStart, (Main.invasionType + 3), 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.InvasionProgressReport, p.whoAmI, -1, null, Main.invasionSizeStart - Main.invasionSize, Main.invasionSizeStart, (Main.invasionType), 0f, 0, 0, 0);
             }
         }
     }

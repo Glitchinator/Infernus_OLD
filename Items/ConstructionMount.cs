@@ -21,7 +21,6 @@ namespace Infernus.Items
             MountData.runSpeed = 11f;
             MountData.dashSpeed = 8f;
             MountData.flightTimeMax = 0;
-            MountData.spawnDust = DustID.Dirt;
             MountData.totalFrames = 4;
             MountData.playerYOffsets = Enumerable.Repeat(20, MountData.totalFrames).ToArray();
             MountData.xOffset = 13;
@@ -48,11 +47,8 @@ namespace Infernus.Items
             MountData.swimFrameDelay = MountData.inAirFrameDelay;
             MountData.swimFrameStart = MountData.inAirFrameStart;
 
-            if (!Main.dedServ)
-            {
-                MountData.textureWidth = MountData.backTexture.Width() + 20;
-                MountData.textureHeight = MountData.backTexture.Height();
-            }
+            MountData.textureWidth = MountData.backTexture.Width() + 20;
+            MountData.textureHeight = MountData.backTexture.Height();
         }
         public override void UpdateEffects(Player player)
         {
@@ -65,15 +61,12 @@ namespace Infernus.Items
         }
         public override void SetMount(Player player, ref bool skipDust)
         {
-            if (!Main.dedServ)
+            for (int i = 0; i < 16; i++)
             {
-                for (int i = 0; i < 16; i++)
-                {
-                    Dust.NewDustPerfect(player.Center + new Vector2(80, 0).RotatedBy(i * Math.PI * 2 / 16f), MountData.spawnDust);
-                }
-
-                skipDust = true;
+                Dust.NewDustPerfect(player.Center, DustID.Dirt);
             }
+
+            skipDust = true;
         }
     }
 }

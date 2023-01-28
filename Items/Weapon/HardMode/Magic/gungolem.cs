@@ -17,14 +17,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 90;
+            Item.damage = 60;
             Item.DamageType = DamageClass.Magic;
             Item.width = 36;
             Item.height = 36;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 5;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 19, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item8;
@@ -40,12 +40,12 @@ namespace Infernus.Items.Weapon.HardMode.Magic
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LeafBlower, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
-            recipe.AddIngredient(ItemID.BeetleHusk, 12);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LeafBlower, 1)
+            .AddIngredient(ItemID.ChlorophyteBar, 12)
+            .AddIngredient(ItemID.BeetleHusk, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.useTime = 2;
             Item.reuseDelay = 7;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 12, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item11;
@@ -34,7 +34,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 22f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 8;
         }
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {
@@ -42,7 +41,7 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override Vector2? HoldoutOffset()
         {
-            return new Vector2(-10, 0);
+            return new Vector2(-4, 0);
         }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
@@ -50,10 +49,10 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HallowedBar, 18);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HallowedBar, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

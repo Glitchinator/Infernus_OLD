@@ -62,18 +62,6 @@ namespace Infernus.Projectiles
 
             return base.PreDraw(ref lightColor);
         }
-
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            {
-                if (Main.rand.Next(3) < 1)
-                {
-                    int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.MagicDagger, (int)(Projectile.damage * .60f), 0, Projectile.owner);
-                    Main.projectile[a].tileCollide = false;
-                    Main.projectile[a].friendly = true;
-                }
-            }
-        }
         public override void AI()
         {
             if (Main.myPlayer == Projectile.owner && Projectile.ai[0] == 2f && Projectile.ai[1] == 0f)

@@ -17,14 +17,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 66;
+            Item.damage = 78;
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 30;
             Item.useAnimation = 30;
-            Item.useStyle = 5;
-            Item.knockBack = 6;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 6f;
             Item.value = Item.buyPrice(0, 15, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item8;
@@ -33,16 +33,16 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.shoot = ModContent.ProjectileType<Gas>();
             Item.noUseGraphic = false;
             Item.shootSpeed = 22f;
-            Item.mana = 8;
+            Item.mana = 12;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Magic.Flower>(), 1);
-            recipe.AddIngredient(ItemID.JungleSpores, 18);
-            recipe.AddIngredient(ItemID.SoulofLight, 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Weapon.Magic.Flower>(), 1)
+            .AddIngredient(ItemID.JungleSpores, 18)
+            .AddIngredient(ItemID.SoulofLight, 10)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

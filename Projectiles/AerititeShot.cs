@@ -20,7 +20,6 @@ namespace Infernus.Projectiles
             Projectile.height = 16;
             Projectile.width = 16;
             Projectile.hostile = false;
-            Projectile.light = .5f;
             Projectile.netImportant = true;
         }
     }

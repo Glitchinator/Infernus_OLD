@@ -19,14 +19,14 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 58;
+            Item.damage = 80;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 70;
             Item.height = 30;
             Item.useAnimation = 3;
             Item.useTime = 4;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 20, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item11;
@@ -35,15 +35,14 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 22f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 8;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Weapon.Ranged.Mini>(), 1);
-            recipe.AddIngredient(ItemID.LunarBar, 12);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Weapon.Ranged.Mini>(), 1)
+            .AddIngredient(ItemID.LunarBar, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {
@@ -55,19 +54,9 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 2;
+            type = Main.rand.Next(new int[] { type, ProjectileID.Flames, });
 
-            for (int i = 0; i < NumProjectiles; i++)
-            {
-                type = Main.rand.Next(new int[] { type, ProjectileID.Flames, });
-
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(1));
-
-
-                newVelocity *= 1f - Main.rand.NextFloat(.1f);
-
-                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
-            }
+            Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
 
             return false;
         }

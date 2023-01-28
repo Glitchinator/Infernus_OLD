@@ -10,7 +10,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mechanical Mind");
-            Tooltip.SetDefault("Detection,Thorns,+20 life,+10 pickspeed,+1 speed");
+            Tooltip.SetDefault("Detection,+10% pickspeed,+1 speed");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -29,9 +29,7 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
             player.boneArmor = true;
             player.detectCreature = true;
             player.armorEffectDrawShadow = true;
-            player.thorns = .4f;
-            player.statLifeMax2 += 20;
-            player.pickSpeed -= 10;
+            player.pickSpeed += .1f;
             player.accRunSpeed += 1;
             player.dangerSense = true;
 
@@ -39,12 +37,12 @@ namespace Infernus.Items.Weapon.HardMode.Accessories
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.MechanicalBatteryPiece, 1);
-            recipe.AddIngredient(ItemID.MechanicalWagonPiece, 1);
-            recipe.AddIngredient(ItemID.MechanicalWheelPiece, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.MechanicalBatteryPiece, 1)
+            .AddIngredient(ItemID.MechanicalWagonPiece, 1)
+            .AddIngredient(ItemID.MechanicalWheelPiece, 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

@@ -14,9 +14,7 @@ namespace Infernus.Projectiles
         protected float spacingMult = 0f;
         protected float viewDist = 350f;
         protected float inertia = 40f;
-        protected float shootCool = 100f;
         protected float shootSpeed;
-        protected int shoot;
 
         public override void SetStaticDefaults()
         {
@@ -39,7 +37,6 @@ namespace Infernus.Projectiles
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             inertia = 20f;
-            shoot = ProjectileID.PurpleLaser;
             shootSpeed = 12f;
         }
         public override void AI()
@@ -160,8 +157,6 @@ namespace Infernus.Projectiles
                 }
             }
             Projectile.rotation = Projectile.velocity.X * 0.05f;
-            SelectFrame();
-            CreateDust();
             if (Projectile.velocity.X > 0f)
             {
                 Projectile.spriteDirection = Projectile.direction = -1;
@@ -178,7 +173,7 @@ namespace Infernus.Projectiles
                     Projectile.ai[1] += 1f;
                 }
             }
-            if (Projectile.ai[1] > shootCool)
+            if (Projectile.ai[1] > 100)
             {
                 Projectile.ai[1] = 0f;
                 Projectile.netUpdate = true;
@@ -207,25 +202,13 @@ namespace Infernus.Projectiles
                             }
                             shootVel.Normalize();
                             shootVel *= shootSpeed;
-                            int proj = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, shoot, 1, Projectile.knockBack, Main.myPlayer, 0f, 0f);
-                            Main.projectile[proj].timeLeft = 300;
-                            Main.projectile[proj].netUpdate = true;
+                            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.VortexBeaterRocket, 32, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                             Projectile.netUpdate = true;
                         }
                     }
                 }
             }
         }
-        public virtual void CreateDust()
-        {
-        }
-
-        public virtual void SelectFrame()
-        {
-        }
-
-
-
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             fallThrough = true;

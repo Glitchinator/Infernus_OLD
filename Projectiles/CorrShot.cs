@@ -22,6 +22,7 @@ namespace Infernus.Projectiles
             Projectile.width = 14;
             Projectile.hostile = false;
             Projectile.netImportant = true;
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
         public override void AI()
         {
@@ -33,7 +34,6 @@ namespace Infernus.Projectiles
             {
                 Projectile.velocity.Y = +0.01f;
             }
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
     }
 }

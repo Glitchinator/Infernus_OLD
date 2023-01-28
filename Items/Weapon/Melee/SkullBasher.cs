@@ -16,15 +16,15 @@ namespace Infernus.Items.Weapon.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 44;
+            Item.damage = 24;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 44;
             Item.useTime = 16;
             Item.useAnimation = 16;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 5;
-            Item.value = Item.buyPrice(0, 9, 50, 0);
+            Item.knockBack = 5f;
+            Item.value = Item.buyPrice(0, 7, 50, 0);
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item19;
             Item.noMelee = true;
@@ -33,7 +33,6 @@ namespace Infernus.Items.Weapon.Melee
             Item.noUseGraphic = true;
             Item.shootSpeed = 16f;
             Item.autoReuse = true;
-            Item.crit = 4;
         }
         public override void AddRecipes()
         {

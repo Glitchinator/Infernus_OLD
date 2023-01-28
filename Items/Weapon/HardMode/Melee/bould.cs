@@ -16,21 +16,20 @@ namespace Infernus.Items.Weapon.HardMode.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 100;
+            Item.damage = 110;
             Item.DamageType = DamageClass.Melee;
             Item.width = 100;
             Item.height = 100;
-            Item.useTime = 20;
-            Item.useAnimation = 15;
-            Item.useStyle = 1;
-            Item.knockBack = 6;
-            Item.value = Item.buyPrice(0, 26, 50, 0);
+            Item.useTime = 17;
+            Item.useAnimation = 14;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5f;
+            Item.value = Item.buyPrice(0, 22, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SwordTerra>();
-            Item.crit = 8;
-            Item.shootSpeed = 10;
+            Item.shoot = ModContent.ProjectileType<Projectiles.SwordTerra2>();
+            Item.shootSpeed = 14;
         }
     }
 }

@@ -30,8 +30,8 @@ namespace Infernus.Items.Weapon.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
-            Item.value = Item.buyPrice(0, 8, 50, 0);
+            Item.knockBack = 3f;
+            Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item96;
             Item.shoot = ModContent.ProjectileType<Projectiles.Cement2>();
@@ -46,7 +46,7 @@ namespace Infernus.Items.Weapon.Summon
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Materials.Gaming>(), 8)
+            .AddIngredient(ModContent.ItemType<Materials.Gaming>(), 14)
             .AddTile(TileID.Anvils)
             .Register();
         }

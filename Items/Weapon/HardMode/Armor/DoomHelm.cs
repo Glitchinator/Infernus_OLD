@@ -12,8 +12,7 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         {
             DisplayName.SetDefault("Praetor Helm");
             Tooltip.SetDefault("Immune to knockback"
-                             + "\n Enemies are more likely"
-                             + "\n to target you");
+                            + "\n + 22% Increased Damage");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -27,9 +26,8 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Summon) += .20f;
-            player.aggro += 25;
             player.noKnockback = true;
+            player.GetDamage(DamageClass.Generic) += .22f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -53,14 +51,14 @@ namespace Infernus.Items.Weapon.HardMode.Armor
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.MartianUniformHelmet, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 8);
-            recipe.AddIngredient(ItemID.SpectreBar, 8);
-            recipe.AddIngredient(ItemID.HallowedBar, 8);
-            recipe.AddIngredient(ItemID.SoulofSight, 12);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.MartianUniformHelmet, 1)
+            .AddIngredient(ItemID.ChlorophyteBar, 8)
+            .AddIngredient(ItemID.SpectreBar, 8)
+            .AddIngredient(ItemID.HallowedBar, 8)
+            .AddIngredient(ItemID.SoulofSight, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

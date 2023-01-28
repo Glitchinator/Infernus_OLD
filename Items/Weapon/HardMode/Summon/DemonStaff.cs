@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Demon Palm");
-            Tooltip.SetDefault("Summon a hand to attack enemies");
+            Tooltip.SetDefault("Summon a skull to attack enemies");
             ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 28;
+            Item.damage = 38;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 20;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 4;
+            Item.knockBack = 4f;
             Item.value = Item.buyPrice(0, 19, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item96;

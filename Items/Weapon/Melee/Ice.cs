@@ -16,30 +16,29 @@ namespace Infernus.Items.Weapon.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 34;
+            Item.damage = 24;
             Item.DamageType = DamageClass.Melee;
             Item.width = 48;
             Item.height = 48;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 6;
+            Item.knockBack = 5.5f;
             Item.value = Item.buyPrice(0, 8, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.Blizzard;
             Item.shootSpeed = 10f;
-            Item.crit = 6;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 38);
-            recipe.AddIngredient(ItemID.IceBlock, 32);
-            recipe.AddIngredient(ItemID.WoodenSword, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Materials.IceSpikes>(), 38)
+            .AddIngredient(ItemID.IceBlock, 32)
+            .AddIngredient(ItemID.WoodenSword, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {

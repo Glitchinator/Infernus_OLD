@@ -18,9 +18,7 @@ namespace Infernus.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             {
-                int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Right.X, Projectile.Right.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ModContent.ProjectileType<Projectiles.Boulder>(), (int)(Projectile.damage * .60f), 0, Projectile.owner);
-                Main.projectile[a].tileCollide = true;
-                Main.projectile[a].friendly = true;
+                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), target.Right.X, target.Right.Y, 0, 0, ModContent.ProjectileType<Boulder>(), (int)(damage * .60f), 0, Projectile.owner);
             }
             Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 

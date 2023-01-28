@@ -17,14 +17,14 @@ namespace Infernus.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 38;
+            Item.damage = 40;
             Item.DamageType = DamageClass.Magic;
             Item.width = 48;
             Item.height = 48;
             Item.useAnimation = 38;
             Item.useTime = 38;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 5;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item8;
@@ -32,16 +32,15 @@ namespace Infernus.Items.Weapon.Magic
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Bone>();
             Item.shootSpeed = 13f;
-            Item.mana = 8;
-            Item.crit = 4;
+            Item.mana = 10;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Bone, 32);
-            recipe.AddIngredient(ItemID.Silk, 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Bone, 32)
+            .AddIngredient(ItemID.Silk, 8)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

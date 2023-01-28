@@ -19,11 +19,5 @@ namespace Infernus.Projectiles
             Projectile.netImportant = true;
             Projectile.netUpdate = true;
         }
-
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.CultistBossFireBall;
-            return true;
-        }
     }
 }

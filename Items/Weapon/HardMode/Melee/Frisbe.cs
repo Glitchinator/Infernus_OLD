@@ -21,23 +21,22 @@ namespace Infernus.Items.Weapon.HardMode.Melee
             Item.height = 32;
             Item.useTime = 10;
             Item.useAnimation = 10;
-            Item.useStyle = 1;
-            Item.knockBack = 8;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6f;
             Item.noUseGraphic = true;
             Item.value = Item.buyPrice(0, 26, 50, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Frisbe>();
-            Item.crit = 8;
             Item.shootSpeed = 20;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LunarBar, 8);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LunarBar, 8)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

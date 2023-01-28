@@ -17,29 +17,28 @@ namespace Infernus.Items.Weapon.HardMode.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = 40;
+            Item.damage = 38;
             Item.DamageType = DamageClass.Melee;
             Item.width = 48;
             Item.height = 48;
             Item.useTime = 30;
             Item.useAnimation = 25;
-            Item.useStyle = 1;
-            Item.knockBack = 6;
-            Item.value = Item.buyPrice(0, 26, 50, 0);
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6f;
+            Item.value = Item.buyPrice(0, 16, 50, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item19;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.SwordHell>();
-            Item.crit = 8;
             Item.shootSpeed = 10;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HellstoneBar, 6);
-            recipe.AddIngredient(ItemID.PearlwoodSword, 2);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HellstoneBar, 6)
+            .AddIngredient(ItemID.PearlwoodSword, 2)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {

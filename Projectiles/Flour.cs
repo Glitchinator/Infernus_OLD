@@ -23,19 +23,13 @@ namespace Infernus.Projectiles
             Projectile.tileCollide = false;
             Projectile.aiStyle = 18;
             Projectile.netImportant = true;
-
-
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             {
                 SoundEngine.PlaySound(SoundID.DD2_KoboldExplosion, Projectile.position);
-                int a = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(0, 0) * .25f, Main.rand.Next(0, 0) * .25f, ProjectileID.DD2ExplosiveTrapT3Explosion, (int)(Projectile.damage * 1f), 0, Projectile.owner);
-                Main.projectile[a].tileCollide = false;
-                Main.projectile[a].friendly = true;
-                int b = Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y - 8f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, ProjectileID.RainbowCrystalExplosion, (int)(Projectile.damage * .80f), 0, Projectile.owner);
-                Main.projectile[b].tileCollide = false;
-                Main.projectile[b].friendly = true;
+                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ProjectileID.DD2ExplosiveTrapT3Explosion, damage, 0, Projectile.owner);
+                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), target.Center.X, target.Center.Y, 0, 0, ProjectileID.RainbowCrystalExplosion, (int)(damage * .80f), 0, Projectile.owner);
             }
         }
     }

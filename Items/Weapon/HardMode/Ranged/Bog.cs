@@ -17,14 +17,14 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 72;
+            Item.damage = 38;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 70;
             Item.height = 22;
             Item.useAnimation = 22;
             Item.useTime = 22;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 6;
+            Item.knockBack = 6f;
             Item.value = Item.buyPrice(0, 22, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item40;
@@ -32,7 +32,6 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.noMelee = true;
             Item.shoot = ProjectileID.EmeraldBolt;
             Item.shootSpeed = 20f;
-            Item.crit = 4;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -40,9 +39,8 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int NumProjectiles = 3;
 
-            for (int i = 0; i < NumProjectiles; i++)
+            for (int i = 0; i < 3; i++)
             {
                 type = Main.rand.Next(new int[] { type, ProjectileID.EmeraldBolt, ProjectileID.ChlorophyteArrow, ProjectileID.Stake, ModContent.ProjectileType<Projectiles.Boulder>(), });
 

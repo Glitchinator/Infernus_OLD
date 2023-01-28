@@ -11,8 +11,8 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mechanical Bowpeater");
-            Tooltip.SetDefault("Converts arrows to shotgun lazars");
+            DisplayName.SetDefault("Pulse Rifle");
+            Tooltip.SetDefault("Converts bullets to shotgun lazars");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -21,43 +21,40 @@ namespace Infernus.Items.Weapon.HardMode.Ranged
             Item.damage = 26;
             Item.DamageType = DamageClass.Ranged;
             Item.noMelee = true;
-            Item.width = 60;
-            Item.height = 40;
+            Item.width = 52;
+            Item.height = 18;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.useStyle = 5;
-            Item.knockBack = 3;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 14, 50, 0);
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = SoundID.Item5;
+            Item.UseSound = SoundID.Item107;
             Item.autoReuse = true;
-            Item.shoot = ProjectileID.WoodenArrowFriendly;
+            Item.shoot = ProjectileID.Bullet;
             Item.shootSpeed = 25f;
-            Item.crit = 6;
-            Item.useAmmo = AmmoID.Arrow;
+            Item.useAmmo = AmmoID.Bullet;
         }
         public override Vector2? HoldoutOffset()
         {
-            return new Vector2(-10, 0);
+            return new Vector2(-6, 0);
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            float numberProjectiles = 4;
-            float rotation = MathHelper.ToRadians(4);
-            position += Vector2.Normalize(velocity) * 4f;
-            for (int i = 0; i < numberProjectiles; i++)
+            for (int i = 0; i < 4; i++)
             {
-                Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
-                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<Projectiles.Lazar>(), damage, knockback, player.whoAmI);
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(8));
+
+                Projectile.NewProjectileDirect(source, position, newVelocity, ModContent.ProjectileType<Projectiles.Lazar>(), damage, knockback, player.whoAmI);
             }
             return false;
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HallowedBar, 12);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.HallowedBar, 12)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

@@ -18,14 +18,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 62;
+            Item.damage = 42;
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 24;
             Item.useTime = 8;
             Item.useAnimation = 8;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 2;
+            Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 17, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item8;
@@ -45,18 +45,14 @@ namespace Infernus.Items.Weapon.HardMode.Magic
 
             return false;
         }
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-4, 0);
-        }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.LaserRifle, 1);
-            recipe.AddIngredient(ItemID.SpaceGun, 1);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 8);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.LaserRifle, 1)
+            .AddIngredient(ItemID.SpaceGun, 1)
+            .AddIngredient(ItemID.ChlorophyteBar, 8)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

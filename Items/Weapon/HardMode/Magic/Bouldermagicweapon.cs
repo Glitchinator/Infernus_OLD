@@ -23,8 +23,8 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.height = 48;
             Item.useTime = 38;
             Item.useAnimation = 38;
-            Item.useStyle = 5;
-            Item.knockBack = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 5f;
             Item.value = Item.buyPrice(0, 15, 50, 0);
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item8;
@@ -33,7 +33,7 @@ namespace Infernus.Items.Weapon.HardMode.Magic
             Item.shoot = ModContent.ProjectileType<Bouldermagicweaponshot>();
             Item.noUseGraphic = false;
             Item.shootSpeed = 16f;
-            Item.mana = 8;
+            Item.mana = 10;
         }
     }
 }

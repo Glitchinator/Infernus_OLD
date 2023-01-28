@@ -19,18 +19,18 @@ namespace Infernus.Projectiles
         }
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.Raven);
-            AIType = ProjectileID.Raven;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.width = 26;
             Projectile.height = 18;
-            Projectile.tileCollide = true;
+            Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.minionSlots = 1f;
             Projectile.penetrate = -1;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 14;
         }
         public override void AI()
         {
@@ -46,7 +46,6 @@ namespace Infernus.Projectiles
             {
                 Projectile.position = withplayer;
                 Projectile.velocity *= 0.1f;
-                Projectile.netUpdate = true;
             }
 
             if (player.dead || !player.active)
@@ -57,7 +56,83 @@ namespace Infernus.Projectiles
             {
                 Projectile.timeLeft = 2;
             }
-            if (++Projectile.frameCounter >= 100)
+            float distanceFromTarget = 250f;
+            Vector2 targetCenter = Projectile.position;
+            bool foundTarget = false;
+
+            if (player.HasMinionAttackTargetNPC)
+            {
+                NPC npc = Main.npc[player.MinionAttackTargetNPC];
+                float between = Vector2.Distance(npc.Center, Projectile.Center);
+                if (between < 2000f)
+                {
+                    distanceFromTarget = between;
+                    targetCenter = npc.Center;
+                    foundTarget = true;
+                }
+            }
+            if (!foundTarget)
+            {
+                for (int i = 0; i < Main.maxNPCs; i++)
+                {
+                    NPC npc = Main.npc[i];
+                    if (npc.CanBeChasedBy())
+                    {
+                        float between = Vector2.Distance(npc.Center, Projectile.Center);
+                        bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
+                        bool inRange = between < distanceFromTarget;
+                        bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
+                        bool closeThroughWall = between < 100f;
+                        if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall))
+                        {
+                            distanceFromTarget = between;
+                            targetCenter = npc.Center;
+                            foundTarget = true;
+                        }
+                    }
+                }
+            }
+            Projectile.friendly = foundTarget;
+
+
+            float speed = 10f;
+            float inertia = 15f;
+
+            if (foundTarget)
+            {
+                if (distanceFromTarget > 40f)
+                {
+                    Vector2 direction = targetCenter - Projectile.Center;
+                    direction.Normalize();
+                    direction *= speed;
+                    Projectile.velocity = (Projectile.velocity * (inertia - 1) + direction) / inertia;
+                }
+            }
+            else
+            {
+                if (distanceToplayer > 600f)
+                {
+                    speed = 15f;
+                    inertia = 35f;
+                }
+                else
+                {
+                    speed = 6f;
+                    inertia = 50f;
+                }
+                if (distanceToplayer > 20f)
+                {
+                    vectorToplayer.Normalize();
+                    vectorToplayer *= speed;
+                    Projectile.velocity = (Projectile.velocity * (inertia - 1) + vectorToplayer) / inertia;
+                }
+                else if (Projectile.velocity == Vector2.Zero)
+                {
+                    Projectile.velocity.X = -0.01f;
+                    Projectile.velocity.Y = -0.01f;
+                }
+            }
+            if (++Projectile.frameCounter >= 16)
             {
                 Projectile.frameCounter = 0;
                 if (++Projectile.frame >= Main.projFrames[Projectile.type])
@@ -73,8 +148,6 @@ namespace Infernus.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(BuffID.Poisoned, 300);
-            target.immune[Projectile.owner] = 7;
-            target.immune[Projectile.owner] = 7;
         }
     }
 }

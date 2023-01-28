@@ -17,13 +17,6 @@ namespace Infernus.Projectiles
             Projectile.CloneDefaults(ProjectileID.JavelinFriendly);
             AIType = ProjectileID.JavelinFriendly;
             Projectile.netImportant = true;
-
-
-        }
-        public override bool PreKill(int timeLeft)
-        {
-            Projectile.type = ProjectileID.Bullet;
-            return true;
         }
         public override void AI()
         {

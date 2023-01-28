@@ -109,30 +109,5 @@ namespace Infernus.Projectiles
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
             }
         }
-        public override void Kill(int timeLeft)
-        {
-
-            if (Projectile.penetrate == 1)
-            {
-
-                Projectile.maxPenetrate = -1;
-                Projectile.penetrate = -1;
-
-                int explosionArea = 60;
-                Vector2 oldSize = Projectile.Size;
-                Projectile.position = Projectile.Center;
-                Projectile.Size += new Vector2(explosionArea);
-                Projectile.Center = Projectile.position;
-
-                Projectile.tileCollide = false;
-                Projectile.velocity *= 0.01f;
-                Projectile.Damage();
-                Projectile.scale = 0.01f;
-
-                Projectile.position = Projectile.Center;
-                Projectile.Size = new Vector2(10);
-                Projectile.Center = Projectile.position;
-            }
-        }
     }
 }

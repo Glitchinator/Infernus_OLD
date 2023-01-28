@@ -21,7 +21,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 38;
+            Item.damage = 46;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 8;
             Item.width = 48;
@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.HardMode.Summon
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 3;
+            Item.knockBack = 3f;
             Item.value = Item.buyPrice(0, 22, 50, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item96;
@@ -45,13 +45,13 @@ namespace Infernus.Items.Weapon.HardMode.Summon
         }
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Ectoplasm, 8);
-            recipe.AddIngredient(ItemID.SpookyWood, 24);
-            recipe.AddIngredient(ItemID.SoulofFright, 8);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapon.Summon.Minion>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            CreateRecipe()
+            .AddIngredient(ItemID.Ectoplasm, 8)
+            .AddIngredient(ItemID.SpookyWood, 24)
+            .AddIngredient(ItemID.SoulofFright, 8)
+            .AddIngredient(ModContent.ItemType<Weapon.Summon.Minion>(), 1)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
         }
     }
 }

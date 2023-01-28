@@ -18,8 +18,8 @@ namespace Infernus.Items.Pets
         public override void SetDefaults()
         {
             Item.DefaultToVanitypet(ModContent.ProjectileType<RudePet>(), ModContent.BuffType<RudeBuff>());
-            Item.width = 20;
-            Item.height = 20;
+            Item.width = 24;
+            Item.height = 22;
             Item.rare = ItemRarityID.Master;
             Item.master = true;
             Item.value = Item.buyPrice(0, 1, 60, 0);
