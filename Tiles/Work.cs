@@ -20,11 +20,9 @@ namespace Infernus.Tiles
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Construction Workbench");
 			AddMapEntry(new Color(200, 200, 200), Language.GetText("Construction Workbench"));
 			AdjTiles = new int[] { TileID.WorkBenches };
-			DustType = 0;
+			DustType = DustID.WoodFurniture;
 		}
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{

@@ -202,7 +202,7 @@ namespace Infernus.Projectiles
                             }
                             shootVel.Normalize();
                             shootVel *= shootSpeed;
-                            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.VortexBeaterRocket, 32, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, shootVel.X, shootVel.Y, ProjectileID.PurpleLaser, 1, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                             Projectile.netUpdate = true;
                         }
                     }

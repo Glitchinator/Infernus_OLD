@@ -22,17 +22,10 @@ namespace Infernus.Tiles
             Main.tileSpelunker[Type] = true;
             Main.tileShine2[Type] = true;
 
-
             ItemDrop = ItemType<Placeable.Rock>();
 
-
-            ModTranslation name = CreateMapEntryName();
             AddMapEntry(new Color(121, 153, 163), Language.GetText("Chiseled Rock"));
-
-
             DustType = DustID.Stone;
-
         }
     }
-
 }

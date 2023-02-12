@@ -7,19 +7,27 @@ Boss Checklist. Currently in total I have made around 300 additions/changes, but
 
 + Infernus Mod has a wiki, so you don't have to go through it blind.
 
-+ Infernus Mod has a post MoonLord boss.
++ Infernus Updates happen mostly weekly, some bi-weekly.
 
-What Inferus offers:
-* 178 New items - including new armor sets, weapons for each class, accessories, new materials.
-* 1 New Mode - Adventure Mode enables Levels and XP.
-* 4 New bosses - every boss has it's own AI, loot, treasure bag with unique expert items.
-* 2 New miniboss - basically just stronger enemies but drop good items.
-* 21 New Enemies - each NPC has it's own use. One NPC also drops new things after a certain boss is defeated.
+What Infernus offers:
+* 187 New items - including new armor sets, weapons for each class, accessories, new materials.
+* 1 New Mode - Adventure Mode, increases difficulty and enables Levels and XP.
+* 5 New bosses - every boss has it's own AI, loot, treasure bag with unique expert items.
+* 1 New miniboss - basically just stronger enemies but drop good items.
+* 21 New Enemies - each NPC has it's own use.NPCs drop new things after certain bosses are defeated.
 * 1 New invasions - new invasion with new interesting mobs and loot, Upgrades after plantera is killed.
-* 5 Categories - Catergories of Quality of Life changes like cheaper nurse, Plantera summon, Day/Night skip,easier to get items and more.
+* QOL Changes - Multiple changes to Terraria to make the progress more enjoyable.
+* post Moonlord Content. (tiny amount).
 * New ore - Aeritite generates in the beginning of the game.
 * I worked hard on these sprites.
-* Infernus Mod adds content after MoonLord.
+
+What Infernus wants in exchange:
+* Happiness while you play the mod.
+* Excitement for new updates.
+* Share your opinion in the Discord.
+
+
+Will you take the deal?
 
 
 

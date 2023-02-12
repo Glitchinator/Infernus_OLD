@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Infernus.Projectiles;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -34,11 +35,25 @@ namespace Infernus
         public int Level_Max;
         public int Level_Max2;
 
+        // Ink Storm Variable
+        public bool Ink_Storm_Equipped = false;
+
         public override void ModifyNursePrice(NPC nurse, int health, bool removeDebuffs, ref int price)
         {
             if (Player.statLife < Player.statLifeMax)
             {
                 price = 100;
+            }
+        }
+
+        public override void OnHitByNPC(NPC npc, int damage, bool crit)
+        {
+            if(Ink_Storm_Equipped == true)
+            {
+                if (Main.rand.Next(3) < 1)
+                {
+                    Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), npc.Center.X, npc.Center.Y, 0, 0, ModContent.ProjectileType<Ink_EmergencyTyphoon>(), 16, 0, 0);
+                }
             }
         }
         public override void LoadData(TagCompound tag)

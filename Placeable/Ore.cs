@@ -17,7 +17,8 @@ namespace Infernus.Placeable
         }
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(12);
+            Item.width = 16;
+            Item.height = 16;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(copper: 2);
 

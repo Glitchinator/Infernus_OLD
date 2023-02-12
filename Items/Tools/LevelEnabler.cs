@@ -1,7 +1,9 @@
+using log4net.Core;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Humanizer.On;
 
 namespace Infernus.Items.Tools
 {
@@ -11,12 +13,15 @@ namespace Infernus.Items.Tools
         {
             DisplayName.SetDefault("Adventure Mode");
             Tooltip.SetDefault("Your journey awaits, with fortune and fame..."
+                 + "\n 40% Increase Health and 40% Increased Damage of Bosses"
+                + "\n Adds custom AI to these bosses (Temporal Glow Squid)"
                 + "\n Enables or Disables the Level System"
                 + "\n The Level System adds levels and XP to Terraria"
-                 + "\n when you reach the max xp you gain 1 level"
-                 + "\n there are a max of 50 levels each give stat bonuses"
-                  + "\n mobs drop xp usually, adventure mode allows the use of it"
-                  + "\n updates to Adventure Mode will come later");
+                 + "\n You gain XP by killing enemies"
+                 + "\n When you reach the max XP you gain 1 level"
+                 + "\n There are a max of 50 levels each give stat bonuses"
+                  + "\n Updates to Adventure Mode will come later"
+                  + "\n Version 1.1 (Boss AI changes, No more XP item to collect and bug Fixes)");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
         }
         public override void SetDefaults()

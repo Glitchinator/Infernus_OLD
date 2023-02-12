@@ -1,6 +1,7 @@
 ﻿using Infernus.Invas;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,11 +14,11 @@ namespace Infernus
         {
             if (npc.type == NPCID.SkeletonSniper)
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.TommyGun>(), 20, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.TommyGun>(), 60, 1, 1));
             }
             if (npc.type == NPCID.RedDevil)
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.DemonStaff>(), 20, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.DemonStaff>(), 60, 1, 1));
             }
             if (npc.type == NPCID.MartianSaucer)
             {
@@ -25,27 +26,21 @@ namespace Infernus
             }
             if (npc.type == NPCID.ShadowFlameApparition)
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.GoblinStaff>(), 20, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.GoblinStaff>(), 60, 1, 1));
             }
             if (npc.type == NPCID.GiantBat)
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 20, 1, 1));
-            }
-            if (npc.CountsAsACritter == false && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon)
-            {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Level.XP_Item>(), 2, 1, 1));
-            }
-            if (npc.boss == true)
-            {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Level.XP_Item>(), 1, 1, 5));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 60, 1, 1));
             }
         }
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            // (DownedBoss.Level_systemON == true && npc.boss == true)
-           //
-           //   npc.lifeMax += (int)(npc.life * 2f);
-           //
+            if (DownedBoss.Level_systemON == true && npc.boss == true)
+            {
+                npc.damage = ((npc.damage / 5) * 7);
+                npc.lifeMax = ((npc.life / 5) * 7);
+                npc.life = npc.lifeMax;
+            }
         }
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
         {
@@ -126,6 +121,14 @@ namespace Infernus
                         Main.invasionSize -= 9;
                     }
                 }
+            }
+            if(npc.CountsAsACritter == false && DownedBoss.Level_systemON == true && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon)
+            {
+                Main.LocalPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 1;
+            }
+            if (npc.boss == true)
+            {
+                Main.LocalPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 8;
             }
         }
     }

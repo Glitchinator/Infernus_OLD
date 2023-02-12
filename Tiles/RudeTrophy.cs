@@ -21,7 +21,7 @@ namespace Infernus.Tiles
             TileObjectData.addTile(Type);
 
             AddMapEntry(new Color(120, 85, 60), Language.GetText("Trophy"));
-            DustType = 7;
+            DustType = DustID.WoodFurniture;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)

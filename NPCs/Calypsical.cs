@@ -408,7 +408,7 @@ namespace Infernus.NPCs
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(35));
                     newVelocity *= 1f - Main.rand.NextFloat(0.3f);
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.RayGunnerLaser, 45, NPC.whoAmI);
+                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.RayGunnerLaser, 40, NPC.whoAmI);
                 }
             }
         }
@@ -432,7 +432,7 @@ namespace Infernus.NPCs
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(90));
                     newVelocity *= 1f - Main.rand.NextFloat(0.1f);
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FlamingScythe, 60, NPC.whoAmI);
+                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.FlamingScythe, 50, NPC.whoAmI);
                 }
             }
         }
@@ -452,7 +452,7 @@ namespace Infernus.NPCs
                     velocity = new Vector2(0f, 5f);
                 }
 
-                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.EyeBeam, 60, NPC.whoAmI);
+                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.EyeBeam, 50, NPC.whoAmI);
             }
         }
         public static int MinionType()
@@ -528,7 +528,7 @@ namespace Infernus.NPCs
                     }
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(180));
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ModContent.ProjectileType<Projectiles.HomingBoss>(), 40, NPC.whoAmI);
+                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ModContent.ProjectileType<Projectiles.HomingBoss>(), 35, NPC.whoAmI);
                 }
             }
         }
@@ -551,7 +551,7 @@ namespace Infernus.NPCs
                     }
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(360));
 
-                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.RayGunnerLaser, 46, NPC.whoAmI);
+                    Projectile.NewProjectile(entitySource, NPC.Center, newVelocity, ProjectileID.RayGunnerLaser, 38, NPC.whoAmI);
                 }
             }
         }

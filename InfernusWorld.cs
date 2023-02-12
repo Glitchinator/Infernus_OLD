@@ -286,7 +286,7 @@ namespace Infernus
 
             int minibossType = ModContent.NPCType<NPCs.TemporalSquid>();
 
-            float miniweight = 0.9f;
+            float miniweight = 1.9f;
 
             Func<bool> minidowned = () => DownedBoss.downedSquid;
 
@@ -294,19 +294,17 @@ namespace Infernus
 
             List<int> minicollection = new List<int>()
             {
-                ModContent.ItemType<Items.Consumable.Potion>(),
-                ItemID.BlackInk,
-                ItemID.PinkJellyfish
+                ModContent.ItemType<Items.Consumable.Potion>()
             };
 
-            int minisummonItem = ItemID.WoodenChair;
+            int minisummonItem = ModContent.ItemType<Items.BossSummon.Squid_BossSummon>();
 
-            string minispawnInfo = "Randomly spawns in ocean biome";
+            string minispawnInfo = "while in the ocean biome";
 
             string minidespawnInfo = null;
 
             bossChecklistMod.Call(
-                "AddMiniBoss",
+                "AddBoss",
                 Mod,
                 minibossName,
                 minibossType,
