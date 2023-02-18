@@ -21,16 +21,16 @@ namespace Infernus.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = 11;
+            Item.damage = 16;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
-            Item.width = 50;
-            Item.height = 50;
+            Item.width = 48;
+            Item.height = 48;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.knockBack = 1.5f;
+            Item.knockBack = 1f;
             Item.value = Item.buyPrice(0, 6, 50, 0);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item96;

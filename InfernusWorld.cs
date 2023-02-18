@@ -124,13 +124,13 @@ namespace Infernus
 
             int bossType = ModContent.NPCType<NPCs.Raiko>();
 
-            float weight = 2.4f;
+            float weight = 3.5f;
 
             Func<bool> downed = () => DownedBoss.downedRaiko;
 
             Func<bool> available = () => true;
 
-            List<int> collection = new List<int>()
+            List<int> collection = new()
             {
                 ModContent.ItemType<Placeable.RaikoRelic>(),
                 ModContent.ItemType<Items.Pets.RaikoPetItem>(),
@@ -152,7 +152,7 @@ namespace Infernus
             var customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/Raiko").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 
@@ -182,7 +182,7 @@ namespace Infernus
 
             Func<bool> available1 = () => true;
 
-            List<int> collection1 = new List<int>()
+            List<int> collection1 = new()
             {
                 ModContent.ItemType<Placeable.RudeRelic>(),
                 ModContent.ItemType<Items.Pets.RudeItem>(),
@@ -208,7 +208,7 @@ namespace Infernus
             var customBossPortrait1 = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/Ruderibus").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 
@@ -239,7 +239,7 @@ namespace Infernus
 
             Func<bool> available2 = () => true;
 
-            List<int> collection2 = new List<int>()
+            List<int> collection2 = new()
             {
                 ModContent.ItemType<Placeable.SharkRelic>(),
                 ModContent.ItemType<Placeable.SharkTrophy>(),
@@ -263,7 +263,7 @@ namespace Infernus
             var customBossPortrait2 = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/TigerShark").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 
@@ -292,7 +292,7 @@ namespace Infernus
 
             Func<bool> miniavailable = () => true;
 
-            List<int> minicollection = new List<int>()
+            List<int> minicollection = new()
             {
                 ModContent.ItemType<Items.Consumable.Potion>()
             };
@@ -326,12 +326,12 @@ namespace Infernus
 
             Func<bool> Eventavailable = () => true;
 
-            List<int> Eventcollection = new List<int>()
+            List<int> Eventcollection = new()
             {
                 ModContent.ItemType<Items.Weapon.Ranged.July4th>()
             };
 
-            int EventsummonItem = ModContent.ItemType<Invas.ThickBoulder>();
+            int EventsummonItem = ModContent.ItemType<ThickBoulder>();
 
             string EventspawnInfo = $"Use a [i:{summonItem}]";
 
@@ -340,7 +340,7 @@ namespace Infernus
             var EventcustomBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/BIPHM").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 
@@ -369,7 +369,7 @@ namespace Infernus
 
             Func<bool> Eventavailable2 = () => true;
 
-            List<int> Eventcollection2 = new List<int>()
+            List<int> Eventcollection2 = new()
             {
                 ModContent.ItemType<Items.Weapon.HardMode.Ranged.Bog>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Summon.Whiprock>(),
@@ -380,7 +380,7 @@ namespace Infernus
                 ModContent.ItemType<Items.Weapon.HardMode.Accessories.HiveHeart>()
             };
 
-            int EventsummonItem2 = ModContent.ItemType<Invas.ThickBoulder>();
+            int EventsummonItem2 = ModContent.ItemType<ThickBoulder>();
 
             string EventspawnInfo2 = $"Use a [i:{EventsummonItem}]";
 
@@ -389,7 +389,7 @@ namespace Infernus
             var EventcustomBossPortrait2 = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/BIHM").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 
@@ -418,7 +418,7 @@ namespace Infernus
 
             Func<bool> available3 = () => true;
 
-            List<int> collection3 = new List<int>()
+            List<int> collection3 = new()
             {
                 ModContent.ItemType<Items.Weapon.HardMode.Ranged.miniholy>(),
                 ModContent.ItemType<Items.Weapon.HardMode.Summon.Mecharmr>(),
@@ -437,7 +437,7 @@ namespace Infernus
             var customBossPortrait3 = (SpriteBatch sb, Rectangle rect, Color color) =>
             {
                 Texture2D texture = ModContent.Request<Texture2D>("Infernus/BossChecklist/Calypsical").Value;
-                Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+                Vector2 centered = new(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
                 sb.Draw(texture, centered, color);
             };
 

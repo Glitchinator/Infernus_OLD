@@ -32,5 +32,9 @@ namespace Infernus.Items.Accesories
         {
             player.AddBuff(Item.buffType, 2);
         }
+        public override void UpdateEquip(Player player)
+        {
+            Main.LocalPlayer.GetModPlayer<InfernusPlayer>().Tiara_Equipped = true;
+        }
     }
 }

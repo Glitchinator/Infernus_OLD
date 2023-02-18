@@ -19,7 +19,7 @@ namespace Infernus.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 16;
             Item.DamageType = DamageClass.Magic;
             Item.width = 38;
             Item.height = 38;
@@ -32,7 +32,7 @@ namespace Infernus.Items.Weapon.Magic
             Item.UseSound = SoundID.Item88;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Shot1>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Meteor_MagicWeapon>();
             Item.shootSpeed = 12f;
             Item.mana = 12;
         }
@@ -46,7 +46,7 @@ namespace Infernus.Items.Weapon.Magic
             }
             for (int i = 0; i < 2; i++)
             {
-                type = Main.rand.Next(new int[] { type, ModContent.ProjectileType<Projectiles.Boulder>(), ProjectileID.CannonballFriendly, ModContent.ProjectileType<Projectiles.Shot1>(), });
+                type = Main.rand.Next(new int[] { type, ModContent.ProjectileType<Projectiles.Boulder>(), ProjectileID.CannonballFriendly, ModContent.ProjectileType<Projectiles.Meteor_MagicWeapon>(), });
                 position = player.Center - new Vector2(Main.rand.NextFloat(401) * player.direction, 600f);
                 position.Y -= 100 * i;
                 Vector2 heading = target - position;

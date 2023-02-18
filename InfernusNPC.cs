@@ -122,7 +122,7 @@ namespace Infernus
                     }
                 }
             }
-            if(npc.CountsAsACritter == false && DownedBoss.Level_systemON == true && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon)
+            if(npc.CountsAsACritter == false && DownedBoss.Level_systemON == true && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon && npc.type != NPCID.BurningSphere)
             {
                 Main.LocalPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 1;
             }

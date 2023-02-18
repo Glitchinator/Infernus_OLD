@@ -23,7 +23,7 @@ namespace Infernus.Items.Accesories
             Item.rare = ItemRarityID.Expert;
             Item.expert = true;
         }
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void UpdateEquip(Player player)
         {
             Main.LocalPlayer.GetModPlayer<InfernusPlayer>().Ink_Storm_Equipped = true;
         }

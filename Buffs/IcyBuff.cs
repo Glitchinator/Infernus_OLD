@@ -19,8 +19,11 @@ namespace Infernus.Buffs
 		{
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Icy>()] > 0)
 			{
-				player.buffTime[buffIndex] = 18000;
-			}
+                if (Main.LocalPlayer.GetModPlayer<InfernusPlayer>().Tiara_Equipped == true)
+                {
+                    player.buffTime[buffIndex] = 18000;
+                }
+            }
 			else
 			{
 				player.DelBuff(buffIndex);

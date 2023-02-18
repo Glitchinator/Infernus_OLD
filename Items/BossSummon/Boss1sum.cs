@@ -45,8 +45,8 @@ namespace Infernus.Items.BossSummon
         {
             CreateRecipe()
             .AddRecipeGroup(RecipeGroupID.IronBar, 2)
-            .AddIngredient(ItemID.StoneBlock, 20)
-            .AddIngredient(ItemID.LavaBucket, 1)
+            .AddIngredient(ItemID.StoneBlock, 10)
+            .AddIngredient(ItemID.Hellstone, 10)
             .AddTile(TileID.Furnaces)
             .Register();
         }

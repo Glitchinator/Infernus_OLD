@@ -10,12 +10,13 @@ namespace Infernus.Items.Weapon.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Meteor Masher");
+            Tooltip.SetDefault("Throw out a exploding flail that is affect by gravity");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 36;
             Item.DamageType = DamageClass.Melee;
             Item.width = 30;
             Item.height = 32;
@@ -28,7 +29,8 @@ namespace Infernus.Items.Weapon.Melee
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Fire>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Meteor_Flail>();
+            Item.shootSpeed = 14;
             Item.channel = true;
             Item.noUseGraphic = true;
         }

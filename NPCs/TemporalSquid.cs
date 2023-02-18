@@ -47,7 +47,7 @@ namespace Infernus.NPCs
             NPC.height = 180;
             NPC.aiStyle = -1;
             NPC.noGravity = true;
-            NPC.HitSound = SoundID.Item62;
+            NPC.HitSound = SoundID.NPCHit8;
             NPC.DeathSound = SoundID.Roar;
             NPC.value = Item.buyPrice(0, 1, 50, 0);
             NPC.boss = true;
@@ -546,25 +546,17 @@ namespace Infernus.NPCs
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 4f * hitDirection, -2.5f, 0, default, 1f);
                 }
-                int Gore1 = Mod.Find<ModGore>("Squid_Eye").Type;
-
-                int Gore2 = Mod.Find<ModGore>("Squid_Head").Type;
-
-                int Gore3 = Mod.Find<ModGore>("Squid_Tenticles").Type;
-
                 for (int i = 0; i < 1; i++)
                 {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Gore1);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Squid_Eye").Type);
                 }
-
                 for (int i = 0; i < 1; i++)
                 {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Gore2);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Squid_Head").Type);
                 }
-
                 for (int i = 0; i < 1; i++)
                 {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Gore3);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Squid_Tenticles").Type);
                 }
             }
 		}

@@ -38,6 +38,13 @@ namespace Infernus
         // Ink Storm Variable
         public bool Ink_Storm_Equipped = false;
 
+        // Meteor ring variables
+        public bool Meteor_Storm_Active = false;
+
+        // Snowfall tiara variables
+
+        public bool Tiara_Equipped = false;
+
         public override void ModifyNursePrice(NPC nurse, int health, bool removeDebuffs, ref int price)
         {
             if (Player.statLife < Player.statLifeMax)
@@ -122,6 +129,9 @@ namespace Infernus
             ResetVariables();
 
             DoomDash = false;
+            Ink_Storm_Equipped = false;
+            Meteor_Storm_Active = false;
+            Tiara_Equipped = false;
 
             if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[DashRight] < 15)
             {

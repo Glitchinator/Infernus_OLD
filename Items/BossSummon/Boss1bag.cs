@@ -46,7 +46,7 @@ namespace Infernus.Items.BossSummon
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.Melee.BoldnBash>(), 2));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapon.Ranged.Firebow>(), 2));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Meteor>(), 2));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Materials.Hot>(), 34));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Materials.Hot>(), 1, 58, 58));
 
             if (NPC.downedBoss3)
             {

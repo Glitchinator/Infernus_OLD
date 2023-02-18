@@ -12,13 +12,14 @@ namespace Infernus.Items.Weapon
         {
             DisplayName.SetDefault("Meteor Eateor");
             Tooltip.SetDefault("Throw out meteors that follow the cursor. can only have 10 thrown"
-                + "\n They will take a chunk out of you");
+                + "\n They will take a chunk out of you"
+                + "\n Your really cool if you use this");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 16;
+            Item.damage = 22;
             Item.noMelee = true;
             Item.width = 32;
             Item.height = 32;

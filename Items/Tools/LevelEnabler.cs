@@ -14,7 +14,7 @@ namespace Infernus.Items.Tools
             DisplayName.SetDefault("Adventure Mode");
             Tooltip.SetDefault("Your journey awaits, with fortune and fame..."
                  + "\n 40% Increase Health and 40% Increased Damage of Bosses"
-                + "\n Adds custom AI to these bosses (Temporal Glow Squid)"
+                + "\n Adds custom AI to these bosses (Temporal Glow Squid, Raiko)"
                 + "\n Enables or Disables the Level System"
                 + "\n The Level System adds levels and XP to Terraria"
                  + "\n You gain XP by killing enemies"
