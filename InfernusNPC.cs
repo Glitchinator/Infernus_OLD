@@ -32,6 +32,10 @@ namespace Infernus
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 60, 1, 1));
             }
+            if (npc.type == NPCID.Bunny)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Easter_Egg>(), 18, 1, 3));
+            }
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
@@ -40,6 +44,7 @@ namespace Infernus
                 npc.damage = ((npc.damage / 5) * 7);
                 npc.lifeMax = ((npc.life / 5) * 7);
                 npc.life = npc.lifeMax;
+                npc.lifeMax = npc.life;
             }
         }
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
@@ -124,11 +129,11 @@ namespace Infernus
             }
             if(npc.CountsAsACritter == false && DownedBoss.Level_systemON == true && npc.type != NPCAIStyleID.Spell && npc.type != NPCAIStyleID.Passive && npc.type != NPCAIStyleID.TheHungry && npc.type != NPCAIStyleID.Spore && npc.type != NPCID.DetonatingBubble && npc.type != NPCAIStyleID.Sharkron && npc.type != NPCID.ForceBubble && npc.type != NPCID.Bee && npc.type != NPCID.BeeSmall && npc.type != NPCID.WindyBalloon && npc.type != NPCID.BurningSphere)
             {
-                Main.LocalPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 1;
+                Main.CurrentPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 1;
             }
             if (npc.boss == true)
             {
-                Main.LocalPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 8;
+                Main.CurrentPlayer.GetModPlayer<InfernusPlayer>().XP_Current += 8;
             }
         }
     }

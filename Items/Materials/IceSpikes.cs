@@ -9,13 +9,13 @@ namespace Infernus.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Spikes");
+            DisplayName.SetDefault("Cryonic Chunk");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 30;
         }
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
+            Item.width = 16;
+            Item.height = 16;
             Item.value = Item.buyPrice(0, 0, 10, 0);
             Item.rare = ItemRarityID.White;
             Item.maxStack = 999;

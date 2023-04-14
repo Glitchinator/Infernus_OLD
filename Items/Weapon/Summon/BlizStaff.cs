@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aurora Spear");
-            Tooltip.SetDefault("Summon a Aurora shuriken that creates smaller shurikens on hit");
+            Tooltip.SetDefault("Summons an Aurora shuriken");
             ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -24,8 +24,8 @@ namespace Infernus.Items.Weapon.Summon
             Item.damage = 20;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 11;
-            Item.width = 42;
-            Item.height = 42;
+            Item.width = 46;
+            Item.height = 46;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;

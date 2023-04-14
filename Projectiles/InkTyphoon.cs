@@ -16,15 +16,18 @@ namespace Infernus.Projectiles
         public override void SetDefaults()
         {
             Projectile.aiStyle = 0;
-            Projectile.width = 120;
-            Projectile.height = 320;
+            Projectile.width = 70;
+            Projectile.height = 260;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.netImportant = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 940;
+            Projectile.timeLeft = 800;
             Projectile.tileCollide = false;
             Projectile.alpha = 255;
+
+            DrawOffsetX = -25;
+            DrawOriginOffsetY = -30;
         }
         public override void AI()
         {

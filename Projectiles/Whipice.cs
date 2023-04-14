@@ -55,7 +55,7 @@ namespace Infernus.Projectiles
                 Vector2 diff = list[i + 1] - element;
 
                 float rotation = diff.ToRotation() - MathHelper.PiOver2;
-                Color color = Lighting.GetColor(element.ToTileCoordinates(), Color.DarkBlue);
+                Color color = Lighting.GetColor(element.ToTileCoordinates(), Color.LightSteelBlue);
                 Vector2 scale = new(1, (diff.Length() + 1) / frame.Height);
 
                 Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, SpriteEffects.None, 0);

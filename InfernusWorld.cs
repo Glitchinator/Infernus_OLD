@@ -176,7 +176,7 @@ namespace Infernus
 
             int bossType1 = ModContent.NPCType<NPCs.Ruderibus>();
 
-            float weight1 = 5.8f;
+            float weight1 = 6.9f;
 
             Func<bool> downed1 = () => DownedBoss.downedRuderibus;
 

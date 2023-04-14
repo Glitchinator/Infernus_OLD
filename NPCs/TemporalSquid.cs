@@ -90,6 +90,7 @@ namespace Infernus.NPCs
             {
                 secondphase = true;
             }
+            Pre_Typhoon();
             Timer++;
             if(DownedBoss.Level_systemON == true)
             {
@@ -138,8 +139,6 @@ namespace Infernus.NPCs
                     }
                     if (Timer == 1440)
                     {
-                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                        Typhoon();
                         SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                         InkBolt();
                     }
@@ -229,8 +228,6 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 480)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
@@ -263,12 +260,10 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 840)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
-                if (Timer == 780)
+                if (Timer == 900)
                 {
                     Timer = 0;
                 }
@@ -313,8 +308,8 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 1440)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
+                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                    InkBolt();
                 }
                 if (Timer == 1490)
                 {
@@ -396,8 +391,8 @@ namespace Infernus.NPCs
             }
             if (Timer == 480)
             {
-                SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                Typhoon();
+                SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                InkBolt();
             }
             if (Timer == 540)
             {
@@ -406,8 +401,8 @@ namespace Infernus.NPCs
             }
             if (Timer == 600)
             {
-                SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
-                InkRain();
+                SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
+                Typhoon();
             }
             if (Timer == 660)
             {
@@ -505,10 +500,25 @@ namespace Infernus.NPCs
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
 
-                float spawnarea = player.velocity.X * 50;
+                float spawnarea = player.velocity.X * 70;
                 Vector2 position = player.Top + new Vector2(spawnarea + Main.rand.Next(-100, 100), Main.rand.Next(50, 100));
 
                 Projectile.NewProjectile(NPC.GetSource_FromAI(), position, -Vector2.UnitY, ModContent.ProjectileType<InkTyphoon>(), 15, 0f, Main.myPlayer);
+            }
+        }
+
+        private void Pre_Typhoon()
+        {
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+
+                float spawnarea = player.velocity.X * 70;
+                Vector2 position = player.Top + new Vector2(spawnarea + Main.rand.Next(-100, 100), Main.rand.Next(50, 100));
+
+                if (Main.rand.NextBool(1))
+                {
+                    Dust.NewDust(position, (int)spawnarea, 1, DustID.Wraith, 1f, -2.5f, 0, default, 1f);
+                }
             }
         }
         private void InkBolt()
@@ -602,7 +612,7 @@ namespace Infernus.NPCs
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			NPC.damage = (int)(NPC.damage * 1.4f);
-			NPC.lifeMax = 3350;
+			NPC.lifeMax = (int)(NPC.lifeMax = 3350 + numPlayers);
 		}
         public override void OnSpawn(IEntitySource source)
         {

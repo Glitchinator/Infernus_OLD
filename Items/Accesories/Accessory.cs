@@ -13,7 +13,7 @@ namespace Infernus.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Snowfall Tiara");
-            Tooltip.SetDefault("Summons an Ice Defender");
+            Tooltip.SetDefault("Summons an ice arm that shoots homing ice bombs");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()
@@ -23,9 +23,8 @@ namespace Infernus.Items.Accesories
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 6, 45, 0);
             Item.rare = ItemRarityID.Expert;
-            Item.defense = 2;
             Item.buffType = ModContent.BuffType<IcyBuff>();
-            Item.shoot = ModContent.ProjectileType<Projectiles.Icy>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Ice_Arms>();
             Item.expert = true;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)

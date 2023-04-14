@@ -53,6 +53,8 @@ namespace Infernus
             }
         }
 
+        // TODO fix multiplayer adventure mode bug where players can't gain xp. How the fuck???????????????
+
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
         {
             if(Ink_Storm_Equipped == true)

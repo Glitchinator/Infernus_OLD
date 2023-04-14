@@ -20,8 +20,8 @@ namespace Infernus.Projectiles
         {
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.width = 42;
-            Projectile.height = 42;
+            Projectile.width = 34;
+            Projectile.height = 34;
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
@@ -32,13 +32,9 @@ namespace Infernus.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            for (int k = 0; k < 20; k++)
+            for (int k = 0; k < 14; k++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FrostHydra, 2.5f, -2.5f, 0, default, 1.2f);
-            }
-            for (int k = 0; k < 1; k++)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ProjectileID.NorthPoleSnowflake, damage, 0, Projectile.owner);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.HallowedPlants, 2.5f, -2.5f, 0, default, 1.2f);
             }
         }
         public override void AI()

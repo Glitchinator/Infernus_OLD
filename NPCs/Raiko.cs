@@ -463,7 +463,7 @@ namespace Infernus.NPCs
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             NPC.damage = (int)(NPC.damage * 1.5f);
-            NPC.lifeMax = (int)(NPC.lifeMax = 4860);
+            NPC.lifeMax = (int)(NPC.lifeMax = 4860 + numPlayers);
         }
         public override void BossLoot(ref string name, ref int potionType)
         {

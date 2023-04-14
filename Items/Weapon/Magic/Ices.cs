@@ -10,31 +10,31 @@ namespace Infernus.Items.Weapon.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blue Ice");
-            Tooltip.SetDefault("Shoots 3 ice bolts");
+            DisplayName.SetDefault("Glacies Lancea");
+            Tooltip.SetDefault("A spear of winter, throw it. And a path is opened.");
             Item.staff[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 14;
+            Item.damage = 24;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 54;
-            Item.height = 54;
-            Item.useAnimation = 12;
-            Item.useTime = 4;
-            Item.reuseDelay = 14;
-            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.width = 52;
+            Item.height = 52;
+            Item.useAnimation = 22;
+            Item.useTime = 22;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 2f;
             Item.value = Item.buyPrice(0, 7, 50, 0);
             Item.rare = ItemRarityID.Orange;
-            Item.UseSound = SoundID.Item8;
+            Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ProjectileID.FrostBoltStaff;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Ice_Spear>();
             Item.shootSpeed = 9f;
-            Item.mana = 12;
+            Item.mana = 10;
+            Item.noUseGraphic = true;
         }
         public override void AddRecipes()
         {
@@ -44,10 +44,6 @@ namespace Infernus.Items.Weapon.Magic
             .AddIngredient(ItemID.Obsidian, 25)
             .AddTile(TileID.Anvils)
             .Register();
-        }
-        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
-        {
-            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(10));
         }
     }
 }
