@@ -7,12 +7,10 @@ namespace Infernus.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aeritite Wisp");
-            Description.SetDefault("\"The Wisp will fight for you\"");
+            DisplayName.SetDefault("Aeritite meatball");
+            Description.SetDefault("\"The meatball will fight for you\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

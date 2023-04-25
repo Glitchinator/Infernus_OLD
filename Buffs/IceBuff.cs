@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Aurora Defenders");
             Description.SetDefault("\"The Shurikens fly closely\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

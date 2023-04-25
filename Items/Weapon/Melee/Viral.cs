@@ -12,10 +12,7 @@ namespace Infernus.Items.Weapon.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rot Ball");
-            Tooltip.SetDefault("Throw out either a corrupt or a crimson flail" +
-                "Corruption inflicts poison debuff" +
-                "while crimson inflicts bleeding " +
-                "both have chances to spawn thorns");
+            Tooltip.SetDefault("Throw out an evil flail that lodges spikes in enemies.");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -34,7 +31,7 @@ namespace Infernus.Items.Weapon.Melee
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Viral>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ViralCRIM>();
             Item.channel = true;
             Item.noUseGraphic = true;
         }

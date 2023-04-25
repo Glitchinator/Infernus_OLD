@@ -21,7 +21,7 @@ namespace Infernus.Items.Accesories
             Item.width = 20;
             Item.height = 20;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 6, 45, 0);
+            Item.value = 150000;
             Item.rare = ItemRarityID.Expert;
             Item.buffType = ModContent.BuffType<IcyBuff>();
             Item.shoot = ModContent.ProjectileType<Projectiles.Ice_Arms>();

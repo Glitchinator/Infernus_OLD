@@ -39,8 +39,7 @@ namespace Infernus.Items.Weapon.Magic
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Fallen>(), 1)
-            .AddIngredient(ModContent.ItemType<Ices>(), 1)
+            .AddIngredient(ModContent.ItemType<Materials.Equite_Bar>(), 16)
             .AddTile(TileID.Anvils)
             .Register();
         }

@@ -30,6 +30,7 @@ namespace Infernus.Items.Weapon.Melee
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Laserivy>();
+            Item.shootSpeed = 3f;
             Item.channel = true;
             Item.noUseGraphic = true;
         }

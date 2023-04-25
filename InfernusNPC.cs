@@ -12,7 +12,7 @@ namespace Infernus
     {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (npc.type == NPCID.SkeletonSniper)
+            if (npc.type == NPCID.SkeletonSniper || npc.type == NPCID.SkeletonCommando || npc.type == NPCID.TacticalSkeleton)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Ranged.TommyGun>(), 60, 1, 1));
             }
@@ -32,9 +32,17 @@ namespace Infernus
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.HardMode.Summon.BatStaff>(), 60, 1, 1));
             }
-            if (npc.type == NPCID.Bunny)
+            if (npc.type == NPCID.EyeofCthulhu)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.Eye_Launcher>(), 1, 1, 1));
+            }
+            if (npc.type == NPCID.Bunny || npc.type == NPCID.CorruptBunny || npc.type == NPCID.CrimsonBunny || npc.type == NPCID.BunnySlimed || npc.type == NPCID.BunnyXmas || npc.type == NPCID.GemBunnyAmber || npc.type == NPCID.GemBunnyAmethyst || npc.type == NPCID.GemBunnyDiamond || npc.type == NPCID.GemBunnyEmerald || npc.type == NPCID.GemBunnyRuby || npc.type == NPCID.GemBunnySapphire || npc.type == NPCID.GemBunnyTopaz || npc.type == NPCID.GoldBunny)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.Easter_Egg>(), 18, 1, 3));
+            }
+            if (npc.type == NPCID.UndeadMiner || npc.type == NPCID.ArmoredSkeleton)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Drill_Bit>(), 50, 1, 1));
             }
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
@@ -43,6 +51,8 @@ namespace Infernus
             {
                 npc.damage = ((npc.damage / 5) * 7);
                 npc.lifeMax = ((npc.life / 5) * 7);
+
+
                 npc.life = npc.lifeMax;
                 npc.lifeMax = npc.life;
             }

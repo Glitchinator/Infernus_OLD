@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -8,30 +7,29 @@ using Terraria.ModLoader;
 
 namespace Infernus.NPCs
 {
-    public class Ice : ModNPC
+    public class Ruderibus_Receiver : ModNPC
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ruderibus's Receivers");
-            Main.npcFrameCount[NPC.type] = 2;
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            NPC.lifeMax = 55;
+            NPC.lifeMax = 65;
             NPC.damage = 16;
             NPC.defense = 6;
             NPC.knockBackResist = 0.9f;
-            NPC.width = 44;
-            NPC.height = 88;
+            NPC.width = 62;
+            NPC.height = 62;
             NPC.aiStyle = 14;
-            NPC.noGravity = false;
+            NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit42;
             NPC.DeathSound = SoundID.NPCDeath44;
-            AnimationType = NPCID.DemonEye;
             Banner = Item.NPCtoBanner(NPCID.IceElemental);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 0, 75);
+            NPC.value = 40;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -42,9 +40,13 @@ namespace Infernus.NPCs
 
             if (NPC.life <= 0)
             {
-                for (int i = 0; i < 2; i++)
+                for (int k = 0; k < 16; k++)
                 {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Ice1").Type, .6f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ApprenticeStorm, 4f, -2.5f, 0, default, 1f);
+                }
+                for (int k = 0; k < 16; k++)
+                {
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.HallowedPlants, 4f, -2.5f, 0, default, 1f);
                 }
             }
         }
@@ -55,6 +57,25 @@ namespace Infernus.NPCs
                 return .4f;
             }
             return 0f;
+        }
+        public override void FindFrame(int frameHeight)
+        {
+            int startFrame = 0;
+            int finalFrame = 3;
+
+            int frameSpeed = 6;
+            NPC.frameCounter += 0.7f;
+            NPC.frameCounter += NPC.velocity.Length() / 13f;
+            if (NPC.frameCounter > frameSpeed)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+
+                if (NPC.frame.Y > finalFrame * frameHeight)
+                {
+                    NPC.frame.Y = startFrame * frameHeight;
+                }
+            }
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

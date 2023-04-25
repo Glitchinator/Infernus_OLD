@@ -178,6 +178,14 @@ namespace Infernus.NPCs
                 NPC.active = false;
                 NPC.life = 0;
                 NetMessage.SendData(MessageID.SyncNPC, number: NPC.whoAmI);
+                for (int k = 0; k < 16; k++)
+                {
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ApprenticeStorm, 4f, -2.5f, 0, default, 1f);
+                }
+                for (int k = 0; k < 16; k++)
+                {
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.HallowedPlants, 4f, -2.5f, 0, default, 1f);
+                }
                 return true;
             }
             return false;

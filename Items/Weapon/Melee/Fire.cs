@@ -18,8 +18,8 @@ namespace Infernus.Items.Weapon.Melee
         {
             Item.damage = 16;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 46;
-            Item.height = 48;
+            Item.width = 42;
+            Item.height = 46;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Swing;

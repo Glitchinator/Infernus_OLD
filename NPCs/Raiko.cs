@@ -56,7 +56,7 @@ namespace Infernus.NPCs
             NPC.noGravity = true;
             NPC.HitSound = SoundID.Item62;
             NPC.DeathSound = SoundID.NPCDeath10;
-            NPC.value = Item.buyPrice(0, 8, 50, 0);
+            NPC.value = 35000;
             NPC.boss = true;
             Music = MusicID.Boss2;
             NPC.noTileCollide = true;

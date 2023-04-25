@@ -30,7 +30,7 @@ namespace Infernus.Items.Weapon.Melee
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Projectiles.Laser>();
             Item.channel = true;
-            Item.shootSpeed = 6f;
+            Item.shootSpeed = 1f;
             Item.noUseGraphic = true;
         }
         public override void AddRecipes()

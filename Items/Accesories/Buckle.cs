@@ -10,9 +10,8 @@ namespace Infernus.Items.Accesories
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Burning Buckle");
-            Tooltip.SetDefault("Warmth pulses from it"
-                + "\n +10% Melee Speed +5 Melee Crit");
+            DisplayName.SetDefault("Chipped Whetstone");
+            Tooltip.SetDefault("Weapon armor penetration increased.");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()
@@ -20,20 +19,19 @@ namespace Infernus.Items.Accesories
             Item.width = 22;
             Item.height = 22;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 4, 45, 0);
-            Item.rare = ItemRarityID.Orange;
+            Item.value = 45000;
+            Item.rare = ItemRarityID.Blue;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetAttackSpeed(DamageClass.Melee) += .10f;
-            player.GetCritChance(DamageClass.Melee) += 5;
+            player.GetArmorPenetration(DamageClass.Generic) += 4;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ItemID.HellstoneBar, 16)
-            .AddIngredient(ItemID.Bone, 26)
+            .AddIngredient(ItemID.StoneBlock, 16)
             .AddTile(TileID.Anvils)
+            .AddCondition(Recipe.Condition.NearWater)
             .Register();
         }
     }

@@ -17,9 +17,17 @@ namespace Infernus.Items.Materials
         {
             Item.width = 30;
             Item.height = 24;
-            Item.rare = ItemRarityID.White;
+            Item.rare = ItemRarityID.Orange;
             Item.maxStack = 999;
-            Item.value = Item.buyPrice(0, 0, 0, 15);
+            Item.value = Item.buyPrice(0, 0, 0, 55);
+        }
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Hot>(), 2)
+            .AddIngredient(ModContent.ItemType<IceSpikes>(), 2)
+            .AddTile(TileID.Furnaces)
+            .Register();
         }
     }
 }

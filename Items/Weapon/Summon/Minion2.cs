@@ -13,7 +13,7 @@ namespace Infernus.Items.Weapon.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aeritite Shell");
-            Tooltip.SetDefault("Summon a withering wisp to Fight for you");
+            Tooltip.SetDefault("Summons a sentient aeritite meatball");
             ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -40,7 +40,6 @@ namespace Infernus.Items.Weapon.Summon
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             player.AddBuff(Item.buffType, 2);
-            position = Main.MouseWorld;
             return true;
         }
         public override void AddRecipes()

@@ -12,7 +12,7 @@ namespace Infernus.Items.BossSummon
         {
             DisplayName.SetDefault("Damaged Exotic Prism");
             Tooltip.SetDefault("Summons Calypsical"
-                + "\n Must have killed Moon Lord");
+                + "\nMust have killed Moon Lord");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
         }
         public override void SetDefaults()

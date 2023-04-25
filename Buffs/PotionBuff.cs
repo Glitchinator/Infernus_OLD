@@ -8,16 +8,15 @@ namespace Infernus.Buffs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamari Rage");
-            Description.SetDefault("\"Boost to Defense, Regen, Damage, Crit and Damage Reduction\"");
+            Description.SetDefault("\"Boost to Defense, Regen, Damage and Crit\"");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
             player.statDefense += 5;
-            player.lifeRegen += 3;
+            player.lifeRegen += 1;
             player.GetDamage(DamageClass.Generic) += .1f;
-            player.GetCritChance(DamageClass.Generic) += 6;
-            player.endurance = .06f - (0.1f * (1f - player.endurance));
+            player.GetCritChance(DamageClass.Generic) += 4;
         }
     }
 }

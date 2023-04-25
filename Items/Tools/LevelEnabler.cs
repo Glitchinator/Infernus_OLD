@@ -1,9 +1,7 @@
-using log4net.Core;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Humanizer.On;
 
 namespace Infernus.Items.Tools
 {
@@ -20,8 +18,7 @@ namespace Infernus.Items.Tools
                  + "\n You gain XP by killing enemies"
                  + "\n When you reach the max XP you gain 1 level"
                  + "\n There are a max of 50 levels each give stat bonuses"
-                  + "\n Updates to Adventure Mode will come later"
-                  + "\n Version 1.1 (Boss AI changes, No more XP item to collect and bug Fixes)");
+                  + "\n Updates to Adventure Mode will come soon");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
         }
         public override void SetDefaults()

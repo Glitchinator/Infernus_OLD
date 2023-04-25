@@ -33,8 +33,8 @@ namespace Infernus.NPCs
 			NPC.breathCounter = 999;
 			Banner = Item.NPCtoBanner(NPCID.SandSlime);
 			BannerItem = Item.BannerToItem(Banner);
-			NPC.value = Item.buyPrice(0, 0, 0, 75);
-		}
+            NPC.value = 32;
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)

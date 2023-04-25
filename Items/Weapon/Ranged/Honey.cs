@@ -18,8 +18,8 @@ namespace Infernus.Items.Weapon.Ranged
         {
             Item.damage = 24;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 32;
+            Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;

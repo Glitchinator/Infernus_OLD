@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Knifes");
             Description.SetDefault("\"I could get tetanus from one\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

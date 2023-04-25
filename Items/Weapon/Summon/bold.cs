@@ -40,15 +40,17 @@ namespace Infernus.Items.Weapon.Summon
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             player.AddBuff(Item.buffType, 2);
-            position = Main.MouseWorld;
             return true;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36)
-            .AddIngredient(ModContent.ItemType<Minion2>(), 1)
-            .AddIngredient(ItemID.Bone, 36)
+            .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 12)
+            .AddIngredient(ItemID.Bone, 12)
+            .AddIngredient(ItemID.IceBlock, 12)
+            .AddIngredient(ItemID.HellstoneBar, 12)
+            .AddIngredient(ItemID.SandBlock, 12)
+            .AddIngredient(ItemID.Cloud, 12)
             .AddTile(TileID.Anvils)
             .Register();
         }

@@ -1,5 +1,4 @@
-﻿using Infernus.Buffs;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,24 +20,16 @@ namespace Infernus.Items.Accesories
             Item.width = 40;
             Item.height = 40;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 4, 45, 0);
+            Item.value = 95000;
             Item.rare = ItemRarityID.Expert;
             Item.expert = true;
-            Item.defense = 2;
-            //Item.buffType = ModContent.BuffType<Meteor_Buff>();
-           // Item.shoot = ModContent.ProjectileType<Projectiles.Meteor_Ring>();
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.moveSpeed += .08f;
-            player.maxRunSpeed += .08f;
+            player.moveSpeed += .04f;
+            player.maxRunSpeed += .04f;
             player.hasJumpOption_WallOfFleshGoat = true;
-            player.jumpSpeedBoost += .08f;
-           // player.AddBuff(Item.buffType, 2);
-        }
-        public override void UpdateEquip(Player player)
-        {
-           // Main.LocalPlayer.GetModPlayer<InfernusPlayer>().Meteor_Storm_Active = true;
+            player.jumpSpeedBoost += .04f;
         }
     }
 }

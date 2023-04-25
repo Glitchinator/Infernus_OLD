@@ -20,7 +20,6 @@ namespace Infernus.Items
             MountData.fallDamage = 0.5f;
             MountData.runSpeed = 11f;
             MountData.dashSpeed = 8f;
-            MountData.flightTimeMax = 0;
             MountData.totalFrames = 4;
             MountData.playerYOffsets = Enumerable.Repeat(20, MountData.totalFrames).ToArray();
             MountData.xOffset = 13;
@@ -32,16 +31,10 @@ namespace Infernus.Items
             MountData.standingFrameStart = 0;
             MountData.runningFrameCount = 4;
             MountData.runningFrameDelay = 12;
-            MountData.runningFrameStart = 0;
-            MountData.flyingFrameCount = 0;
-            MountData.flyingFrameDelay = 0;
-            MountData.flyingFrameStart = 0;
             MountData.inAirFrameCount = 1;
             MountData.inAirFrameDelay = 12;
-            MountData.inAirFrameStart = 0;
             MountData.idleFrameCount = 4;
             MountData.idleFrameDelay = 12;
-            MountData.idleFrameStart = 0;
             MountData.idleFrameLoop = true;
             MountData.swimFrameCount = MountData.inAirFrameCount;
             MountData.swimFrameDelay = MountData.inAirFrameDelay;

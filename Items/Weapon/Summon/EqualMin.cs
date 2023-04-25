@@ -12,7 +12,7 @@ namespace Infernus.Items.Weapon.Summon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Equal Beastblade");
+            DisplayName.SetDefault("Equite Beastblade");
             Tooltip.SetDefault("Summons broken knifes to fight for you. Deals tick damage like a debuff, more summons, more damage");
             ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
@@ -40,14 +40,12 @@ namespace Infernus.Items.Weapon.Summon
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             player.AddBuff(Item.buffType, 2);
-            position = Main.MouseWorld;
             return true;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Minion>(), 1)
-            .AddIngredient(ModContent.ItemType<BlizStaff>(), 1)
+            .AddIngredient(ModContent.ItemType<Materials.Equite_Bar>(), 16)
             .AddTile(TileID.Anvils)
             .Register();
         }

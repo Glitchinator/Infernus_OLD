@@ -77,7 +77,7 @@ namespace Infernus
 
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte();
+            BitsByte flags = new();
             flags[0] = downedBoulderInvasion;
             writer.Write(flags);
         }

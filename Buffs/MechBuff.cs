@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Holy Fist of Fate");
             Description.SetDefault("\"*Thumbs up*\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

@@ -7,12 +7,10 @@ namespace Infernus.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Icy Defender");
-			Description.SetDefault("\"The Icy Defender will beam things for you\"");
+			DisplayName.SetDefault("Cryonic Arm");
+			Description.SetDefault("\"An arm that creates ice bombs? Cool.\"");
 			Main.buffNoTimeDisplay[Type] = true;
-			Main.vanityPet[Type] = false;
 			Main.buffNoSave[Type] = true;
-			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

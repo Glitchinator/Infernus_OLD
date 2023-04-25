@@ -33,18 +33,14 @@ namespace Infernus.NPCs
             NPC.DeathSound = SoundID.NPCDeath41;
             Banner = Item.NPCtoBanner(NPCID.RockGolem);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 0, 10);
+            NPC.value = 45;
         }
         public override void AI()
         {
-            ;
-
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             Vector2 target = NPC.HasPlayerTarget ? player.Center : Main.npc[NPC.target].Center;
-
-
-            spawnnpc();
+            Spawn_Boss();
         }
 
         public override void HitEffect(int hitDirection, double damage)
@@ -61,12 +57,11 @@ namespace Infernus.NPCs
                 }
             }
         }
-        private void spawnnpc()
+        private void Spawn_Boss()
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient && (InfernusWorld.BoulderInvasionUp == true) && !NPC.AnyNPCs(Mod.Find<ModNPC>("Boulderminiboss").Type))
             {
-                var entitySource = NPC.GetSource_FromAI();
-                NPC.NewNPC(entitySource, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Boulderminiboss>(), NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Boulderminiboss>(), NPC.whoAmI);
                 NPC.life = 0;
             }
         }

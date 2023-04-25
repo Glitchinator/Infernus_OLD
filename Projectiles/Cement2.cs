@@ -19,8 +19,8 @@ namespace Infernus.Projectiles
 
         public sealed override void SetDefaults()
         {
-            Projectile.width = 32;
-            Projectile.height = 32;
+            Projectile.width = 20;
+            Projectile.height = 20;
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.friendly = true;
@@ -142,7 +142,7 @@ namespace Infernus.Projectiles
             }
             if (Main.rand.NextBool(3))
             {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Stone, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.BlueCrystalShard, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
         }
     }

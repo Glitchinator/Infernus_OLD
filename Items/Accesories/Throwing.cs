@@ -10,26 +10,27 @@ namespace Infernus.Items.Accesories
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Drone Charger");
-            Tooltip.SetDefault("+8% Summon damage");
+            DisplayName.SetDefault("Energy Cell");
+            Tooltip.SetDefault("+6% Summon damage");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()
         {
-            Item.width = 44;
-            Item.height = 44;
+            Item.width = 12;
+            Item.height = 22;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 2, 45, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = 45000;
+            Item.rare = ItemRarityID.Blue;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetDamage(DamageClass.Summon) += .08f;
+            player.GetDamage(DamageClass.Summon) += .06f;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
             .AddRecipeGroup(RecipeGroupID.IronBar, 8)
+            .AddIngredient(ItemID.FallenStar, 1)
             .AddTile(TileID.Anvils)
             .Register();
         }

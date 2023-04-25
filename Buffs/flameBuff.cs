@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Eternal Zero");
             Description.SetDefault("\"Soothing... Like staring into a fire\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

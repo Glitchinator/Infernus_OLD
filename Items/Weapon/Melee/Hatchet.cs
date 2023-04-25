@@ -10,8 +10,7 @@ namespace Infernus.Items.Weapon.Melee
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Darvyle's Hatchet of Might");
-            Tooltip.SetDefault("Throw out a hatchet that sticks into enemies and has a chance to creates sapphire shards that shred enemies"
-                + "\n Community Idea Item");
+            Tooltip.SetDefault("Throw a hatchet that shreds enemies with shards");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -39,7 +38,6 @@ namespace Infernus.Items.Weapon.Melee
         {
             CreateRecipe()
             .AddIngredient(ModContent.ItemType<Placeable.Rock>(), 36)
-            .AddIngredient(ModContent.ItemType<SkullBasher>(), 1)
             .AddIngredient(ItemID.Sapphire, 8)
             .AddTile(TileID.Anvils)
             .Register();

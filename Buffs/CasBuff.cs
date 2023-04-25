@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Infection");
             Description.SetDefault("\"The virus will fight for you\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

@@ -28,8 +28,8 @@ namespace Infernus.NPCs
 			AnimationType = NPCID.Zombie;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath6;
-			NPC.value = Item.buyPrice(0, 2, 0, 0);
-			NPC.lavaImmune = true;
+            NPC.value = 480;
+            NPC.lavaImmune = true;
 			NPC.trapImmune = true;
 			NPC.scale = .8f;
 		}
@@ -59,7 +59,7 @@ namespace Infernus.NPCs
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return .001f;
+			return .007f;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{

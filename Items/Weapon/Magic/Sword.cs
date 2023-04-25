@@ -11,8 +11,8 @@ namespace Infernus.Items.Weapon.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cloud Crasher");
-            Tooltip.SetDefault("Puffy and Fun");
+            DisplayName.SetDefault("Cloud Claw");
+            Tooltip.SetDefault("Conjures electric daggers");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -20,8 +20,8 @@ namespace Infernus.Items.Weapon.Magic
         {
             Item.damage = 16;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 28;
+            Item.height = 32;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
@@ -31,7 +31,7 @@ namespace Infernus.Items.Weapon.Magic
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.cloud>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Cloud_Crasher>();
             Item.noUseGraphic = true;
             Item.shootSpeed = 12f;
             Item.mana = 8;

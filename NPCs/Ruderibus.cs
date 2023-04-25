@@ -49,7 +49,7 @@ namespace Infernus.NPCs
             NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit42;
             NPC.DeathSound = SoundID.NPCDeath44;
-            NPC.value = Item.buyPrice(0, 10, 50, 0);
+            NPC.value = 45000;
             NPC.boss = true;
             Music = MusicID.Boss4;
             NPC.noTileCollide = true;
@@ -443,19 +443,13 @@ namespace Infernus.NPCs
 
             if (NPC.life <= 0)
             {
-                for (int k = 0; k < 26; k++)
+                for (int k = 0; k < 48; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.HallowedPlants, 4f * hitDirection, -2.5f, 0, default, 1f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ApprenticeStorm, 4f * hitDirection, -2.5f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ApprenticeStorm, 4f, -2.5f, 0, default, 1f);
                 }
-
-                for (int i = 0; i < 5; i++)
+                for (int k = 0; k < 48; k++)
                 {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Ice1").Type);
-                }
-                for (int i = 0; i < 1; i++)
-                {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, new Vector2(Main.rand.Next(-6, 7), Main.rand.Next(-6, 7)), Mod.Find<ModGore>("Ice2").Type);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.HallowedPlants, 4f, -2.5f, 0, default, 1f);
                 }
                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
@@ -488,22 +482,11 @@ namespace Infernus.NPCs
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Placeable.RudeRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Pets.RudeItem>()));
 
-            LeadingConditionRule notstatueRule = new(new Conditions.NotFromStatue());
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            int itemType = ModContent.ItemType<Items.Materials.IceSpikes>();
-            var parameters = new DropOneByOne.Parameters()
-            {
-                ChanceNumerator = 1,
-                ChanceDenominator = 1,
-                MinimumStackPerChunkBase = 1,
-                MaximumStackPerChunkBase = 1,
-                MinimumItemDropsCount = 46,
-                MaximumItemDropsCount = 46,
-            };
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.IceSpikes>(), 1, 58, 58));
 
-            notstatueRule.OnSuccess(new DropOneByOne(itemType, parameters));
-
-            npcLoot.Add(notstatueRule);
+            npcLoot.Add(notExpertRule);
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {

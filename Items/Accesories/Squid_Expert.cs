@@ -19,7 +19,7 @@ namespace Infernus.Items.Accesories
             Item.width = 28;
             Item.height = 36;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 2, 45, 0);
+            Item.value = 85000;
             Item.rare = ItemRarityID.Expert;
             Item.expert = true;
         }

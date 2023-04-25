@@ -11,7 +11,7 @@ namespace Infernus.Items.Weapon.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Equal Recurver");
+            DisplayName.SetDefault("Equite Recurver");
             Tooltip.SetDefault("Shoots piercing bolts");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -49,8 +49,7 @@ namespace Infernus.Items.Weapon.Ranged
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Firebow>(), 1)
-            .AddIngredient(ModContent.ItemType<IceBow>(), 1)
+            .AddIngredient(ModContent.ItemType<Materials.Equite_Bar>(), 16)
             .AddTile(TileID.Anvils)
             .Register();
         }

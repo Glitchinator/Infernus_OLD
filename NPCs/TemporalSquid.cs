@@ -49,7 +49,7 @@ namespace Infernus.NPCs
             NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit8;
             NPC.DeathSound = SoundID.Roar;
-            NPC.value = Item.buyPrice(0, 1, 50, 0);
+            NPC.value = 30000;
             NPC.boss = true;
             AIType = NPCID.AngryBones;
             Music = MusicID.Boss1;
@@ -602,6 +602,7 @@ namespace Infernus.NPCs
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Magic.Radiant_Staff>(), 3));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Ink_Sprinkler>(), 3));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Weapon.Ranged.Squid_Gun>(), 3));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Accesories.Squid_Accessory>(), 3));
 
             npcLoot.Add(notExpertRule);
         }

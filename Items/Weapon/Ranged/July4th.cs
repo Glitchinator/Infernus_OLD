@@ -20,7 +20,7 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 10;
+            Item.damage = 12;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 68;
             Item.height = 22;
@@ -46,7 +46,7 @@ namespace Infernus.Items.Weapon.Ranged
             {
                 type = Main.rand.Next(new int[] { type, ProjectileID.RocketFireworkYellow, ProjectileID.RocketFireworkRed, ProjectileID.RocketFireworkGreen, ProjectileID.RocketFireworkBlue, });
 
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(15));
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(11));
 
 
                 newVelocity *= 1f - Main.rand.NextFloat(0.3f);
@@ -58,7 +58,7 @@ namespace Infernus.Items.Weapon.Ranged
         }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(65));
+            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(50));
         }
 
 

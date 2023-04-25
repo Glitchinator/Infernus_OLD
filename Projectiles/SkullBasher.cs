@@ -16,6 +16,8 @@ namespace Infernus.Projectiles
             AIType = ProjectileID.PaladinsHammerFriendly;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.height = 38;
+            Projectile.width = 38;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.netImportant = true;
         }

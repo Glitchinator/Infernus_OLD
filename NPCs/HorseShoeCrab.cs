@@ -33,7 +33,7 @@ namespace Infernus.NPCs
             NPC.breathCounter = 999;
             Banner = Item.NPCtoBanner(NPCID.Crab);
             BannerItem = Item.BannerToItem(Banner);
-            NPC.value = Item.buyPrice(0, 0, 0, 30);
+            NPC.value = 25;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

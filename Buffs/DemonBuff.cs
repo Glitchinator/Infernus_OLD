@@ -10,9 +10,7 @@ namespace Infernus.Buffs
             DisplayName.SetDefault("Demon Hand");
             Description.SetDefault("\"Whose hand is this?\"");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = false;
             Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

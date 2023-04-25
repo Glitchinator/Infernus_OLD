@@ -10,9 +10,9 @@ namespace Infernus.Items.BossSummon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Receivers Call");
+            DisplayName.SetDefault("Suspicious Ice Heart");
             Tooltip.SetDefault("Summons Ruberibus"
-                + "\n Must be in snow biome");
+                + "\nMust be in snow biome");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
         }
         public override void SetDefaults()

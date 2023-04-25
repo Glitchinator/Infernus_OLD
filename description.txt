@@ -11,11 +11,11 @@ but if you want specifices you can look below.
 + Infernus Updates happen mostly weekly, some bi-weekly.
 
 What Infernus offers:
-* 188 New items - including new armor sets, weapons for each class, accessories, new materials.
+* 200 New items - including new armor sets, weapons for each class, accessories, new materials.
 * 1 New Mode - Adventure Mode, increases difficulty and enables Levels and XP.
 * 5 New bosses - every boss has it's own AI, loot, treasure bag with unique expert items.
 * 1 New miniboss - basically just stronger enemies but drop good items.
-* 21 New Enemies - each NPC has it's own use.NPCs drop new things after certain bosses are defeated.
+* 22 New Enemies - each NPC has it's own use.NPCs drop new things after certain bosses are defeated.
 * 1 New invasions - new invasion with new interesting mobs and loot, Upgrades after plantera is killed.
 * QOL Changes - Multiple changes to Terraria to make the progress more enjoyable.
 * post Moonlord Content. (tiny amount).

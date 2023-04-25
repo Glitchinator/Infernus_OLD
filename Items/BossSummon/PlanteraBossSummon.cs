@@ -11,7 +11,8 @@ namespace Infernus.Items.BossSummon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sapling");
-            Tooltip.SetDefault("Summons Plantera");
+            Tooltip.SetDefault("Summons Plantera" + 
+                "\nMust be in the jungle");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 2;
         }
         public override void SetDefaults()

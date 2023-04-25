@@ -50,7 +50,7 @@ namespace Infernus.Items.BossSummon
             itemLoot.Add(ItemDropRule.Common(ItemID.IceMachine, 13, 1, 1));
             itemLoot.Add(ItemDropRule.Common(ItemID.Fish, 13, 1, 1));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Accesories.Accessory>()));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Materials.IceSpikes>(), 34));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Materials.IceSpikes>(), 1, 58, 58));
 
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<NPCs.Ruderibus>()));
         }

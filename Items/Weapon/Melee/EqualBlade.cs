@@ -10,7 +10,7 @@ namespace Infernus.Items.Weapon.Melee
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Equal Saber");
+            DisplayName.SetDefault("Equite Saber");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -34,8 +34,7 @@ namespace Infernus.Items.Weapon.Melee
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ModContent.ItemType<Fire>(), 1)
-            .AddIngredient(ModContent.ItemType<Ice>(), 1)
+            .AddIngredient(ModContent.ItemType<Materials.Equite_Bar>(), 16)
             .AddTile(TileID.Anvils)
             .Register();
         }

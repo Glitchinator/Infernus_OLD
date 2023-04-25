@@ -19,7 +19,7 @@ namespace Infernus.Items.Consumable
         {
             Item.maxStack = 999;
             Item.consumable = true;
-            Item.width = 32;
+            Item.width = 28;
             Item.height = 32;
             Item.rare = ItemRarityID.White;
         }
