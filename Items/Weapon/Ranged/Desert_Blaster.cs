@@ -18,7 +18,7 @@ namespace Infernus.Items.Weapon.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = 9;
+            Item.damage = 8;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 36;
             Item.height = 18;
@@ -44,7 +44,7 @@ namespace Infernus.Items.Weapon.Ranged
             for (int i = 0; i < 5; i++)
             {
 
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(60));
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(68));
 
                 Projectile.NewProjectileDirect(source, position, newVelocity, ModContent.ProjectileType<Projectiles.SandySlug>(), damage, knockback, player.whoAmI);
             }

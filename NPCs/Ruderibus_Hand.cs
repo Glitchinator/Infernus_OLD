@@ -52,7 +52,7 @@ namespace Infernus.NPCs
         {
             NPC.width = 44;
             NPC.height = 44;
-            NPC.damage = 22;
+            NPC.damage = 40;
             NPC.defense = 6;
             NPC.lifeMax = 600;
             NPC.HitSound = SoundID.Tink;

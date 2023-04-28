@@ -40,7 +40,7 @@ namespace Infernus.NPCs
 		public override void SetDefaults()
 		{
             NPC.lifeMax = 2450;
-            NPC.damage = 14;
+            NPC.damage = 18;
             NPC.defense = 13;
             NPC.knockBackResist = 0.0f;
             NPC.width = 54;
@@ -450,10 +450,10 @@ namespace Infernus.NPCs
         private void Move(Vector2 offset)
         {
             player = Main.player[NPC.target];
-            speed = 6f;
+            speed = 4.3f;
             if (player.ZoneBeach == false)
             {
-                speed = 9f;
+                speed = 7f;
             }
             Vector2 moveTo = player.Center + offset;
 
@@ -476,7 +476,7 @@ namespace Infernus.NPCs
         {
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 7; i++)
                 {
                     player = Main.player[NPC.target];
                     Vector2 velocity = player.Center - NPC.Bottom;
@@ -491,7 +491,7 @@ namespace Infernus.NPCs
                     }
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(35));
 
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Top, newVelocity, ModContent.ProjectileType<InkBomb>(), 15, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Top, newVelocity, ModContent.ProjectileType<InkBomb>(), 10, NPC.whoAmI);
                 }
             }
         }
@@ -503,7 +503,7 @@ namespace Infernus.NPCs
                 float spawnarea = player.velocity.X * 70;
                 Vector2 position = player.Top + new Vector2(spawnarea + Main.rand.Next(-100, 100), Main.rand.Next(50, 100));
 
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), position, -Vector2.UnitY, ModContent.ProjectileType<InkTyphoon>(), 15, 0f, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), position, -Vector2.UnitY, ModContent.ProjectileType<InkTyphoon>(), 10, 0f, Main.myPlayer);
             }
         }
 
@@ -530,13 +530,13 @@ namespace Infernus.NPCs
                 float magnitude = Magnitude(velocity);
                 if (magnitude > 0)
                 {
-                    velocity *= 22f / magnitude;
+                    velocity *= 15f / magnitude;
                 }
                 else
                 {
-                    velocity = new Vector2(0f, 7f);
+                    velocity = new Vector2(0f, 4.9f);
                 }
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Bottom, velocity, ModContent.ProjectileType<InkBolt>(), 15, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Bottom, velocity, ModContent.ProjectileType<InkBolt>(), 10, NPC.whoAmI);
             }
         }
         private static float Magnitude(Vector2 mag)
@@ -612,7 +612,7 @@ namespace Infernus.NPCs
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
-			NPC.damage = (int)(NPC.damage * 1.4f);
+			NPC.damage = (int)(NPC.damage * 1.1f);
 			NPC.lifeMax = (int)(NPC.lifeMax = 3350 + numPlayers);
 		}
         public override void OnSpawn(IEntitySource source)

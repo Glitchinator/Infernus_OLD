@@ -40,7 +40,7 @@ namespace Infernus.NPCs
         public override void SetDefaults()
         {
             NPC.lifeMax = 8130;
-            NPC.damage = 33;
+            NPC.damage = 34;
             NPC.defense = 16;
             NPC.knockBackResist = 0.0f;
             NPC.width = 144;
@@ -305,7 +305,7 @@ namespace Infernus.NPCs
                     velocity = new Vector2(0f, 8f);
                 }
 
-                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ModContent.ProjectileType<Ice_Bolt_Homing>(), 13, NPC.whoAmI);
+                Projectile.NewProjectile(entitySource, NPC.Center, velocity, ModContent.ProjectileType<Ice_Bolt_Homing>(), 16, NPC.whoAmI);
             }
         }
         private void Ice_Cone_Blast()
@@ -327,7 +327,7 @@ namespace Infernus.NPCs
                     Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(35));
                     newVelocity *= 1f - Main.rand.NextFloat(0.3f);
 
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, newVelocity, ModContent.ProjectileType<Ice_Bolt>(), 11, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, newVelocity, ModContent.ProjectileType<Ice_Bolt>(), 18, NPC.whoAmI);
                 }
             }
         }
@@ -336,35 +336,35 @@ namespace Infernus.NPCs
             var Ice_Rain = ModContent.ProjectileType<Ice_Rain>();
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(0f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(50f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(100f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(150f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(200f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(250f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(300f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(350f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(400f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(450f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(500f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(550f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(600f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(650f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(700f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-50f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-100f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-150f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-200f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-250f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-300f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-350f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-400f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-450f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-500f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-550f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-600f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-650f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-700f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 12, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(0f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(50f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(100f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(150f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(200f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(250f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(300f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(350f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(400f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(450f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(500f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(550f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(600f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(650f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(700f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-50f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-100f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-150f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-200f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-250f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-300f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-350f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-400f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-450f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-500f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-550f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-600f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-650f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), player.Center + new Vector2(-700f, Main.rand.Next(new[] { 25f, 100f, 140f }) - 800f), new Vector2(player.velocity.X, Main.rand.Next(new[] { 5f, 7f, 10f })), Ice_Rain, 16, NPC.whoAmI);
             }
         }
         private void Ice_Blast_Dash()
@@ -377,7 +377,7 @@ namespace Infernus.NPCs
                 {
                     velocity *= 4.5f / magnitude;
                 }
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity, ProjectileID.FrostWave, 12, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity, ProjectileID.FrostWave, 15, NPC.whoAmI);
 
                 Vector2 velocity2 = new(0f, -5f);
                 float magnitude2 = Magnitude(velocity);
@@ -385,7 +385,7 @@ namespace Infernus.NPCs
                 {
                     velocity2 *= 4.5f / magnitude;
                 }
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity2, ProjectileID.FrostWave, 12, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity2, ProjectileID.FrostWave, 15, NPC.whoAmI);
 
                 Vector2 velocity3 = new(-5f, 0f);
                 float magnitude3 = Magnitude(velocity);
@@ -393,7 +393,7 @@ namespace Infernus.NPCs
                 {
                     velocity3 *= 4.5f / magnitude;
                 }
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity3, ProjectileID.FrostWave, 12, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity3, ProjectileID.FrostWave, 15, NPC.whoAmI);
 
                 Vector2 velocity4 = new(5f, 0f);
                 float magnitude4 = Magnitude(velocity);
@@ -401,7 +401,7 @@ namespace Infernus.NPCs
                 {
                     velocity4 *= 4.5f / magnitude;
                 }
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity4, ProjectileID.FrostWave, 12, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity4, ProjectileID.FrostWave, 15, NPC.whoAmI);
             }
         }
         private void Spawn_IceShards()
@@ -456,7 +456,7 @@ namespace Infernus.NPCs
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            NPC.damage = (int)(NPC.damage * 1.4f);
+            NPC.damage = (int)(NPC.damage * 1.25f);
             NPC.lifeMax = (int)(NPC.lifeMax = 12750 + numPlayers);
         }
         private float Magnitude(Vector2 mag)

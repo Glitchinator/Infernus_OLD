@@ -1,4 +1,4 @@
 displayName = Infernus Mod
 author = LogansLowest
-version = 1.5
+version = 1.5.1
 homepage = https://discord.gg/CwqFnS3sYW

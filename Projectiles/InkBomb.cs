@@ -55,7 +55,7 @@ namespace Infernus.Projectiles
             {
                 SoundEngine.PlaySound(SoundID.NPCDeath12, Projectile.position);
 
-                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Right.X, Projectile.Right.Y / 2f, 0, 10, ModContent.ProjectileType<InkBolt>(), 18, 0, 0);
+                Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), Projectile.Right.X, Projectile.Right.Y / 2f, 0, 10, ModContent.ProjectileType<InkBolt>(), 10, 0, 0);
             }
         }
     }

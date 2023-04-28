@@ -10,7 +10,7 @@ namespace Infernus
         {
             if (DownedBoss.Level_systemON == true && projectile.hostile == true)
             {
-                projectile.damage = ((projectile.damage / 5) * 7);
+                projectile.damage = (int)(projectile.damage * 1.4f);
             }
         }
     }
