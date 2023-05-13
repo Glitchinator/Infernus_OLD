@@ -28,7 +28,7 @@ namespace Infernus.Items.Weapon.HardMode.Armor
         public override void UpdateEquip(Player player)
         {
             player.onHitRegen = true;
-            player.endurance = .08f - (0.1f * (1f - player.endurance));
+            player.endurance = .08f;
         }
 
         public override void AddRecipes()

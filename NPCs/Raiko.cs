@@ -61,7 +61,7 @@ namespace Infernus.NPCs
             Music = MusicID.Boss2;
             NPC.noTileCollide = true;
             NPC.lavaImmune = true;
-            NPC.npcSlots = 3;
+            NPC.npcSlots = 6;
         }
 
         int Timer;
@@ -82,7 +82,7 @@ namespace Infernus.NPCs
                     return;
                 }
             }
-            Move(new Vector2((Main.rand.Next(0)), -360f));
+            Move(new Vector2((Main.rand.Next(0)), -410f));
             {
                 Timer++;
                 if(Timer == 60)
@@ -244,21 +244,13 @@ namespace Infernus.NPCs
             player = Main.player[NPC.target];
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.velocity.X *= 2.7f;
-                NPC.velocity.Y *= 2.7f;
+                NPC.velocity.X *= 2.1f;
+                NPC.velocity.Y *= 2.1f;
                 Vector2 whereboss = new(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
                 {
                     float rotation = (float)Math.Atan2((whereboss.Y) - (player.position.Y + (player.height)), (whereboss.X) - (player.position.X + (player.width)));
-                    if (Main.expertMode == true)
-                    {
-                        NPC.velocity.X = (float)(Math.Cos(rotation) * 13) * -1;
-                        NPC.velocity.Y = (float)(Math.Sin(rotation) * 13) * -1;
-                    }
-                    else 
-                    {
-                        NPC.velocity.X = (float)(Math.Cos(rotation) * 12) * -1;
-                        NPC.velocity.Y = (float)(Math.Sin(rotation) * 12) * -1;
-                    }
+                    NPC.velocity.X = (float)(Math.Cos(rotation) * 11) * -1;
+                    NPC.velocity.Y = (float)(Math.Sin(rotation) * 11) * -1;
                 }
             }
 

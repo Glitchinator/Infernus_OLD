@@ -13,5 +13,12 @@ namespace Infernus
                 projectile.damage = (int)(projectile.damage * 1.4f);
             }
         }
+        public override void SetDefaults(Projectile projectile)
+        {
+            if(projectile.aiStyle == 33)
+            {
+                projectile.timeLeft = 1030;
+            }
+        }
     }
 }

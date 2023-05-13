@@ -262,7 +262,7 @@ namespace Infernus
             }
             if (Level_Score >= 14)
             {
-                Player.endurance = .02f - (0.1f * (1f - Player.endurance));
+                Player.endurance = .02f;
             }
             if (Level_Score >= 15)
             {
@@ -280,7 +280,7 @@ namespace Infernus
             }
             if (Level_Score >= 18)
             {
-                Player.endurance = .01f - (0.1f * (1f - Player.endurance));
+                Player.endurance = .01f;
             }
             if (Level_Score >= 19)
             {
@@ -342,7 +342,7 @@ namespace Infernus
             }
             if (Level_Score >= 33)
             {
-                Player.endurance = .02f - (0.1f * (1f - Player.endurance));
+                Player.endurance = .02f;
             }
             if (Level_Score >= 34)
             {
@@ -388,7 +388,7 @@ namespace Infernus
             }
             if (Level_Score >= 44)
             {
-                Player.endurance = .02f - (0.1f * (1f - Player.endurance));
+                Player.endurance = .02f;
             }
             if (Level_Score >= 45)
             {
@@ -406,7 +406,7 @@ namespace Infernus
             }
             if (Level_Score >= 48)
             {
-                Player.endurance = .01f - (0.1f * (1f - Player.endurance));
+                Player.endurance = .01f;
             }
             if (Level_Score >= 49)
             {

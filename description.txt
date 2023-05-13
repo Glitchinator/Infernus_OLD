@@ -1,26 +1,25 @@
 Infernus Mod
 
-Infernus Mod is a medium sized content mod to add on and to make your terraria playthrough faster and easier. Infernus Mod has a plethora of quality of life addons and is compatible with
-Boss Checklist. Infernus Mod is a challenging mod. The bosses are hard and there is a gamemode that makes the bosses harder, not for the weak. Currently in total I have made around 300 additions/changes,
+Infernus Mod is a medium sized content mod to add on and to make your terraria playthrough faster and easier. However, Infernus Mod is a challenging mod. Infernus Mod has a plethora of quality of life addons and is compatible with
+Boss Checklist. The bosses are hard and there is a gamemode that makes the bosses harder. This mod is not for the weak. Currently in total I have made around 400-ish additions/changes,
 but if you want specifices you can look below.
 
 + If you have any thoughts about the mod please join the discord to share them.
 
-+ Infernus Mod has a wiki, so you don't have to go through it blind.
++ Thanks Antibody for making the Temporal Glowsquid theme! Very cool.
 
-+ Infernus Updates happen mostly weekly, some bi-weekly.
++ Infernus Mod has a wiki, so you don't have to go through it blind.
 
 What Infernus offers:
 * 200 New items - including new armor sets, weapons for each class, accessories, new materials.
 * 1 New Mode - Adventure Mode, increases difficulty and enables Levels and XP.
 * 5 New bosses - every boss has it's own AI, loot, treasure bag with unique expert items.
 * 1 New miniboss - basically just stronger enemies but drop good items.
-* 22 New Enemies - each NPC has it's own use.NPCs drop new things after certain bosses are defeated.
+* 22 New Enemies - each NPC has it's own use. Some Vanilla NPCs have additions.
 * 1 New invasions - new invasion with new interesting mobs and loot, Upgrades after plantera is killed.
+* 1 New ore - Aeritite generates in the beginning of the game.
 * QOL Changes - Multiple changes to Terraria to make the progress more enjoyable.
 * post Moonlord Content. (tiny amount).
-* New ore - Aeritite generates in the beginning of the game.
-* I worked hard on these sprites.
 
 What Infernus wants in exchange:
 * Happiness while you play the mod.

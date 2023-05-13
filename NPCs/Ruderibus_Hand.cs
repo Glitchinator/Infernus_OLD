@@ -78,9 +78,24 @@ namespace Infernus.NPCs
             {
                 if (Timer <= 519)
                 {
-                    inertia = 6;
-                    speed = 20f;
+                    inertia = 5;
+                    speed = 18f;
                     Ice_Shard_Area = 120;
+                }
+                if(Timer == 360)
+                {
+                    Pre_Wall();
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                }
+                if(Timer == 420)
+                {
+                    Pre_Wall();
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                }
+                if(Timer == 480)
+                {
+                    Pre_Wall();
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
                 }
                 if (Timer >= 520)
                 {
@@ -90,7 +105,7 @@ namespace Infernus.NPCs
                     inertia = 5;
                     speed = 10f;
                 }
-                if (Timer == 820)
+                if (Timer == 720)
                 {
                     Timer = 0;
                 }
@@ -103,7 +118,22 @@ namespace Infernus.NPCs
                 speed = 16f;
                 Ice_Shard_Area = 120;
             }
-            if(Timer >= 620)
+            if (Timer == 440)
+            {
+                Pre_Wall();
+                SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+            }
+            if (Timer == 500)
+            {
+                Pre_Wall();
+                SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+            }
+            if (Timer == 560)
+            {
+                Pre_Wall();
+                SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+            }
+            if (Timer >= 620)
             {
                 Ice_Wall();
                 SoundEngine.PlaySound(SoundID.Item105, NPC.position);
@@ -116,6 +146,13 @@ namespace Infernus.NPCs
                 Timer = 0;
             }
             Form_Ice();
+        }
+        private void Pre_Wall()
+        {
+            if (Main.rand.NextBool(1))
+            {
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.SpectreStaff, NPC.velocity.X * -0.5f, NPC.velocity.Y * -0.5f);
+            }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
@@ -163,7 +200,7 @@ namespace Infernus.NPCs
                 }
                 if (Main.rand.Next(3) < 1)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity, ModContent.ProjectileType<Ice_Wall>(), 15, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, velocity, ModContent.ProjectileType<Ice_Wall>(), 13, NPC.whoAmI);
                 }
             }
         }

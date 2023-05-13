@@ -22,7 +22,7 @@ namespace Infernus.Projectiles
             Projectile.hostile = true;
             Projectile.netImportant = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 800;
+            Projectile.timeLeft = 1100;
             Projectile.tileCollide = false;
             Projectile.alpha = 255;
 

@@ -17,7 +17,7 @@ namespace Infernus.Projectiles
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.netImportant = true;
-            Projectile.timeLeft = 310;
+            Projectile.timeLeft = 260;
         }
     }
 }

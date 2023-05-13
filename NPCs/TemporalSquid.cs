@@ -41,7 +41,7 @@ namespace Infernus.NPCs
 		{
             NPC.lifeMax = 2450;
             NPC.damage = 18;
-            NPC.defense = 13;
+            NPC.defense = 15;
             NPC.knockBackResist = 0.0f;
             NPC.width = 54;
             NPC.height = 180;
@@ -52,12 +52,14 @@ namespace Infernus.NPCs
             NPC.value = 30000;
             NPC.boss = true;
             AIType = NPCID.AngryBones;
-            Music = MusicID.Boss1;
+            Music = MusicLoader.GetMusicSlot("Infernus/Music/Inked_Vortex");
             NPC.noTileCollide = true;
             NPC.lavaImmune = true;
             NPC.npcSlots = 6;
         }
         int Timer;
+        int Timer_Tornado;
+        int Timer_SecondPhase;
         int frameSpeed = 16;
         bool secondphase = false;
 
@@ -90,98 +92,201 @@ namespace Infernus.NPCs
             {
                 secondphase = true;
             }
-            Pre_Typhoon();
             Timer++;
+            Timer_Tornado++;
+            if(secondphase == true)
+            {
+                Timer = 10000;
+                if (Timer == 10000)
+                {
+                    Timer_SecondPhase++;
+                }
+            }
+            {
+                if (DownedBoss.Level_systemON == true)
+                {
+                    // every 5 sec
+                    if (Timer_Tornado >= 300)
+                    {
+                        Pre_Typhoon();
+                    }
+                    if (Timer_Tornado == 300)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 360)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 420)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 480)
+                    {
+                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
+                        Typhoon();
+                        Timer_Tornado = 0;
+                    }
+                }
+                else if (Main.expertMode == true)
+                {
+                    // every 6 sec
+                    if (Timer_Tornado >= 360)
+                    {
+                        Pre_Typhoon();
+                    }
+                    if (Timer_Tornado == 360)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 420)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 480)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 540)
+                    {
+                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
+                        Typhoon();
+                        Timer_Tornado = 0;
+                    }
+                }
+                else
+                {
+                    // every 7 sec
+                    if (Timer_Tornado >= 420)
+                    {
+                        Pre_Typhoon();
+                    }
+                    if (Timer_Tornado == 480)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 540)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 600)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                    }
+                    if (Timer_Tornado == 660)
+                    {
+                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
+                        Typhoon();
+                        Timer_Tornado = 0;
+                    }
+                }
+            }
+
             if(DownedBoss.Level_systemON == true)
             {
+                if (Timer_Tornado >= 420)
+                {
+                    Pre_Typhoon();
+                }
+                if (Timer_Tornado == 420)
+                {
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                }
+                if (Timer_Tornado == 480)
+                {
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                }
+                if (Timer_Tornado == 540)
+                {
+                    SoundEngine.PlaySound(SoundID.Item35, NPC.position);
+                }
+                if (Timer_Tornado == 600)
+                {
+                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
+                    Typhoon();
+                    Timer_Tornado = 0;
+                }
                 if (secondphase == true)
                 {
-                    if (Timer == 1060)
+                    if (Timer_SecondPhase == 60)
                     {
                         SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                         InkBolt();
                     }
-                    if (Timer == 1100)
-                    {
-                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                        Typhoon();
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1180)
+                    if (Timer_SecondPhase == 100)
                     {
                         SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                         InkRain();
                     }
-                    if (Timer == 1210)
-                    {
-                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                        Typhoon();
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1270)
-                    {
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1330)
-                    {
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1390)
-                    {
-                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                        Typhoon();
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1440)
-                    {
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1490)
+                    if (Timer_SecondPhase == 180)
                     {
                         SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                         InkRain();
                     }
-                    if (Timer == 1550)
-                    {
-                        SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                        Typhoon();
-                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                        InkBolt();
-                    }
-                    if (Timer == 1610)
+                    if (Timer_SecondPhase == 210)
                     {
                         SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                         InkBolt();
                     }
-                    if (Timer == 1670)
+                    if (Timer_SecondPhase == 270)
                     {
                         SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                         InkRain();
                     }
-                    if (Timer == 1730)
+                    if (Timer_SecondPhase == 330)
                     {
                         SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                         InkBolt();
                     }
-                    if (Timer == 1770)
+                    if (Timer_SecondPhase == 390)
                     {
                         SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                         InkBolt();
                     }
-                    if (Timer == 1830)
+                    if (Timer_SecondPhase == 440)
                     {
                         SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                         InkRain();
                     }
-                    if (Timer == 1730)
+                    if (Timer_SecondPhase == 490)
                     {
-                        Timer = 1060;
+                        SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                        InkRain();
+                    }
+                    if (Timer_SecondPhase == 550)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                        InkBolt();
+                    }
+                    if (Timer_SecondPhase == 610)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                        InkBolt();
+                    }
+                    if (Timer_SecondPhase == 670)
+                    {
+                        SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                        InkRain();
+                    }
+                    if (Timer_SecondPhase == 730)
+                    {
+                        SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                        InkRain();
+                    }
+                    if (Timer_SecondPhase == 770)
+                    {
+                        SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                        InkBolt();
+                    }
+                    if (Timer_SecondPhase == 830)
+                    {
+                        SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                        InkRain();
+                    }
+                    if (Timer_SecondPhase == 730)
+                    {
+                        Timer_SecondPhase = 60;
                     }
                     SoundEngine.PlaySound(SoundID.Zombie93, NPC.position);
                     frameSpeed = 4;
@@ -194,13 +299,11 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 120)
                 {
-                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                    InkBolt();
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
                 }
                 if (Timer == 180)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
@@ -221,8 +324,6 @@ namespace Infernus.NPCs
                 }
                 if (Timer == 420)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
@@ -253,15 +354,13 @@ namespace Infernus.NPCs
                 }
                 if(Timer == 780)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
                 if (Timer == 840)
                 {
-                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                    InkBolt();
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
                 }
                 if (Timer == 900)
                 {
@@ -269,105 +368,105 @@ namespace Infernus.NPCs
                 }
                 return;
             }
-            if(secondphase == true)
+            if (secondphase == true)
             {
-                if (Timer == 1060)
+                if (Timer_SecondPhase == 60)
                 {
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
-                if (Timer == 1100)
-                {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
-                }
-                if (Timer == 1180)
+                if (Timer_SecondPhase == 100)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                     InkRain();
                 }
-                if (Timer == 1210)
-                {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
-                }
-                if (Timer == 1270)
-                {
-                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                    InkBolt();
-                }
-                if (Timer == 1330)
-                {
-                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                    InkBolt();
-                }
-                if (Timer == 1390)
-                {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
-                }
-                if (Timer == 1440)
-                {
-                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                    InkBolt();
-                }
-                if (Timer == 1490)
+                if (Timer_SecondPhase == 180)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                     InkRain();
                 }
-                if (Timer == 1550)
-                {
-                    SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                    Typhoon();
-                }
-                if (Timer == 1610)
+                if (Timer_SecondPhase == 210)
                 {
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
-                if (Timer == 1670)
+                if (Timer_SecondPhase == 270)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                     InkRain();
                 }
-                if (Timer == 1730)
+                if (Timer_SecondPhase == 330)
                 {
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
-                if (Timer == 1770)
+                if (Timer_SecondPhase == 390)
                 {
                     SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                     InkBolt();
                 }
-                if (Timer == 1830)
+                if (Timer_SecondPhase == 440)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
                     InkRain();
                 }
-                if (Timer == 1730)
+                if (Timer_SecondPhase == 490)
                 {
-                    Timer = 1060;
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
+                }
+                if (Timer_SecondPhase == 550)
+                {
+                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                    InkBolt();
+                }
+                if (Timer_SecondPhase == 610)
+                {
+                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                    InkBolt();
+                }
+                if (Timer_SecondPhase == 670)
+                {
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
+                }
+                if (Timer_SecondPhase == 730)
+                {
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
+                }
+                if (Timer_SecondPhase == 770)
+                {
+                    SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                    InkBolt();
+                }
+                if (Timer_SecondPhase == 830)
+                {
+                    SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                    InkRain();
+                }
+                if (Timer_SecondPhase == 730)
+                {
+                    Timer_SecondPhase = 60;
                 }
                 SoundEngine.PlaySound(SoundID.Zombie93, NPC.position);
                 frameSpeed = 4;
                 return;
             }
-            if(Timer == 60)
+            if (Timer == 60)
             {
                 SoundEngine.PlaySound(SoundID.Item171, NPC.position);
                 InkBolt();
             }
-            if(Timer == 120)
+            if (Timer == 120)
             {
-                SoundEngine.PlaySound(SoundID.Item171, NPC.position);
-                InkBolt();
+                SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                InkRain();
             }
             if (Timer == 180)
             {
-                SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                Typhoon();
+                SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                InkBolt();
             }
             if (Timer == 240)
             {
@@ -386,8 +485,8 @@ namespace Infernus.NPCs
             }
             if (Timer == 420)
             {
-                SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                Typhoon();
+                SoundEngine.PlaySound(SoundID.Item171, NPC.position);
+                InkBolt();
             }
             if (Timer == 480)
             {
@@ -401,8 +500,8 @@ namespace Infernus.NPCs
             }
             if (Timer == 600)
             {
-                SoundEngine.PlaySound(SoundID.Zombie103, NPC.position);
-                Typhoon();
+                SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.position);
+                InkRain();
             }
             if (Timer == 660)
             {

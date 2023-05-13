@@ -54,7 +54,7 @@ namespace Infernus.NPCs
             Music = MusicID.Boss4;
             NPC.noTileCollide = true;
             NPC.lavaImmune = true;
-            NPC.npcSlots = 20;
+            NPC.npcSlots = 6;
         }
 
         int Timer;
@@ -192,13 +192,6 @@ namespace Infernus.NPCs
             }
             if (Timer == 10181)
             {
-                SoundEngine.PlaySound(SoundID.ForceRoar, NPC.position);
-                Dash();
-                SoundEngine.PlaySound(SoundID.Item30, NPC.position);
-                Ice_Blast_Dash();
-            }
-            if (Timer == 10241)
-            {
                 //Dash 1 ends
                 Timer = 699;
             }
@@ -227,13 +220,6 @@ namespace Infernus.NPCs
             }
             if (Timer == 20181)
             {
-                SoundEngine.PlaySound(SoundID.ForceRoar, NPC.position);
-                Dash();
-                SoundEngine.PlaySound(SoundID.Item30, NPC.position);
-                Ice_Blast_Dash();
-            }
-            if (Timer == 20241)
-            {
                 //Dash 2 ends
                 Timer = 899;
             }
@@ -243,8 +229,8 @@ namespace Infernus.NPCs
             player = Main.player[NPC.target];
             if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.velocity.X *= 2.7f;
-                NPC.velocity.Y *= 2.7f;
+                NPC.velocity.X *= 2.4f;
+                NPC.velocity.Y *= 2.4f;
                 Vector2 whereboss = new(NPC.position.X + (NPC.width), NPC.position.Y + (NPC.height));
                 {
                     float rotation = (float)Math.Atan2((whereboss.Y) - (player.position.Y + (player.height)), (whereboss.X) - (player.position.X + (player.width)));
@@ -271,7 +257,7 @@ namespace Infernus.NPCs
             speed = 8.6f;
             if (Main.expertMode == true)
             {
-                speed = 10.4f;
+                speed = 9.7f;
             }
             Vector2 moveTo = player.Center + offset;
             Vector2 move = moveTo - NPC.Center;
@@ -456,7 +442,7 @@ namespace Infernus.NPCs
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            NPC.damage = (int)(NPC.damage * 1.25f);
+            NPC.damage = (int)(NPC.damage * 1.15f);
             NPC.lifeMax = (int)(NPC.lifeMax = 12750 + numPlayers);
         }
         private float Magnitude(Vector2 mag)
