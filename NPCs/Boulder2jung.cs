@@ -69,9 +69,5 @@ namespace Infernus.NPCs
                 new FlavorTextBestiaryInfoElement("A Winger Boulder with pores that ooze venom, it harms itself through this process.")
             });
         }
-        public override void OnKill()
-        {
-            DownedBoss.downedBoulderInvasionHM = true;
-        }
     }
 }

@@ -62,9 +62,5 @@ namespace Infernus.NPCs
                 new FlavorTextBestiaryInfoElement("Once a boulder in the jungle, now a viney mess that houses life.")
             });
         }
-        public override void OnKill()
-        {
-            DownedBoss.downedBoulderInvasionHM = true;
-        }
     }
 }

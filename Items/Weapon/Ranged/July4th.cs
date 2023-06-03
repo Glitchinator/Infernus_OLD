@@ -24,10 +24,10 @@ namespace Infernus.Items.Weapon.Ranged
             Item.DamageType = DamageClass.Ranged;
             Item.width = 68;
             Item.height = 22;
-            Item.useAnimation = 14;
-            Item.useTime = 14;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.knockBack = 8f;
+            Item.knockBack = 3.5f;
             Item.value = Item.buyPrice(0, 12, 50, 0);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item36;
@@ -46,10 +46,10 @@ namespace Infernus.Items.Weapon.Ranged
             {
                 type = Main.rand.Next(new int[] { type, ProjectileID.RocketFireworkYellow, ProjectileID.RocketFireworkRed, ProjectileID.RocketFireworkGreen, ProjectileID.RocketFireworkBlue, });
 
-                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(11));
+                Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(14));
 
 
-                newVelocity *= 1f - Main.rand.NextFloat(0.3f);
+                newVelocity *= 1f - Main.rand.NextFloat(0.4f);
 
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
@@ -58,7 +58,7 @@ namespace Infernus.Items.Weapon.Ranged
         }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(50));
+            velocity = velocity.RotatedByRandom(MathHelper.ToRadians(35));
         }
 
 

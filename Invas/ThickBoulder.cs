@@ -25,8 +25,12 @@ namespace Infernus.Invas
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
+            Item.noUseGraphic = true;
         }
-
+        public override bool CanUseItem(Player player)
+        {
+            return Main.dayTime == true;
+        }
         public override bool? UseItem(Player player)
         {
             if (Main.netMode == NetmodeID.SinglePlayer)

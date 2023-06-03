@@ -81,13 +81,6 @@ namespace Infernus
                             pool.Add(i, 1f);
                         }
                     }
-                    else
-                    {
-                        foreach (int i in BoulderInvasion.PHMInvaders)
-                        {
-                            pool.Add(i, 1f);
-                        }
-                    }
                 }
                 else
                 {
@@ -103,8 +96,8 @@ namespace Infernus
         {
             if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
             {
-                spawnRate = 5;
-                maxSpawns = 20;
+                spawnRate = 3;
+                maxSpawns = 28;
             }
         }
 
@@ -112,7 +105,7 @@ namespace Infernus
         {
             if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
             {
-                npc.timeLeft = 400;
+                npc.timeLeft = 300;
             }
         }
 

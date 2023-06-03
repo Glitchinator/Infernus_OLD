@@ -1,5 +1,7 @@
-﻿using Infernus.Projectiles;
+﻿using Infernus.Invas;
+using Infernus.Projectiles;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -98,6 +100,24 @@ namespace Infernus
         {
             UpdateResource();
             Level_Perks();
+
+            if (InfernusWorld.BoulderInvasionUp && (Main.invasionX == Main.spawnTileX))
+            {
+                Main._shouldUseStormMusic = true;
+            }
+            if (NPC.downedBoss3 == true && Main.rand.NextBool(50000) && Main.dayTime == true && InfernusWorld.BoulderInvasionUp == false)
+            {
+                BoulderInvasion.StartBoulderInvasion();
+
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText("A storm rolls overhead from the west. The ground trembles with vibrations deep below.", 207, 196, 162);
+                }
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    Main.NewText("A storm rolls overhead from the west. The ground trembles with vibrations deep below.", 207, 196, 162);
+                }
+            }
         }
         private void UpdateResource()
         {

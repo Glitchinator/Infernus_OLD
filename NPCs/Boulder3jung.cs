@@ -80,9 +80,5 @@ namespace Infernus.NPCs
                 new FlavorTextBestiaryInfoElement("A boulder mound with hives festering on it.")
             });
         }
-        public override void OnKill()
-        {
-            DownedBoss.downedBoulderInvasionHM = true;
-        }
     }
 }

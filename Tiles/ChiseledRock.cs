@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
 namespace Infernus.Tiles
@@ -16,15 +17,18 @@ namespace Infernus.Tiles
         public override void SetStaticDefaults()
         {
 
-            Main.tileSolid[Type] = true;
-            Main.tileMergeDirt[Type] = true;
+            Main.tileSolid[Type] = false;
             Main.tileBlockLight[Type] = true;
-            Main.tileSpelunker[Type] = true;
-            Main.tileShine2[Type] = true;
+            Main.tileLavaDeath[Type] = false;
+            Main.tileNoAttach[Type] = true;
+            Main.tileFrameImportant[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            TileObjectData.addTile(Type);
 
             ItemDrop = ItemType<Placeable.Rock>();
 
-            AddMapEntry(new Color(121, 153, 163), Language.GetText("Chiseled Rock"));
+            AddMapEntry(new Color(207, 196, 162), Language.GetText("Chiseled Rock"));
+
             DustType = DustID.Stone;
         }
     }

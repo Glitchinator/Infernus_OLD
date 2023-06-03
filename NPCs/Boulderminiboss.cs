@@ -290,9 +290,5 @@ namespace Infernus.NPCs
                 new FlavorTextBestiaryInfoElement("A mass of rock, vines and beehives enchanted by a jungle green rune. Dug out from the ground after being attacked.")
             });
         }
-        public override void OnKill()
-        {
-            DownedBoss.downedBoulderInvasionHM = true;
-        }
     }
 }

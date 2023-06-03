@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
+using tModPorter;
 
 namespace Infernus
 {
@@ -145,7 +147,7 @@ namespace Infernus
 
             int summonItem = ModContent.ItemType<Items.BossSummon.Boss1sum>();
 
-            string spawnInfo = $"Use a [i:{summonItem}]";
+            string spawnInfo = $"Use a [i:{summonItem}] during night.";
 
             string despawnInfo = null;
 
@@ -201,7 +203,7 @@ namespace Infernus
 
             int summonItem1 = ModContent.ItemType<Items.BossSummon.BossSummon>();
 
-            string spawnInfo1 = $"Use a [i:{summonItem1}]";
+            string spawnInfo1 = $"While in the snow biome, use [i:{summonItem1}].";
 
             string despawnInfo1 = null;
 
@@ -299,7 +301,7 @@ namespace Infernus
 
             int minisummonItem = ModContent.ItemType<Items.BossSummon.Squid_BossSummon>();
 
-            string minispawnInfo = "while in the ocean biome";
+            string minispawnInfo = $"While in the ocean biome use [i:{minisummonItem}] no matter the time.";
 
             string minidespawnInfo = null;
 
@@ -318,7 +320,7 @@ namespace Infernus
             );
             string EventName = "Boulder Invasion Pre-HM";
 
-            int EventType = ModContent.NPCType<NPCs.Boulder5>();
+            int EventType = ModContent.NPCType<NPCs.Boulder_Corpse>();
 
             float Eventweight = 5.8f;
 
@@ -333,7 +335,7 @@ namespace Infernus
 
             int EventsummonItem = ModContent.ItemType<ThickBoulder>();
 
-            string EventspawnInfo = $"Use a [i:{summonItem}]";
+            string EventspawnInfo = $"Spawns naturally when daytime or, use a [i:{summonItem}] during day.";
 
             string EventdespawnInfo = null;
 
@@ -361,7 +363,7 @@ namespace Infernus
 
             string EventName2 = "Boulder Invasion HM";
 
-            int EventType2 = ModContent.NPCType<NPCs.Boulder5>();
+            int EventType2 = ModContent.NPCType<NPCs.Boulder_Corpse>();
 
             float Eventweight2 = 12.4f;
 
