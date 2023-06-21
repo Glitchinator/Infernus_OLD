@@ -19,7 +19,7 @@ namespace Infernus.Biome
                 int x = WorldGen.genRand.Next(100, Main.maxTilesX);
                 int y = WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY);
 
-                WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 7), WorldGen.genRand.Next(3, 7), TileType<Tiles.Ore>());
+                WorldGen.TileRunner(x, y, WorldGen.genRand.Next(2, 6), WorldGen.genRand.Next(3, 5), TileType<Tiles.Ore>());
             }
         }
     }
